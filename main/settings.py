@@ -40,6 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # batary
+    'debug_toolbar',
+    'ckeditor',
+    'sorl.thumbnail',
+    'mptt',
+    'django_geoip',
+    'smart_selects',
+
+    # my_app
+    'pages',
+    'catalog',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -139,8 +151,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # django_geoip
-#IPGEOBASE_ALLOWED_COUNTRIES = ['UA']
+IPGEOBASE_ALLOWED_COUNTRIES = ['UA']
 
+
+# thumbnail
+THUMBNAIL_DEBUG = DEBUG
+THUMBNAIL_QUALITY = 90
+THUMBNAIL_PROGRESSIVE = False
+THUMBNAIL_PRESERVE_FORMAT = True
 
 if not os.path.exists(MEDIA_ROOT + '/uploads'):
     os.makedirs(MEDIA_ROOT + '/uploads')

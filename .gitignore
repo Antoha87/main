@@ -48,3 +48,4 @@ Temporary Items
 *.pyc
 .idea/
 *.sqlite3
+media/
