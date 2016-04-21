@@ -34,7 +34,7 @@ class Category(MPTTModel):
     options = models.BooleanField(u'Товар имеет больше 1-го артикулa', default=False)
 
     order = models.PositiveIntegerField(default=0)
-    category_img = ImageField(u'Фон Категории', upload_to='category_img', blank=True, null=True)
+    activate = models.BooleanField(u'Активация категории')
 
     class MPTTMeta:
         order_insertion_by = ['order']

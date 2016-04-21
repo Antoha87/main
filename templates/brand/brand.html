@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block content %}
+
+    <div class="frame-crumbs">
+        <div class="crumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <div class="container">
+                <ul class="items items-crumbs">
+                    <li class="crumb">
+                <span>
+                <a href="#" itemprop="url">
+                    <span itemprop="title" class="text-el">Главная</span>
+                </a>
+                <span class="divider">→</span>
+                </span>
+                    </li>
+                    <li class="crumb">
+                    </li>
+                    <li class="crumb">
+                        <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <button disabled="disabled">
+                                <span class="text-el">Бренды</span>
+                            </button>
+                            <meta itemprop="title" content="Бренды">
+                            <meta itemprop="url" content="http://stroymag.ua/shop/brand">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div></div>
+        <div class="frame-inside page-brand-image">
+            <div class="container">
+                <div class="f-s_0 title-brand without-crumbs">
+                    <div class="frame-title">
+                        <h1 class="d_i title">Магазин брендов</h1>
+                    </div>
+                </div>
+                <ul class="items items-brand-image">
+                    {% for item in object_list %}
+                    <li>
+                        <a href="{{ item.get_absolute_url }}" class="frame-photo-title">
+                        <span class="photo-block">
+                            <span class="helper"></span>
+                            <img src="http://stroymag.ua/uploads/shop/brands/aldoors.jpg"/>
+                        </span>
+                            <span class="title">{{ item.name }}</span>
+                        </a>
+                    </li>
+                    {% empty %}
+                        Null
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+</div>
+{% endblock content %}

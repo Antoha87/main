@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block content %}
+<div class="frame-crumbs">
+        <div class="crumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <div class="container">
+                <ul class="items items-crumbs">
+                    <li class="crumb">
+                <span>
+                <a href="#" itemprop="url">
+                    <span itemprop="title" class="text-el">Главная</span>
+                </a>
+                <span class="divider">→</span>
+                </span>
+                    </li>
+                    <li class="crumb">
+                    </li>
+                    <li class="crumb">
+                                            <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <button disabled="disabled">
+                                <span class="text-el">{{ object.name }}</span>
+                            </button>
+                            <meta itemprop="title" content="Дисконтная программа">
+                            <meta itemprop="url" content="http://stroymag.ua/diskontnaia-programma">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div></div>
+<div class="frame-inside">
+    <div class="container">
+        <div class="right-catalog" {if !$totalProducts > 0}style="width:100% !important"{/if}>
+            <div class="f-s_0 title-category">
+                <div class="frame-title">
+                    <h1 class="d_i">{{ object.name }}</h1>
+                </div>
+                <span class="count">({lang('Найдено','newLevel')} {$totalProducts} {echo SStringHelper::Pluralize($totalProducts, array(lang('товар','newLevel'),lang('товара','newLevel'),lang('товаров','newLevel')))})</span>
+            </div>
+            {if $totalProducts == 0}
+                <div class="msg layout-highlight layout-highlight-msg">
+                    <div class="info">
+                        <span class="icon_info"></span>
+                        <span class="text-el">{lang('По вашему запросу товаров не найдено','newLevel')}</span>
+                    </div>
+                </div>
+            {/if}
+
+            {include_tpl('catalogue_header')}
+
+
+                <div class="frame-category-brand">
+                    <ul class="item-brand-category items inside-padd">
+                        <li>
+                            {if $model->getDescription()}
+                                {if $model->getImage()}
+                                    <span class="photo-block f_l">
+                                        <span class="helper"></span>
+                                        <img src="/uploads/shop/brands/{echo $model->getImage()}"/>
+                                    </span>
+                                {/if}
+                                <div class="description">
+                                    <h2>{{ object.name }}</h2>
+                                    {{ object.text|safe }}
+                                </div>
+                            {/if}
+                        </li>
+                    </ul>
+                </div>
+            {/if}
+            <!--End. Show brand description-->
+
+            {if $totalProducts > 0}
+                <ul class="animateListItems items items-catalog {if $_COOKIE['listtable'] == 0} table{else:} list{/if}" id="items-catalog-main">
+                    {$CI->load->module('new_level')->OPI($products, array('wishlist'=>true))}
+                </ul>
+            {/if}
+            {$pagination}
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock content %}

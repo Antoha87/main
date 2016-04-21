@@ -3,16 +3,19 @@ from django.contrib import admin
 from django.contrib import messages
 
 
-from mptt.admin import MPTTModelAdmin
+from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 
 from .models import Category, Goods, GoodsVariation, Options, OptionsList, FileProcessing
 from django.core.management import call_command
 
 
-class CategoryAdmin(AdminImageMixin, MPTTModelAdmin):
-    list_display = ('name',)
-    sortable = 'order'
+class CategoryAdmin(AdminImageMixin, DraggableMPTTAdmin):
+    list_display = (
+        'tree_actions',
+        'indented_title',
+        'activate',)
+    list_editable = ["activate"]
     prepopulated_fields = {'slug': ('name',)}
 
 

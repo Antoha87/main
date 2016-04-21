@@ -17,9 +17,22 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from pages.views import IndexView, ContactView, ServiceAndGarantyView, PayAndDeliveryView, DiscontView, PartnerView, BrandDetailView, BrandListView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', IndexView.as_view(), name='index'),
+
+    url(r'garantiya-servise/', ServiceAndGarantyView.as_view(), name='garantiya'),
+    url(r'delivery/', PayAndDeliveryView.as_view(), name='delivery'),
+    url(r'diskontnaia-programma/', DiscontView.as_view(), name='diskont'),
+    url(r'sotrudnichestvo/', PartnerView.as_view(), name='partner'),
+    url(r'contacts/', ContactView.as_view(), name='contacts'),
+
+    url(r'^brand/$', BrandListView.as_view(), name='brand_list'),
+    url(r'brand/(?P<slug>[\-\w]+)/$', BrandDetailView.as_view(), name='brand'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,11 @@
+/*
+ * truemisha.ru common styles for demo pages
+ */
+#top-link{cursor:pointer;	display:none;position:fixed;	left:0px;top:0px;	padding:0;	z-index:4;	padding-top:30px;    width: 85px;}
+#top-link:hover{background:#dae1e8;  opacity:0.5; -webkit-transition: background-color 200ms linear;  -moz-transition: background-color 200ms linear;-o-transition: background-color 200ms linear; transition: background-color 200ms linear;}
+#top-link a {display: block;	font-size: 14px;width: 85px;	text-align: center;  opacity:0.5;color: #0084b4;	padding: 5px 0; text-decoration:none !important;}
+#top-link:hover a{   opacity:1;}
+#topicon{	width:0;	height:0;	display:inline-block;	border-bottom:7px solid #0084b4;	border-left:7px solid transparent;	border-right:7px solid transparent;	margin-right:5px;}
+#backicon{	width:0;	height:0;	display:inline-block;	border-top:7px solid #0084b4;	border-left:7px solid transparent;	border-right:7px solid transparent;	margin-right:5px;}
+#text{	display:none;}
+#content{width:800px;margin:15px auto;}

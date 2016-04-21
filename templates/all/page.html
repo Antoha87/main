@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block content %}
+
+
+<div class="frame-crumbs">
+        <div class="crumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <div class="container">
+                <ul class="items items-crumbs">
+                    <li class="crumb">
+                <span>
+                <a href="#" itemprop="url">
+                    <span itemprop="title" class="text-el">Главная</span>
+                </a>
+                <span class="divider">→</span>
+                </span>
+                    </li>
+                    <li class="crumb">
+                    </li>
+                    <li class="crumb">
+                                            <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <button disabled="disabled">
+                                <span class="text-el">{{ content }}</span>
+                            </button>
+                            <meta itemprop="title" content="Дисконтная программа">
+                            <meta itemprop="url" content="http://stroymag.ua/diskontnaia-programma">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div></div>
+        <div class="frame-inside page-text">
+            <div class="container">
+                <div class="text">
+                    {{ content.text|safe }}
+
+                </div>
+            </div>
+        </div> </div>
+{% endblock content %}

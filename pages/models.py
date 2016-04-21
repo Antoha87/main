@@ -3,14 +3,15 @@ from __future__ import unicode_literals
 from django.db import models
 from ckeditor.fields import RichTextField
 from sorl.thumbnail import ImageField
-
+from django.core.urlresolvers import reverse
 
 
 TYPE = (
-        (1, u'О магазине'),
-        (2, u'Оплата'),
-        (3, u'Доставка'),
-        (4, u'Контакты'),
+        (1, u'Гарантия и сервис'),
+        (2, u'Оплата и доставка'),
+        (3, u'Дисконтная программа'),
+        (4, u'Сотрудничество'),
+        (5, u'Контакты'),
     )
 
 
@@ -33,8 +34,7 @@ class Index(models.Model):
 
 
 class Banner(models.Model):
-    index = models.ForeignKey(Index, verbose_name=u'Баннер', help_text=u'Баннер')
-    head = RichTextField(u'Заголовок',  help_text=u'Редактируемый заголовок баннера')
+    head = models.CharField(u'Заголовок',  help_text=u'Редактируемый заголовок баннера', max_length=100)
     text = RichTextField(u'Текст баннера', help_text=u'Редактируемый текст баннера')
     url = models.URLField(u'URL баннера', null=True, blank=True)
     activate = models.BooleanField(u'Активация', default=False, help_text=u'Активация баннера')
@@ -62,6 +62,7 @@ class Page(AbstractPage):
 
 class Brand(models.Model):
     name = models.CharField(u'Имя бренда',  help_text=u'Имя бренда', max_length=100)
+    slug = models.SlugField(u'ЧПУ', max_length=100, unique=True)
     img = ImageField(u'Логотип бренда', upload_to='brand/uploads', help_text=u'Логотип бренда')
     text = RichTextField(u'Текст бренда', help_text=u'Редактируемый текст бренда')
 
@@ -72,3 +73,5 @@ class Brand(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('brand', kwargs={'slug': self.slug})
