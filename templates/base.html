@@ -42,7 +42,7 @@
 
                         <li class="{% if request.resolver_match.url_name == 'diskont' %}active{% endif %}"><a href="{% url 'diskont' %}" title="Дисконтная программа">Дисконтная программа</a></li>
 
-                        <li class="{% if request.resolver_match.url_name == 'brand_list' or 'brand' %}active{% endif %}"><a href="{% url 'brand_list' %}" title="Производители">Производители</a></li>
+                        <li class="{% if request.resolver_match.url_name == 'brand_list' or request.resolver_match.url_name == 'brand' %}active{% endif %}"><a href="{% url 'brand_list' %}" title="Производители">Производители</a></li>
 
                         <li class="{% if request.resolver_match.url_name == 'partner' %}active{% endif %}"><a href="{% url 'partner' %}" title="Сотрудничество">Сотрудничество</a></li>
 
