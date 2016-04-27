@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% load staticfiles thumbnail %}
+{% block title %}{{ content }}{% endblock title %}
 {% block content %}
 
+<style type="text/css">
+    .main-body{
+    padding-bottom: 340px;
+    }
 
+</style>
 <div class="frame-crumbs">
         <div class="crumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
             <div class="container">
