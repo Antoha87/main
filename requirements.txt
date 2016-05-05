@@ -7,7 +7,10 @@ django-mptt==0.8.3
 django-smart-selects==1.2.2
 Pillow==3.2.0
 psycopg2==2.6.1
+python-slugify==1.2.0
 requests==2.9.1
 six==1.10.0
 sorl-thumbnail==12.3
 sqlparse==0.1.19
+Unidecode==0.4.19
+xlrd==0.9.4
