@@ -6,6 +6,7 @@ from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
 from django.db.models import Avg, Sum
 
+from ckeditor.fields import RichTextField
 from sorl.thumbnail import ImageField
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -23,6 +24,13 @@ def image_path(instance, filename):
     hash = md5(slugify(filename) + '%s' % datetime.now())
     new_filename = "%s.%s" % (hash.hexdigest()[3:10], ext)
     return u"upload/%s/%d/%d/%s" % (date.today().year, date.today().month, date.today().day, new_filename)
+
+LOC = (
+        ('Ukraine', u'Украина'),
+        ('Kiev', u'Киев'),
+        ('Dnepropetrovsk', u'Днепропетровск'),
+        ('Zaporoje', u'Запорожье'),
+    )
 
 
 class Category(MPTTModel):
@@ -60,19 +68,45 @@ class Category(MPTTModel):
         return self.name
 
 
+class Location(models.Model):
+    location = models.CharField(u'Локация товара', choices=LOC, max_length=100, unique=True, blank=True, null=True)
+
+    class Meta:
+        verbose_name = u'Локация'
+        verbose_name_plural = u'Локации'
+
+    def __unicode__(self):
+        return self.get_location_display()
+
+
 class Goods(models.Model):
     article = models.CharField(u'Артикул', max_length=100, blank=True, null=True)
-    #region = models.ForeignKey(Region, verbose_name=u'Регион')
-    #city = ChainedForeignKey(City, verbose_name=u'Город', chained_field="region", chained_model_field="region", related_name='city_ads')
+    kod = models.CharField(u'Код товара', max_length=100, blank=True, null=True)
+    name = models.CharField(u'Название товара', max_length=255, blank=False, null=True)
+    price = models.DecimalField(u'Цена в грн.', decimal_places=2, max_digits=5, blank=True, null=True)
+    izm = models.CharField(u'За сколько указана цена', max_length=100, blank=True, null=True)
+    stock = models.CharField(u'Остаток на складе', max_length=100, blank=True, null=True)
+    location = models.ManyToManyField(Location, verbose_name=u'Местонахождение товара')
     brand = models.ForeignKey(Brand, verbose_name=u'Производитель')
     image = ImageField(u'Фото', upload_to=image_path, blank=True, null=True)
-    category = models.ForeignKey(Category, verbose_name=u'Категория', limit_choices_to={'parent__isnull': False})
-    description = models.TextField(u'Описание', blank=True, null=True)
+    category = models.ManyToManyField(Category, verbose_name=u'Категория', limit_choices_to={'parent__isnull': False})
+    description = RichTextField(u'Описание', blank=True, null=True)
     special_offer = models.BooleanField(u'Специальное предложение', default=False)
+    diskont = models.PositiveIntegerField(u'Скидка в процентах', default=0)
+    garanty = models.IntegerField(u'Гарантия в месяцах', blank=True, null=True)
+    youtube_url = models.URLField(u'Ссылка на youtube.com', blank=True, null=True)
+    soput = models.ManyToManyField(Category, verbose_name=u'Сопутствующая категория', related_name='soput',
+                                   limit_choices_to={'parent__isnull': False},
+                                   help_text='Перечисляем категории для рандомных товаров.')
 
     class Meta:
         verbose_name = u'Товар'
         verbose_name_plural = u'Товары'
+
+    # Пока не дописал
+    def get_stock(self):
+        res = self.stock
+        return res
 
     def get_warehouse(self):
         res = GoodsVariation.objects.filter(goods=self)\
@@ -107,6 +141,18 @@ class GoodsVariation(models.Model):
 
     def __unicode__(self):
         return self.article or str(self.pk)
+
+
+class ImageGalery(models.Model):
+    goods = models.ForeignKey(Goods, verbose_name=u'Фото галерея')
+    image = ImageField(u'Фото', upload_to=image_path)
+
+    class Meta:
+        verbose_name = u'Фото'
+        verbose_name_plural = u'Фото'
+
+    def __unicode__(self):
+        return '#%s' % self.pk
 
 
 class OptionsList(models.Model):
