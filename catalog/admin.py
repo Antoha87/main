@@ -46,7 +46,7 @@ class GoodsAdmin(AdminImageMixin, admin.ModelAdmin):
 
 
 class FileProcessingAdmin(admin.ModelAdmin):
-    list_display = ('__name__',)
+    list_display = ('__name__', 'date', 'status')
 
     def __name__(self, obj):
         return u'Импорт'
@@ -55,6 +55,8 @@ class FileProcessingAdmin(admin.ModelAdmin):
         obj.save()
         call_command('fileprocessing')
         messages.success(request, u'Импорт завершен')
+        obj.status = True
+        obj.save()
 
 
 admin.site.register(Category, CategoryAdmin)

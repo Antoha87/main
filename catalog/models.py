@@ -26,17 +26,17 @@ def image_path(instance, filename):
     return u"upload/%s/%d/%d/%s" % (date.today().year, date.today().month, date.today().day, new_filename)
 
 LOC = (
-        ('Ukraine', u'Украина'),
-        ('Kiev', u'Киев'),
-        ('Dnepropetrovsk', u'Днепропетровск'),
-        ('Zaporoje', u'Запорожье'),
+        ('Украина', u'Украина'),
+        ('Киев', u'Киев'),
+        ('Днепропетровск', u'Днепропетровск'),
+        ('Запорожье', u'Запорожье'),
     )
 
 
 class Category(MPTTModel):
-    name = models.CharField(u'Название', max_length=64)
+    name = models.CharField(u'Название', max_length=255)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', verbose_name='каталог-родитель')
-    image = ImageField(u'Фото', upload_to=image_path)
+    image = ImageField(u'Фото', upload_to=image_path, blank=False, null=True)
     slug = models.SlugField(u'ЧПУ', max_length=100, unique=True)
     description = models.TextField(u'Сообщение о категории', blank=True, null=True)
     options = models.BooleanField(u'Товар имеет больше 1-го артикулa', default=False)
@@ -82,22 +82,33 @@ class Location(models.Model):
 class Goods(models.Model):
     article = models.CharField(u'Артикул', max_length=100, blank=True, null=True)
     kod = models.CharField(u'Код товара', max_length=100, blank=True, null=True)
+    model = models.CharField(u'Модель товара', max_length=255, blank=True, null=True)
     name = models.CharField(u'Название товара', max_length=255, blank=False, null=True)
-    price = models.DecimalField(u'Цена в грн.', decimal_places=2, max_digits=5, blank=True, null=True)
-    izm = models.CharField(u'За сколько указана цена', max_length=100, blank=True, null=True)
+    post = models.CharField(u'Поставщик', max_length=100, blank=False, null=True)
+    currence = models.CharField(u'Валюта товара', max_length=255, blank=False, null=True)
+    price = models.DecimalField(u'Цена в грн.', decimal_places=2, max_digits=11, blank=True, null=True)
     stock = models.CharField(u'Остаток на складе', max_length=100, blank=True, null=True)
     location = models.ManyToManyField(Location, verbose_name=u'Местонахождение товара')
     brand = models.ForeignKey(Brand, verbose_name=u'Производитель')
+    torg = models.CharField(u'Торговое предложение', max_length=100, blank=True, null=True)
     image = ImageField(u'Фото', upload_to=image_path, blank=True, null=True)
     category = models.ManyToManyField(Category, verbose_name=u'Категория', limit_choices_to={'parent__isnull': False})
     description = RichTextField(u'Описание', blank=True, null=True)
+    collection = models.CharField(u'Коллекция', max_length=100, blank=True, null=True)
     special_offer = models.BooleanField(u'Специальное предложение', default=False)
-    diskont = models.PositiveIntegerField(u'Скидка в процентах', default=0)
+    diskont = models.IntegerField(u'Скидка в процентах', default=0)
     garanty = models.IntegerField(u'Гарантия в месяцах', blank=True, null=True)
     youtube_url = models.URLField(u'Ссылка на youtube.com', blank=True, null=True)
-    soput = models.ManyToManyField(Category, verbose_name=u'Сопутствующая категория', related_name='soput',
-                                   limit_choices_to={'parent__isnull': False},
-                                   help_text='Перечисляем категории для рандомных товаров.')
+    soput = models.TextField(u'Сопутствующие товары', blank=True, null=True,
+                             help_text='Перечисляем категории для рандомных товаров.')
+    krat = models.CharField(u'Кратность', max_length=100, blank=True, null=True)
+    izm = models.CharField(u'За сколько указана цена', max_length=100, blank=True, null=True)
+    gab = models.CharField(u'Габариты', max_length=100, blank=True, null=True)
+    ves = models.CharField(u'Вес', max_length=100, blank=True, null=True)
+    type = models.CharField(u'Тип', max_length=100, blank=True, null=True)
+    color = models.CharField(u'Цвет', max_length=100, blank=True, null=True)
+    vid = models.CharField(u'Вид', max_length=100, blank=True, null=True)
+
 
     class Meta:
         verbose_name = u'Товар'
@@ -181,6 +192,8 @@ class Options(models.Model):
 
 class FileProcessing(models.Model):
     fileprocessing = models.FileField(u'Файл', upload_to=image_path, max_length=100)
+    date = models.DateTimeField(u'Дата импорта', auto_now=True)
+    status = models.BooleanField(u'Статус', default=False)
 
     class Meta:
         verbose_name = verbose_name_plural = u'Импорт'
