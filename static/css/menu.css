@@ -74,11 +74,11 @@ nav .main_menu td:first-child div.item_container {
     border-left: 1px solid #0072bc;
 }
 nav .main_menu td div.item_container {
-    font-size: 13px;
     height: 49px;
     outline: 0;
     border-right: 1px solid #0072bc;
-    font-family: 'Roboto',sans-serif;
+    font-size: 13px;
+    font-family: 'PT Sans', sans-serif;
 }
 nav .main_menu td div.item_container.selected>a {
     z-index: 1100;
