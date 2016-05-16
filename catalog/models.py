@@ -96,7 +96,7 @@ class Goods(models.Model):
     description = RichTextField(u'Описание', blank=True, null=True)
     collection = models.CharField(u'Коллекция', max_length=100, blank=True, null=True)
     special_offer = models.BooleanField(u'Специальное предложение', default=False)
-    diskont = models.IntegerField(u'Скидка в процентах', default=0)
+    diskont = models.CharField(u'Скидка в процентах', max_length=10, blank=True, null=True)
     garanty = models.IntegerField(u'Гарантия в месяцах', blank=True, null=True)
     youtube_url = models.URLField(u'Ссылка на youtube.com', blank=True, null=True)
     soput = models.TextField(u'Сопутствующие товары', blank=True, null=True,

@@ -32,14 +32,13 @@ class Command(BaseCommand):
                         g.model = row[0]
                         g.kod = row[1]
                         g.post = row[2]
-                        try:
-                            brand = Brand.objects.get(name=row[13])
-                            g.brand = brand
-                        except Brand.DoesNotExist:
-                            b.name = row[13]
-                            b.slug = slugify(row[13])
-                            b.save()
-                            g.brand = Brand.objects.get(name=row[13])
+
+                        brand, created = Brand.objects.get_or_create(name=row[13])
+                        print (created)
+                        if created:
+                            brand.slug = slugify(row[13])
+                            brand.save()
+                        g.brand = brand
 
                         g.article = row[4]
                         g.soput = row[5]
@@ -60,8 +59,8 @@ class Command(BaseCommand):
                         g.name = row[8]
                         g.torg = row[9]
                         g.stock = row[10]
-                        g.price = Decimal(row[11])
-                        g.diskont = int(row[12])
+                        g.price = row[11]
+                        g.diskont = row[12]
                         g.collection = row[14]
                         g.currence = row[15]
                         g.youtube_url = row[19]
