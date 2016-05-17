@@ -151,9 +151,9 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li {
     z-index: 1;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li.selected a {
-    background: #fe9e21 url('menu_img/main_menu_yellow.png') 0 0 repeat-x;
+    background: #0156a9 url('menu_img/main_menu_yellow.png') 0 0 repeat-x;
     color: #fff;
-    text-shadow: 1px -1px #e8880f;
+    text-shadow: 1px -1px #0156a9;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li a {
     padding: 0 15px 0 50px;
@@ -205,7 +205,7 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li .arr2 {
     top: 0;
     width: 23px;
     height: 51px;
-    background: url('menu_img/main_menu_yellow.gif') 0 -51px no-repeat;
+    background: url('menu_img/main_menu_yellow.png') 0 -51px no-repeat;
     display: none;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li.selected .arr {
@@ -218,7 +218,7 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li .arr {
     top: 0;
     width: 13px;
     height: 51px;
-    background: url('menu_img/main_menu_yellow.gif') right -153px no-repeat;
+    background: url('menu_img/main_menu_yellow.png') right -153px no-repeat;
     display: block;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li table td {
@@ -431,11 +431,18 @@ nav .main_menu .popup_menu .popup_menu_table .what_else ul li span {
     cursor: pointer;
 }
 
-nav.left-header ul li a:hover{
+nav.left-header ul li a:hover, nav.left-header ul li a:focus{
     background: none;
 }
 .item_container i {
     font-style: normal;
     font-size: 13px;
     font-weight: bold;
+}
+nav.left-header .f_l{
+    min-width: 500px;
+}
+nav.left-header .f_l nav {
+    background: none;
+    height: auto;
 }
