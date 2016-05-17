@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 body{
     margin: 0;
@@ -151,7 +151,7 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li {
     z-index: 1;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li.selected a {
-    background: #fe9e21 url('menu_img/main_menu_yellow.gif') 0 0 repeat-x;
+    background: #fe9e21 url('menu_img/main_menu_yellow.png') 0 0 repeat-x;
     color: #fff;
     text-shadow: 1px -1px #e8880f;
 }
@@ -433,4 +433,9 @@ nav .main_menu .popup_menu .popup_menu_table .what_else ul li span {
 
 nav.left-header ul li a:hover{
     background: none;
+}
+.item_container i {
+    font-style: normal;
+    font-size: 13px;
+    font-weight: bold;
 }

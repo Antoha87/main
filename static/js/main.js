@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     $('.item_container').on('click', function(e){
         e.preventDefault();
-        console.log($(this));
         $('.item_container').each(function(){
             if($(this).hasClass('selected')){
                 $(this).removeClass('selected');
