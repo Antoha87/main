@@ -53,7 +53,7 @@
     <a href="{{ child_item.get_absolute_url }}" title="{{ child_item.name }}" class="title-category-l1 frame-photo-title">
         <span class="photo-block">
             <span class="helper"></span>
-            {% thumbnail x.image "137x120" crop="center" as im %}
+            {% thumbnail child_item.image "137x120" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ child_item.name }}"><br />
         {% endthumbnail %}
         </span>
