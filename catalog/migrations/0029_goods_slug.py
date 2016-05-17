@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='goods',
             name='slug',
-            field=models.SlugField(default=slugify(str(uuid.uuid4())), max_length=200, unique=False, verbose_name='\u0427\u041f\u0423'),
+            field=models.SlugField(default=slugify(str(uuid.uuid4())), max_length=200, unique=True, verbose_name='\u0427\u041f\u0423'),
             preserve_default=False,
         ),
     ]
