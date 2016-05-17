@@ -1,0 +1,504 @@
+{% extends "base.html" %}
+{% load static thumbnail %}
+{% load mptt_tags %}
+{% block content %}
+
+!@@@@ {{ object.get_descendant_count }}!!!!
+
+{% if object_list %}
+{% for item in object_list %}
+ <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+
+@@$#${{ item.get_children }}
+
+{% endfor %}
+{% else %}
+{% for item in goods %}
+ <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+
+{% endfor %}
+{% endif %}
+ <div class="container">
+        <div class="left-catalog-first">
+            <div class="f-s_0 title-category">
+                <div class="frame-title">
+                    <h1 class="d_i">{{ object }}</h1>
+                </div>
+            </div>
+        <div class="left-catalog f_l">
+            <div class="frame-category-menu menu-list-category-first layout-highlight">
+                <div class="inside-padd">
+                    <nav class="nav-category">
+                        <ul class="nav nav-vertical">
+                            {% for item in object_list %}
+                            <li class="title cat-title ">
+                                <span class="not-link">{{ item.name }}</span>
+                                        <ul class="nav-vertical-sec">
+                                            {% for child_item in item.get_children %}
+                                            <li class="title "><a href="{{ child_item.get_absolute_url }}">{{ child_item.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    <div class="frame-menu-category-first f_r" style="width:710px">
+    <ul class="items">
+        {% for child_item in object.get_children %}
+        <li>
+    <a href="{{ child_item.get_absolute_url }}" title="{{ child_item.name }}" class="title-category-l1 frame-photo-title">
+        <span class="photo-block">
+            <span class="helper"></span>
+            {% thumbnail x.image "137x120" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ child_item.name }}"><br />
+        {% endthumbnail %}
+        </span>
+                <span class="text-el">{{ child_item.name }}</span>
+    </a>
+        </li>>
+        {% endfor %}
+    </ul>
+    </div>
+        </div>
+            </div>
+</div>
+
+
+
+<div id="category_best_price_products">
+    <div class="horizontal-carousel">
+
+    <section class="special-proposition">
+        <div class="frame-title">
+            <div class="title">
+                <span class="text-el">Лучшая цена</span>
+            </div>
+        </div>
+        <div class="big-container">
+            <div class="carousel_js products-carousel">
+                <div class="content-carousel container">
+                    <ul class="items items-catalog items-h-carousel">
+                                        <li   data-pos="top">
+
+        <div style="display:none">
+            <p>/shop/category/stroymaterialy</p>
+            <p>/shop/brand/mebel-servis'</p>
+            <p></p>
+        </div>
+
+
+
+
+                <div>
+        <a href="http://stroymag.ua/shop/product/osb-3-plity-10h1250h2500mm" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="http://stroymag.ua/uploads/shop/products/medium/osb-3 krono.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status nowelty"></span><span class="product-status hit"></span>
+
+
+            </span>
+
+            <span class="title">OSB-3 плиты 10х1250х2500мм</span>
+        </a>
+        </div>
+                    <div><a href="http://stroymag.ua/shop/brand/kronospan" class="bask-brand t-t_u f-w_b c_a9">Kronospan</a></div>
+                <div class="description main-desc">
+                                                            <div class="frame-star f-s_0">
+                                            </div>
+                                      <div>
+          		            <div class="frame-prices f-s_0">
+	                <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">182.52</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+	                	            </div>
+
+	            <!--            End. Price-->
+	            	                </div>
+                     <hr />
+                        <div class="funcs-buttons">
+                <!-- Start. Collect information about Variants, for future processing -->
+                                                                                                                                <div class="frame-count-buy variant_33698 variant" >
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 500" data-prodid="16000" data-varid="33698" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="33698"
+                                        data-color="0"
+                                        data-prodid="16000"
+                                        data-varid="33698"
+                                        data-price="182.52"
+                                        data-count="1"
+                                        data-name="OSB-3 плиты 10х1250х2500мм"
+                                        data-vname=""
+                                        data-maxcount="500"
+                                        data-number="1508-05"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/osb-3 krono.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/osb-3 krono.jpg"
+                                        data-url="http://stroymag.ua/shop/product/osb-3-plity-10h1250h2500mm"
+                                        data-origPrice=""
+                                        data-addPrice="7.67"
+                                        data-prodStatus='{"hot":true,"hit":true}'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                        </div>
+            <!-- End. Collect information about Variants, for future processing -->
+            <!---->
+                    </div>
+        <!--        Start. Remove buttons if compare or wishlist-->
+                <!--        End. Remove buttons if compare or wishlist-->
+
+        <div class="decor-element"></div>
+
+    </li>
+    <script>
+        function checkStock(e) {
+            var stock = parseInt($(e).data('stock'));
+            if (stock==0) {
+                $(e).closest('.description').find('.frame-prices').hide();
+                $(e).closest('.description').find('.frame-wish-compare-list').hide();
+            } else {
+                $(e).closest('.description').find('.frame-prices').show();
+                $(e).closest('.description').find('.frame-wish-compare-list').show();
+            }
+        }
+    </script>
+                    </ul>
+                </div>
+                <div class="group-button-carousel">
+                    <button type="button" class="prev arrow">
+                        <span class="icon_arrow_p"></span>
+                    </button>
+                    <button type="button" class="next arrow">
+                        <span class="icon_arrow_n"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+</div>
+<div class="horizontal-carousel">
+        <section class="special-proposition frame-view-products">
+        <div class="frame-title">
+            <div class="title">
+                <span class="text-el">Недавно просмотренные товары</span>
+            </div>
+        </div>
+        <div class="big-container">
+            <div class="carousel_js products-carousel">
+                <div class="content-carousel container">
+                    <ul class="items items-catalog items-h-carousel">
+                                        <li   data-pos="top">
+
+        <div style="display:none">
+            <p>/shop/category/mebel/spalni/gotovye-spalni?per_page=9</p>
+            <p>/shop/brand/mebel-servis'</p>
+            <p></p>
+        </div>
+
+
+
+
+                <div>
+        <a href="http://stroymag.ua/shop/product/spalnia-karolina" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg" alt="Ліжко 160" class="mainphoto vimg"/>
+                    <img class="additional" src="http://stroymag.ua/uploads/shop/products/additional/sokme299.jpg" />
+
+
+
+            </span>
+
+            <span class="title">Спальня Каролина</span>
+        </a>
+        </div>
+                    <div><a href="http://stroymag.ua/shop/brand/sokme-mebel" class="bask-brand t-t_u f-w_b c_a9">Сокме-мебель</a></div>
+                <div class="description main-desc">
+                                                            <div class="frame-star f-s_0">
+                                                    	    <div class="star">
+        <div id="star_rating_18266" class="productRate star-small">
+            <div style="width: 0%"></div>
+        </div>
+            </div>
+
+                            <a href="http://stroymag.ua/shop/product/spalnia-karolina#comment" class="count-response">
+                                2                                отзыва                            </a>
+                                            </div>
+                                      <div>
+          		            <div class="frame-prices f-s_0">
+	                <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">3525.94</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+	                	            </div>
+
+	            <!--            End. Price-->
+	            	                </div>
+                     <hr />
+                            <div class="check-variant-catalog">
+                    <div class="lineForm">
+                        <select id="сVariantSwitcher_395221209419894" name="variant">
+                                                                                                                                                                <option value="39522" onclick="checkStock(this);" data-stock="1" title="Ліжко 160">Ліжко 160</option>
+                                                                                                                                                                <option value="39523" onclick="checkStock(this);" data-stock="1" title="Комод+дзеркало">Комод+дзеркало</option>
+                                                                                                                                                                <option value="39524" onclick="checkStock(this);" data-stock="1" title="Шафа 4-ох дверна">Шафа 4-ох дверна</option>
+                                                                                                                                                                <option value="39525" onclick="checkStock(this);" data-stock="1" title="Шафа 5-ти дверна">Шафа 5-ти дверна</option>
+                                                                                                                                                                <option value="39526" onclick="checkStock(this);" data-stock="1" title="Нічна тумба">Нічна тумба</option>
+                                                                                                                                                                <option value="39527" onclick="checkStock(this);" data-stock="1" title="Ламели к кровати">Ламели к кровати</option>
+                                                    </select>
+                    </div>
+                </div>
+                        <div class="funcs-buttons">
+                <!-- Start. Collect information about Variants, for future processing -->
+                                                                                                                                <div class="frame-count-buy variant_39522 variant" >
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="18266" data-varid="39522" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="39522"
+                                        data-color="0"
+                                        data-prodid="18266"
+                                        data-varid="39522"
+                                        data-price="3525.94"
+                                        data-count="1"
+                                        data-name="Спальня Каролина"
+                                        data-vname="Ліжко 160"
+                                        data-maxcount="1"
+                                        data-number="2310-262"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/sokme298.jpg"
+                                        data-url="http://stroymag.ua/shop/product/spalnia-karolina"
+                                        data-origPrice=""
+                                        data-addPrice="148.09"
+                                        data-prodStatus='[]'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                                                                                                                            <div class="frame-count-buy variant_39523 variant" style="display:none">
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="18266" data-varid="39523" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="39523"
+                                        data-color="0"
+                                        data-prodid="18266"
+                                        data-varid="39523"
+                                        data-price="2705.56"
+                                        data-count="1"
+                                        data-name="Спальня Каролина"
+                                        data-vname="Комод+дзеркало"
+                                        data-maxcount="1"
+                                        data-number="2310-263"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/sokme298.jpg"
+                                        data-url="http://stroymag.ua/shop/product/spalnia-karolina"
+                                        data-origPrice=""
+                                        data-addPrice="113.63"
+                                        data-prodStatus='[]'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                                                                                                                            <div class="frame-count-buy variant_39524 variant" style="display:none">
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="18266" data-varid="39524" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="39524"
+                                        data-color="0"
+                                        data-prodid="18266"
+                                        data-varid="39524"
+                                        data-price="6236.34"
+                                        data-count="1"
+                                        data-name="Спальня Каролина"
+                                        data-vname="Шафа 4-ох дверна"
+                                        data-maxcount="1"
+                                        data-number="2310-264"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/sokme298.jpg"
+                                        data-url="http://stroymag.ua/shop/product/spalnia-karolina"
+                                        data-origPrice=""
+                                        data-addPrice="261.93"
+                                        data-prodStatus='[]'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                                                                                                                            <div class="frame-count-buy variant_39525 variant" style="display:none">
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="18266" data-varid="39525" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="39525"
+                                        data-color="0"
+                                        data-prodid="18266"
+                                        data-varid="39525"
+                                        data-price="7485.06"
+                                        data-count="1"
+                                        data-name="Спальня Каролина"
+                                        data-vname="Шафа 5-ти дверна"
+                                        data-maxcount="1"
+                                        data-number="2310-265"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/sokme298.jpg"
+                                        data-url="http://stroymag.ua/shop/product/spalnia-karolina"
+                                        data-origPrice=""
+                                        data-addPrice="314.37"
+                                        data-prodStatus='[]'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                                                                                                                            <div class="frame-count-buy variant_39526 variant" style="display:none">
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="18266" data-varid="39526" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="39526"
+                                        data-color="0"
+                                        data-prodid="18266"
+                                        data-varid="39526"
+                                        data-price="692.12"
+                                        data-count="1"
+                                        data-name="Спальня Каролина"
+                                        data-vname="Нічна тумба"
+                                        data-maxcount="1"
+                                        data-number="2310-266"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/sokme298.jpg"
+                                        data-url="http://stroymag.ua/shop/product/spalnia-karolina"
+                                        data-origPrice=""
+                                        data-addPrice="29.07"
+                                        data-prodStatus='[]'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                                                                                                                            <div class="frame-count-buy variant_39527 variant" style="display:none">
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="18266" data-varid="39527" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button
+                                                                                                                        class="btnBuy infoBut"
+                                        type="button"
+                                        data-id="39527"
+                                        data-color="0"
+                                        data-prodid="18266"
+                                        data-varid="39527"
+                                        data-price="1207.58"
+                                        data-count="1"
+                                        data-name="Спальня Каролина"
+                                        data-vname="Ламели к кровати"
+                                        data-maxcount="1"
+                                        data-number="2310-267"
+                                        data-mediumImage="http://stroymag.ua/uploads/shop/products/medium/sokme298.jpg"
+                                        data-img="http://stroymag.ua/uploads/shop/products/small/sokme298.jpg"
+                                        data-url="http://stroymag.ua/shop/product/spalnia-karolina"
+                                        data-origPrice=""
+                                        data-addPrice="50.72"
+                                        data-prodStatus='[]'>
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                        </div>
+            <!-- End. Collect information about Variants, for future processing -->
+            <!---->
+                    </div>
+        <!--        Start. Remove buttons if compare or wishlist-->
+                <!--        End. Remove buttons if compare or wishlist-->
+
+        <div class="decor-element"></div>
+
+    </li>
+    <script>
+        function checkStock(e) {
+            var stock = parseInt($(e).data('stock'));
+            if (stock==0) {
+                $(e).closest('.description').find('.frame-prices').hide();
+                $(e).closest('.description').find('.frame-wish-compare-list').hide();
+            } else {
+                $(e).closest('.description').find('.frame-prices').show();
+                $(e).closest('.description').find('.frame-wish-compare-list').show();
+            }
+        }
+    </script>
+                    </ul>
+                </div>
+                <div class="group-button-carousel">
+                    <button type="button" class="prev arrow">
+                        <span class="icon_arrow_p"></span>
+                    </button>
+                    <button type="button" class="next arrow">
+                        <span class="icon_arrow_n"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

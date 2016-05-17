@@ -6,7 +6,7 @@ from django.contrib import messages
 from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 from sorl.thumbnail.admin import AdminImageMixin
 
-from .models import Category, Goods, GoodsVariation, Options, OptionsList, FileProcessing, Location, ImageGalery
+from .models import Category, Goods, GoodsVariation, Options, OptionsList, FileProcessing, Location, ImageGallery
 from django.core.management import call_command
 
 
@@ -25,7 +25,7 @@ class GoodsVariationAdminInline(admin.StackedInline):
 
 
 class ImageInline(AdminImageMixin, admin.StackedInline):
-    model = ImageGalery
+    model = ImageGallery
     verbose_name = u'Галерея товара'
     extra = 1
 
@@ -37,8 +37,10 @@ class AddOptionsinline(admin.StackedInline):
 
 
 class GoodsAdmin(AdminImageMixin, admin.ModelAdmin):
+    search_fields = ('article', 'name')
     list_display = ('article', 'name', 'get_category')
     list_filter = ('category',)
+    prepopulated_fields = {'slug': ('name',)}
     inlines = (GoodsVariationAdminInline, ImageInline,  AddOptionsinline)
 
     def get_category(self, obj):
