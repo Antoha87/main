@@ -6,7 +6,7 @@ import datetime
 from django.db import migrations, models
 from django.utils.timezone import utc
 from slugify import slugify
-
+import random
 
 class Migration(migrations.Migration):
 
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='goods',
             name='slug',
-            field=models.SlugField(default=slugify(datetime.datetime.now().strftime), max_length=200, unique=True, verbose_name='\u0427\u041f\u0423'),
+            field=models.SlugField(default=slugify(random.choice("qwertyuiopasdfghjklzxcvbnm")), max_length=200, unique=True, verbose_name='\u0427\u041f\u0423'),
             preserve_default=False,
         ),
     ]
