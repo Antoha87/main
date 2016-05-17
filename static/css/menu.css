@@ -32,7 +32,6 @@ nav {
     background: -ms-linear-gradient(top,#1f62a5 0,#0b4f91 100%);
     background: linear-gradient(to bottom,#1f62a5 0,#0b4f91 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f62a5',endColorstr='#0b4f91',GradientType=0);
-    min-width: 980px;
 }
 .width {
     min-width: 1000px;
@@ -439,10 +438,7 @@ nav.left-header ul li a:hover, nav.left-header ul li a:focus{
     font-size: 13px;
     font-weight: bold;
 }
-nav.left-header .f_l{
-    min-width: 500px;
-}
-nav.left-header .f_l nav {
+div.right-header nav {
     background: none;
     height: auto;
 }
