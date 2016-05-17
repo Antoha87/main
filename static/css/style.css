@@ -208,7 +208,7 @@ p{margin-bottom:10px;line-height:18px;}
 [class*="btn-"]{display:inline-block;position:relative;font-size:0;}
 [class*="btn-"] > a, [class*="btn-"] > a:hover{text-decoration:none;}
 [class*="btn-"]{vertical-align:middle;}
-.fon-header{position:relative;z-index:2;}
+.fon-header{position:relative;z-index:2;margin-bottom:5px;}
 .left-header{position:relative;background: none;}
 .left-header > .nav > li:hover{background: rgb(63,119,169); background: -moz-linear-gradient(top, rgba(63,119,169,1) 0%, rgba(58,113,164,1) 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(63,119,169,1)), color-stop(100%,rgba(58,113,164,1)));
     background: -webkit-linear-gradient(top, rgba(63,119,169,1) 0%,rgba(58,113,164,1) 100%);  background: -o-linear-gradient(top, rgba(63,119,169,1) 0%,rgba(58,113,164,1) 100%);
