@@ -32,6 +32,7 @@ class Command(BaseCommand):
                         g.model = row[0]
                         g.kod = row[1]
                         g.post = row[2]
+                        g.slug = slugify(row[8])
 
                         brand, created = Brand.objects.get_or_create(name=row[13])
                         print (created)

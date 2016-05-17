@@ -1,0 +1,549 @@
+{% extends "base.html" %}
+{% load static thumbnail %}
+{% load mptt_tags %}
+{% block content %}
+
+ <div class="content">
+        <div class="frame-crumbs">
+            <!-- Making bread crumbs -->
+            <div class="crumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                <div class="container">
+                    <ul class="items items-crumbs">
+                        <li class="crumb">
+                <span>
+                <a href="#" itemprop="url">
+                    <span itemprop="title" class="text-el">Главная</span>
+                </a>
+                <span class="divider">→</span>
+                </span>
+                        </li>
+                        <li class="crumb">
+                                                                                    <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                                                <a style="pointer-events: none;" href="http://stroymag.ua/shop/category/plitka-santehnika">
+                                                    <span class="text-el">Киев</span>
+                                                </a>
+                        <meta itemprop="title" content="Киев">
+                        <meta itemprop="url" content="http://stroymag.ua/shop/category/plitka-santehnika">
+                        <span class="divider">→</span>
+                    </span>
+                        </li>
+                        <li class="crumb">
+                                            <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <a href="#">
+                                <span class="text-el">Плитка и сантехника, инженерия</span>
+                            </a>
+                            <meta itemprop="title" content="Плитка и сантехника, инженерия">
+                            <meta itemprop="url" content="http://stroymag.ua/shop/category/kiev/plitka-santehnika">
+                            <span class="divider">→</span>
+                        </span>
+                        </li>
+                        <li class="crumb">
+                                            <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <a href="#">
+                                <span class="text-el">Отопление</span>
+                            </a>
+                            <meta itemprop="title" content="Отопление">
+                            <meta itemprop="url" content="http://stroymag.ua/shop/category/kiev/plitka-santehnika/otoplenie">
+                            <span class="divider">→</span>
+                        </span>
+                        </li>
+                        <li class="crumb">
+                                            <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <a href="#">
+                                <span class="text-el">Радиаторы</span>
+                            </a>
+                            <meta itemprop="title" content="Радиаторы">
+                            <meta itemprop="url" content="http://stroymag.ua/shop/category/kiev/plitka-santehnika/otoplenie/radiatory">
+                            <span class="divider">→</span>
+                        </span>
+                        </li>
+                        <li class="crumb">
+                                            <span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <button disabled="disabled">
+                                <span class="text-el">Стальной радиатор отопления Purmo Compact-22 500х500мм</span>
+                            </button>
+                            <meta itemprop="title" content="Стальной радиатор отопления Purmo Compact-22 500х500мм">
+                            <meta itemprop="url" content="http://stroymag.ua/shop/product/stalnoi-radiator-otopleniia-purmo-compact-22-500h500mm">
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div></div>
+        <div itemscope itemtype="http://schema.org/Product" class="frame-inside page-product">
+            <div class="container">
+                <div class="clearfix item-product ">
+                    <div class="right-product">
+                        <div class="f-s_0 title-product">
+                            <div class="frame-title">
+                                <h1 itemprop="name" class="d_i">{{ object.name }}</h1>
+                                <meta itemprop="url" content="{{ object.slug }}">
+                            </div>
+                    <span class="frame-variant-name-code">
+                        <span class="frame-variant-code">
+                                                            <div itemprop="brand" itemscope itemtype="http://schema.org/Brand" class="frame-item-brand">Бренд:
+                                    <span class="brand m-r_5">
+                                        <a class="code_brand brand t-t_u f-w_b" href="{{ object.brand.get_absolute_url }}">
+                                            <span itemprop="name">{{ object.brand }}</span>
+                                        </a>
+                                    </span>
+                                                                Артикул:
+                                    <span class="code c_3 f-w_b c_blue">
+                                        <span class="f-w_b code_bold">
+
+                                                    {{ object.article }}
+                                                                                                                                    </span>
+                                    </span>
+                                                            </div>
+                                                    </span>
+                        <span class="frame-variant-name" style="display:none;">
+                            Вариант:
+                            <span class="f-w_b code_bold">
+                                                            </span>
+                        </span>
+                    </span>
+                        </div>
+                        <div id="xBlock"></div>
+                        <div class="right-product-left">
+                            <div class="f-s_0 buy-block">
+
+
+                                <!--Select variant -->
+                                <!--End. Select variant -->
+                                <!--Start. Select color -->
+                                <input type="hidden" id="colorSwitcher" value="0">
+
+                                <!--End. Select color -->
+                                <div class="frame-prices-buy-wish-compare">
+                                    <div class="frame-prices-buy f-s_0">
+                                        <!-- $model->hasDiscounts() - check for a discount. And show old price-->
+                                        <div class="frame-prices f-s_0">
+                                            <!-- Check for discount-->
+                                            <!-- Start. Product price-->
+                                                                                                                                <span class="current-prices f-s_0">
+                                                <span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-new">
+                                                    <span>
+                                                        <span itemprop="price" class="price priceVariant">{{ object.price }}</span>
+                                                        <meta itemprop="priceCurrency" content="грн." />
+                                                        <span class="curr" style="font-size: 14px!important">грн.</span>
+
+                                                    </span>
+                                                </span>
+                                                                                            </span>
+                                            <!-- End. Product price-->
+                                        </div>
+                                        <!-- Start button for main & variants prod -->
+                                        <div class="funcs-buttons">
+                                            <div class="frame-count-buy variant_51225_0 variant" style="display:block">
+                                                <div class="frame-count">
+                                                    <div class="number" data-title="Количество на складе 1" data-prodid="22866" data-varid="51225" data-rel="frameplusminus" data-color="0">
+                                                        <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                                    </div>
+                                                </div>
+                                                <div class="btn-buy btn-buy-p">
+                                                    <button class="btnBuy infoBut">
+
+                                                        <span class="text-el">Купить</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <!-- end. frame-prices-buy -->
+                                    <div class="frame-wish-compare-list frame-wish-compare-list-pr f-s_0">
+                                        <!-- Wish List buttons -->
+                                        <div class="frame-btn-wish variant_51225 variant"  data-id="22866" data-varid="51225">
+                                            <div class="btn_wish ">
+                                                <button class="toWishlist pointer" type="button" data-rel="tooltip" data-title="Запомнить" data-drop="#notification" data-modal="true" data-overlayopacity="0" data-timeclosemodal="3000" >
+                                                    <span class="icon_wish"></span>
+                                                    <span style="display:none" class="text-el d_l_b">Запомнить</span>
+                                                </button>
+                                                <button class="inWishlist pointer" type="button" data-rel="tooltip" data-title="К запоминанию" style="display: none;">
+                                                    <span class="icon_wish"></span>
+                                                    <span style="display:none" class="text-el">К запоминанию</span>
+                                                </button>
+                                            </div>
+                                            <script> langs['Create list'] = "Создать список";
+                                            langs['Wrong list name'] = "Неверное имя списка";
+                                            langs['Already in Wish List'] = "Уже в Списке Желаний";
+                                            langs['List does not chosen'] = "Список не обран";
+                                            langs['Limit of Wish List finished '] = "Лимит списков исчерпан";
+                                            </script>                                    </div>
+                                        <!-- end of Wish List buttons -->
+                                        <!-- compare buttons -->
+                                        <div class="frame-btn-compare">
+                                            <div class="btn_compare" data-prodid="22866">
+                                                <button class="toCompare pointer"
+                                                        data-prodid="22866"
+                                                        type="button"
+                                                        data-title="Сравнить"
+                                                        data-firtitle="Сравнить"
+                                                        data-sectitle="К сравнению"
+                                                        data-rel="tooltip">
+                                                    <span class="icon_compare"></span>
+                                                    <span class="text-el d_l_b">Сравнить</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- end of compare buttons -->
+                                    </div>
+                                    <!-- End button for main & variants prod -->
+                                </div>
+                                <!-- end. frame-prices-buy-wish-compare -->
+                            </div>
+                            <!-- end. buy-block -->
+                            <!-- Start. Description -->
+                            <!--  End. Description -->
+                            <!--Start .Share-->
+                            <dl class="social-product">
+                                <dt class="social-share">
+                                    <span class="c_0">Поделиться:</span>
+                        <span class="social-tell">
+                        <script async="async" defer="defer" type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+                 <span class="yashare-auto-init"
+                       data-yashareL10n="ru"
+                       data-yashareType="none"
+                       data-yashareLink=""
+                       data-yashareQuickServices="vkontakte,facebook,gplus,"></span>                         </span>
+                                </dt>
+                            </dl>
+                            <!-- End. Share -->
+                        </div>
+                        <!-- end. right-product-left -->
+                        <div class="right-product-right">
+                            <!--Start. Payments method form -->
+                            <div class="frame-delivery-payment"><dl><dt class="title f-s_0"><span class="text-el" data-mce-mark="1">Доставка</span></dt><dd class="frame-list-delivery">
+                                <ul class="list-style-1">
+                                    <li>По Запорожью</li>
+                                    <li>По Днепропетровску</li>
+                                    <li>По Украине</li>
+                                </ul>
+                            </dd><dt class="title f-s_0"><span class="text-el" data-mce-mark="1">Оплата</span></dt><dd class="frame-list-payment">
+                                <ul class="list-style-1">
+                                    <li>Наличная оплата</li>
+                                    <li>Visa/MasterCard</li>
+                                    <li>Приват 24</li>
+                                </ul>
+                            </dd></dl></div>                        <!--End. Payments method form -->
+                        </div>
+                    </div>
+                    <div class="left-product">
+                        <a rel="position: 'xBlock'" onclick="return false;" href="http://stroymag.ua/uploads/shop/products/large/mizolfoto158.jpg" class="frame-photo-title photoProduct" id="photoGroup" title="Стальной радиатор отопления Purmo Compact-22 500х500мм">
+                        <span class="photo-block">
+                        <span class="helper"></span>
+
+                            {% thumbnail object.image "155x229" crop="center" as im %}
+                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }} alt="{{ object.name }}" title="{{ object.name }}">
+                            {% endthumbnail %}
+                        <span class="product-status nowelty"></span>
+                        </span>
+                        </a>
+                        <!-- End. Photo block-->
+                        <!-- Star rating -->
+                        <!-- End. Star rating-->
+                        <!--Additional images-->
+                        <ul data-rel="mainThumbPhoto">
+                            <li class="d_n">
+                                <a onclick="return false;" href="http://stroymag.ua/uploads/shop/products/large/mizolfoto158.jpg" title="Стальной радиатор отопления Purmo Compact-22 500х500мм">
+                        <span class="photo-block">
+                        <span class="helper"></span>
+                        <img src="http://stroymag.ua/uploads/shop/products/small/mizolfoto158.jpg" alt="Стальной радиатор отопления Purmo Compact-22 500х500мм"/>
+                        </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="horizontal-carousel">
+                            <div class="frame-thumbs">
+                                <div class="content-carousel">
+                                    <ul class="items-thumbs items">
+                                        <!--if cloudzoom-->
+                                        {% for item in image_gallery %}
+                                        <li>
+                                            {% thumbnail item.image "37x54" crop="center" as im %}
+                                            <a onclick="return false;" href="{{ im.url }}" title="{{ object.name }}" class="cloud-zoom-gallery">
+                        <span class="photo-block">
+                        <span class="helper"></span>
+
+                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }} alt="{{ object.name }}" title="{{ object.name }}">
+                            {% endthumbnail %}
+                        </span>
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="group-button-carousel">
+                                    <button type="button" class="prev arrow">
+                                        <span class="icon_arrow_p"></span>
+                                    </button>
+                                    <button type="button" class="next arrow">
+                                        <span class="icon_arrow_n"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End block-->
+                    </div>
+                </div>
+            </div>
+            <div class="container f-s_0">
+                <!--        Start. Tabs block       -->
+                <ul class="tabs tabs-data tabs-product">
+                    <li class="active">
+                        <button data-href="#view">обзор параметров</button>
+                    </li>
+                    <li><button data-href="#first" data-source="http://stroymag.ua/shop/product_api/renderProperties" data-data='{"product_id": 22866}' data-selector=".characteristic">характеристики</button></li>
+                    <li><button data-href="#second" data-source="http://stroymag.ua/shop/product_api/renderFullDescription" data-data='{"product_id": 22866}' data-selector=".inside-padd > .text">информация</button></li>
+                    <!--Output of the block comments-->
+                    <li>
+                        <button type="button" data-href="#comment" onclick="renderPosts($('#comment .inside-padd'))">
+                            <span class="icon_comment-tab"></span>
+                                            <span class="text-el">
+                                                <span>
+                                                    отзывы                                                </span>
+                                            </span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="frame-tabs-ref frame-tabs-product">
+                    <div id="view">
+                        <div class="inside-padd">
+                            <h2>Характеристики</h2>
+                            <div class="characteristic">
+                                <div class="product-charac patch-product-view">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <th>Гарантия</th>
+                                            <td>{{ object.garanty }} месяцев</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Тип</th>
+                                            <td>{{ object.type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Длина, мм</th>
+                                            <td>500</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Высота, мм</th>
+                                            <td>500</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Толщина, мм</th>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Мощность, Вт.</th>
+                                            <td>929</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Страна производитель</th>
+                                            <td>Италия</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button class="t-d_n f-s_0 s-all-d ref d_n_" data-trigger="[data-href='#first']" data-scroll="true">
+                                    <span class="icon_arrow"></span>
+                                    <span class="text-el">Все характеристики</span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="inside-padd">
+                            <!--                        Start. Description block-->
+                            <div class="product-descr patch-product-view">
+                                <div class="text">
+                                    <div class="title-h2">Информация</div>
+                                    <p>
+                                        Основные характеристики:</p>
+                                    <ul>
+                                        <li>
+                                            Боковые поверхности&nbsp;закрыты защитными элементами</li>
+                                        <li>
+                                            Верхняя поверхность закрыта планкой типа &quot;гриль&quot;</li>
+                                        <li>
+                                            Вмонтированный вкладыш термостатического крана - нет</li>
+                                        <li>
+                                            Подсоединение&nbsp;боковое (справа, слева) &nbsp;с внутренней резьбой G1/2</li>
+                                        <li>
+                                            Материал&nbsp;высококачественный глубокоштампованный лист из низкоуглеродистой холоднокатанной стали FeP0 1 по EN 10130</li>
+                                        <li>
+                                            Шаг вертикальних водяных каналов&nbsp;33 1/3 мм</li>
+                                        <li>
+                                            Рабочее давление&nbsp;10 бар</li>
+                                        <li>
+                                            Максимальная температура&nbsp;110* С</li>
+                                        <li>
+                                            Аксессуары в комплекте - кронштейны, пробка, деаэратор.</li>
+                                    </ul>                                                </div>
+                            </div>
+                            <button class="t-d_n f-s_0 s-all-d ref d_n_" data-trigger="[data-href='#second']" data-scroll="true">
+                                <span class="icon_arrow"></span>
+                                <span class="text-el">Полное описание</span>
+                            </button>
+                            <!--                        End. Description block-->
+                        </div>
+
+                        <div class="inside-padd">
+
+                        </div>
+                        <div class="inside-padd">
+                            <!--Start. Comments block-->
+                            <div class="frame-form-comment">
+                                <div class="for_comments">
+                                    <div class="comment__icsi-css" id="comment__icsi-css">
+                                        <div class="title_h2__icsi-css">Отзывы покупателей</div>
+                                        <div class="main-form-comments__icsi-css noComments">
+                                            <div class="frame-comments__icsi-css layout-highlight">
+                                                <div class="title_h3__icsi-css title-default">
+                                                    <div class="title">Оставить комментарий</div>
+                                                </div>
+                                                <!-- Start of new comment fild -->
+                                                <div class="form-comment__icsi-css form__icsi-css main-form-comments">
+                                                    <div class="inside-padd">
+                                                        <form method="post">
+                                                            <label>
+                                        <span class="frame_form_field__icsi-css">
+                                            <div class="msg">
+                                                <div class="success">
+                                                    Комментарий будет отправлен на модерацию                                                </div>
+                                            </div>
+                                        </span>
+                                                            </label>
+                                                            <label style="width: 45%;float: left;">
+                                                                <span class="title__icsi-css">Как вас зовут:</span>
+                                    <span class="frame_form_field__icsi-css">
+                                        <input type="text" name="comment_author" value=""/>
+                                    </span>
+                                                            </label>
+                                                            <label style="width: 45%;margin-left: 10%;float: left;">
+                                                                <span class="title__icsi-css">Ваш email:</span>
+                                    <span class="frame_form_field__icsi-css">
+                                        <input type="text" name="comment_email" id="comment_email" value=""/>
+                                    </span>
+                                                            </label>
+                                                            <div class="clear"></div>
+                                                            <!-- Start star reiting -->
+                                                            <div class="frameLabel__icsi-css">
+                                                                <span class="title__icsi-css f_l t-a_l">Ваша оценка:</span>
+                                                                <div class="frame_form_field__icsi-css">
+                                                                    <div class="star">
+                                                                        <div class="productRate star-big clicktemprate">
+                                                                            <div class="for_comment" style="width: 0%"></div>
+                                                                            <input id="ratec" name="ratec" type="hidden" value=""/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End star reiting -->
+                                                            <label>
+                                                                <span class="title__icsi-css">Текст комментария:</span>
+                                <span class="frame_form_field__icsi-css">
+                                    <textarea name="comment_text" class="comment_text"></textarea>
+                                </span>
+                                                            </label>
+
+                                                            <div class="frameLabel__icsi-css">
+                                <span class="frame_form_field__icsi-css">
+                                    <div class="btn-form">
+                                        <input type="submit" value="Отправить" onclick="post(this)"/>
+                                    </div>
+                                </span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <!-- End of new comment fild -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="frame-drop-comment__icsi-css" data-rel="whoCloneAddPaste">
+                                            <div class="form-comment__icsi-css form__icsi-css layout-highlight frame-comments__icsi-css">
+                                                <div class="title_h3__icsi-css title-default">
+                                                    <div class="title">Ваш ответ</div>
+                                                </div>
+                                                <div class="inside-padd">
+                                                    <form>
+                                                        <label class="err-label">
+                        <span class="frame_form_field__icsi-css">
+                            <div class="frameLabel__icsi-css error" name="error_text"></div>
+                        </span>
+                                                        </label>
+
+                                                        <label>
+                                                            <span class="title__icsi-css">Ваше имя:</span>
+                            <span class="frame_form_field__icsi-css">
+                                <input type="text" name="comment_author" value=""/>
+                            </span>
+                                                        </label>
+                                                        <label>
+                                                            <span class="title__icsi-css">Ваш email: </span>
+                            <span class="frame_form_field__icsi-css">
+                                <input type="text" name="comment_email" value=""/>
+                            </span>
+                                                        </label>
+                                                        <label>
+                            <span class="frame_form_field__icsi-css">
+                                <div class="msg">
+                                    <div class="success">
+                                        Комментарий будет отправлен на модерацию                                    </div>
+                                </div>
+                            </span>
+                                                        </label>
+                                                        <label>
+                                                            <span class="title__icsi-css">Текст комментария:</span>
+                        <span class="frame_form_field__icsi-css">
+                            <textarea class="comment_text" name="comment_text"></textarea>
+                        </span>
+                                                        </label>
+                                                        <div class="frameLabel__icsi-css">
+                        <span class="frame_form_field__icsi-css">
+                            <input type="hidden" id="parent" name="comment_parent" value="">
+                            <span class="btn-form">
+                                <input type="submit" value="Отправить" onclick="post(this)"/>
+                            </span>
+                        </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                            </div>
+                                <!--End. Comments block-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--             Start. Characteristic-->
+                    <div id="first">
+                        <div class="inside-padd">
+                            <div class="title-h2">Характеристики</div>
+                            <div class="characteristic">
+                                <div class="preloader"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    End. Characteristic-->
+                    <div id="second">
+                        <div class="inside-padd">
+                            <div class="title-h2">Информация</div>
+                            <div class="text">
+                                <div class="preloader"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="comment">
+                        <div class="inside-padd for_comments">
+                            <div class="preloader"></div>
+                        </div>
+                    </div>
+                    <!--Block Accessories Start-->
+                    <!--End. Block Accessories-->
+                </div>
+            </div>
+            <!-- End. Tabs block       -->
+        </div>
+    </div>
+{% endblock %}

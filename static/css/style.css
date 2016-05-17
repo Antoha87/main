@@ -1110,3 +1110,12 @@ footer .box-6{float:right;margin-right:30px;}
 p.error{display:none!important}
 .page-text .special-proposition .frame-title{display:none;}
 .carousel{z-index: 1}
+
+
+div.drop-enter{
+    box-sizing: content-box;
+}
+.for-center .drop {
+    top: 50%;
+    transform: translatey(-50%);
+}

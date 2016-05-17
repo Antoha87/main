@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from pages.views import IndexView, ContactView, ServiceAndGarantyView, PayAndDeliveryView, DiscontView, PartnerView, BrandDetailView, BrandListView
+from catalog.views import CategoryView, CatalogView, GoodsView, ResultsSearchView
 
 
 urlpatterns = [
@@ -32,6 +33,10 @@ urlpatterns = [
 
     url(r'^brand/$', BrandListView.as_view(), name='brand_list'),
     url(r'brand/(?P<slug>[\-\w]+)/$', BrandDetailView.as_view(), name='brand'),
+    url(r'^catalog/$', CatalogView.as_view(), name='catalog'),
+    url(r'^category/(?P<slug>[\-\w]+)/$', CategoryView.as_view(), name='category'),
+    url(r'^goods/(?P<slug>[\-\w]+)/$', GoodsView.as_view(), name='goods'),
+    url(r'^search/$', ResultsSearchView.as_view(), name='search'),
 
 ]
 if settings.DEBUG:

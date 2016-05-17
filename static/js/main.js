@@ -45,4 +45,27 @@ $(document).ready(function() {
         event.stopPropagation();
     });
 
+
+    $('.icon_times_drop').on('click', function(e){
+        e.preventDefault();
+        console.log('11');
+        $('.drop-enter').css('display','none');
+        $('.for-center').css('display','none');
+        $('.overlayDrop').css('display','none');
+    })
+
+    $('.for-center').on('click', function(e){
+        e.preventDefault();
+        console.log('11');
+        $('.drop-enter').css('display','none');
+        $('.for-center').css('display','none');
+        $('.overlayDrop').css('display','none');
+    })
+
 });
+
+
+
+
+
+

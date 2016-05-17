@@ -5,7 +5,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
 from django.db.models import Avg, Sum
-
+from django.db.models.query import QuerySet
 from ckeditor.fields import RichTextField
 from sorl.thumbnail import ImageField
 from mptt.fields import TreeForeignKey
@@ -39,7 +39,6 @@ class Category(MPTTModel):
     image = ImageField(u'Фото', upload_to=image_path, blank=False, null=True)
     slug = models.SlugField(u'ЧПУ', max_length=100, unique=True)
     description = models.TextField(u'Сообщение о категории', blank=True, null=True)
-    options = models.BooleanField(u'Товар имеет больше 1-го артикулa', default=False)
 
     order = models.PositiveIntegerField(default=0)
     activate = models.BooleanField(u'Активация категории')
@@ -58,11 +57,11 @@ class Category(MPTTModel):
     def get_absolute_url(self):
         return reverse('category', args=[self.slug])
 
-    def get_absolute_goods_url(self):
-        if not self.options:
-            return reverse('goods', args=[self.slug])
-        else:
-            return reverse('goodstable', args=[self.slug])
+    def get_all_children(self):
+        ids = [self.pk]
+        for child_cat in self.children.all():
+            ids.append(child_cat.pk)
+        return Goods.objects.filter(category__in=ids)
 
     def __unicode__(self):
         return self.name
@@ -79,11 +78,17 @@ class Location(models.Model):
         return self.get_location_display()
 
 
+class AdFilterManager(models.Manager):
+    def get_queryset(self):
+        return self.model.QuerySet(self.model)
+
+
 class Goods(models.Model):
     article = models.CharField(u'Артикул', max_length=100, blank=True, null=True)
     kod = models.CharField(u'Код товара', max_length=100, blank=True, null=True)
     model = models.CharField(u'Модель товара', max_length=255, blank=True, null=True)
     name = models.CharField(u'Название товара', max_length=255, blank=False, null=True)
+    slug = models.SlugField(u'ЧПУ', max_length=200, unique=True)
     post = models.CharField(u'Поставщик', max_length=100, blank=False, null=True)
     currence = models.CharField(u'Валюта товара', max_length=255, blank=False, null=True)
     price = models.DecimalField(u'Цена в грн.', decimal_places=2, max_digits=11, blank=True, null=True)
@@ -109,7 +114,6 @@ class Goods(models.Model):
     color = models.CharField(u'Цвет', max_length=100, blank=True, null=True)
     vid = models.CharField(u'Вид', max_length=100, blank=True, null=True)
 
-
     class Meta:
         verbose_name = u'Товар'
         verbose_name_plural = u'Товары'
@@ -130,8 +134,19 @@ class Goods(models.Model):
         result = GoodsVariation.objects.filter(goods=self)
         return result
 
+    def get_absolute_url(self):
+        return reverse('goods', args=[self.slug])
+
     def __unicode__(self):
         return self.article or str(self.pk)
+
+    class QuerySet(QuerySet):
+
+        def filter_by_price(self, gt=None, lt=None):
+            qs = self
+            if gt: qs = qs.filter(price__gte=gt)
+            if lt: qs = qs.filter(price__lte=lt)
+            return qs
 
 
 class GoodsVariation(models.Model):
@@ -154,8 +169,8 @@ class GoodsVariation(models.Model):
         return self.article or str(self.pk)
 
 
-class ImageGalery(models.Model):
-    goods = models.ForeignKey(Goods, verbose_name=u'Фото галерея')
+class ImageGallery(models.Model):
+    goods = models.ForeignKey(Goods, related_name='gallery', verbose_name=u'Фото галерея')
     image = ImageField(u'Фото', upload_to=image_path)
 
     class Meta:
