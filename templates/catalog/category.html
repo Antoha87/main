@@ -5,19 +5,14 @@
 
 !@@@@ {{ object.get_descendant_count }}!!!!
 
-{% if object_list %}
+{% if object_list and object.get_descendant_count > 0 %}
 {% for item in object_list %}
  <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
 
 @@$#${{ item.get_children }}
 
 {% endfor %}
-{% else %}
-{% for item in goods %}
- <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
 
-{% endfor %}
-{% endif %}
  <div class="container">
         <div class="left-catalog-first">
             <div class="f-s_0 title-category">
@@ -53,7 +48,7 @@
     <a href="{{ child_item.get_absolute_url }}" title="{{ child_item.name }}" class="title-category-l1 frame-photo-title">
         <span class="photo-block">
             <span class="helper"></span>
-            {% thumbnail x.image "137x120" crop="center" as im %}
+            {% thumbnail child_item.image "137x120" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ child_item.name }}"><br />
         {% endthumbnail %}
         </span>
@@ -499,6 +494,8 @@
         </div>
     </section>
 </div>
-
+{% else %}
+{% include 'catalog/goods_list.html' %}
+{% endif %}
 
 {% endblock %}

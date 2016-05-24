@@ -10,6 +10,7 @@
     <meta name = "format-detection" content = "telephone=no" />
     <meta name='yandex-verification' content='48f6323fc4af5abf' />
     <meta name="google-site-verification" content="kGOD_K3KDKun2tQQW6h5u-vaMc07bDV-dVt15mvIY0I" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="all" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/color_scheme_1/color_style.css' %}" media="all" />
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -17,7 +18,7 @@
     <link rel="icon" href="{%static 'css/images/favicon.ico' %}" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/social-likes_classic.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/dopstyle.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}"/>
     <script type = 'text/javascript'>
@@ -192,14 +193,14 @@
                         </div>
                     </div>
                 </div>
-                </div>
+                </div></div>
         </header>
         {% include 'include/menu.html' %}
     </div>
     {% block content %}{% endblock content %}
 
-
-
+<div class="h-footer"></div>
+</div>
 {% include 'include/footer.html'  %}
 <!-- php vars to js -->
 <script type="text/javascript">
@@ -699,4 +700,4 @@
 </body>
 
 </html>
->>>>>>> 0fd4a7e045afce1545eb479ba2a5d4d643723007
+
