@@ -1115,8 +1115,7 @@ p.error{display:none!important}
 div.drop-enter{
     box-sizing: content-box;
 }
-<<<<<<< HEAD
-=======
+
 .for-center .drop {
     top: 50%;
     transform: translatey(-50%);

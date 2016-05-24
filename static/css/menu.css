@@ -244,7 +244,7 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li table td {
 }
 
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container {
-    background-color: #f8f6f6;
+    background-color: #fff;
     vertical-align: top;
     padding: 20px;
 }
@@ -457,4 +457,8 @@ nav.left-header ul li a:hover, nav.left-header ul li a:focus{
 div.right-header nav {
     background: none;
     height: auto;
+}
+
+.main_rubrics{
+    background:rgb(254,254,255);background:-moz-linear-gradient(top, rgba(254,254,255,1) 0%, rgba(238,240,242,1) 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,254,255,1)), color-stop(100%,rgba(238,240,242,1)));background:-webkit-linear-gradient(top, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);background:-o-linear-gradient(top, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);background:-ms-linear-gradient(top, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);background:linear-gradient(to bottom, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefeff', endColorstr='#eef0f2',GradientType=0);
 }
