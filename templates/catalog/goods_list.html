@@ -1,0 +1,290 @@
+{% load static thumbnail %}
+<div class="container f-s_0">
+        <!-- Start. Category name and count products in category-->
+        <div class="f-s_0 title-category">
+            <div class="frame-title">
+                <h1 class="d_i title">{{ object }}   </h1>
+            </div>
+            <span class="count">(всего   товар)</span>
+        </div>
+        <!-- End. Category name and count products in category-->
+        <div class="filter left-catalog">
+                    </div>
+        <div class="right-catalog">
+                        <!--Start. Banners block-->
+
+            <!--End. Banners-->
+                <div class="header-category clearfix">
+        <!-- Start. Order by block -->
+        <div class="f_l frame-sort f-s_0">
+            <span class="title">Показывать:</span>
+            <div class="lineForm">
+                <div class="cusel sort" id="cuselFrame-sort" style="width:154px" tabindex="0"><div class="cuselFrameRight"></div><div class="cuselText">Акции</div><div class="cusel-scroll-wrap" style="display: none; visibility: visible;"><div class="jScrollPaneContainer" style="height: 144px; width: 188px;"><div class="cusel-scroll-pane" id="cusel-scroll-sort" style="overflow: hidden; width: 188px; height: 144px; padding: 0px;">
+										                                                                <span val="action" class="cuselActive">Акции</span>
+                                            <span val="price">От дешевих к дорогим</span>
+                                            <span val="price_desc">От дорогих к дешевим</span>
+                                            <span val="hit">Популярные</span>
+                                            <span val="rating">Рейтинг</span>
+                                            <span val="hot">Новинки</span>
+                                    </div></div></div><input type="hidden" id="sort" name="order" value="action"></div>
+            </div>
+        </div>
+        <!-- End. Order by block -->
+        <!--        Start. Show products as list or table-->
+        <nav class="f_r frame-catalog-view f-s_0">
+                       <ul class="tabs groups-buttons tabs-list-table" data-type="radio" data-elchange="#items-catalog-main">
+                <li class="btn_def active">
+                    <button type="button" data-href="table" data-title="Таблица" data-rel="tooltip">
+                        <span class="icon_table_cat"></span><span class="text-el">Таблица</span>
+                    </button>
+                </li>
+                <li class="btn_def ">
+                    <button type="button" data-href="list" data-title="Список" data-rel="tooltip">
+                        <span class="icon_list_cat"></span><span class="text-el">Список</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <!--        End. Show products as list or table-->
+        <!--         Start. Product per page  -->
+        <div class="frame-count-onpage">
+                    </div>
+        <!--         End. Product per page  -->
+    </div>
+    <!--                Start. if $CI->uri->segment(2) == "search" then show hidden field-->
+        <!--                End. if $CI->uri->segment(2) == "search" then show hidden field-->
+            <!-- Start.If count products in category > 0 then show products list and pagination links -->
+
+
+                            <ul class="animateListItems items items-catalog  table" id="items-catalog-main">
+                    <!-- Include template for one product item-->
+                                {% for item in goods %}
+
+                                <li data-pos="top">
+
+        <div style="display:none">
+            <p>/shop/category/stroymaterialy/obshchestroi/metalloprokat</p>
+            <p>/shop/brand/mebel-servis'</p>
+            <p></p>
+        </div>
+
+
+
+
+                <div>
+        <a href="{{ item.get_absolute_url }}">
+            <span class="photo-block">
+                <span class="helper"></span>
+                    {% thumbnail item.image "100x149" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="mainphoto vimg""><br />
+                {% endthumbnail %}
+            </span>
+
+            <span class="title">{{ item.model }}</span>
+        </a>
+        </div>
+                <div class="description main-desc">
+                            <span class="frame-variant-name-code">
+                                        <span class="frame-variant-code">Артикул:                         <span class="code">
+                                                            {{ item.article }}                                                    </span>
+                    </span>
+                                        <span class="frame-variant-name" style="display:none;">Вариант: :
+                        <span class="code">
+                                                    </span>
+                    </span>
+                </span>
+                                                            <div class="frame-star f-s_0">
+                                            </div>
+                                      <div>
+          		            <div class="frame-prices f-s_0">
+	                <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">{{ item.price }}</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                                                            <span style="font-size: 12px!important;">{{ item.izm }}</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+	                	            </div>
+
+	            <!--            End. Price-->
+	            	                </div>
+                     <hr>
+                        <div class="funcs-buttons">
+                <!-- Start. Collect information about Variants, for future processing -->
+                                                                                                                                <div class="frame-count-buy variant_50075 variant">
+                                                                    <div class="frame-count">
+                                        <div class="number" data-title="Количество на складе 1" data-prodid="22509" data-varid="50075" data-rel="frameplusminus">
+                                                                                       <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                        </div>
+                                    </div>
+                                                                <div class="btn-buy">
+                                <button class="btnBuy infoBut" type="button" data-id="50075" data-color="0" data-prodid="22509" data-varid="50075" data-price="78.20" data-count="1" data-name="Труба профильная 80х40х2,0 мм" data-vname="" data-maxcount="1" data-number="151-89" data-mediumimage="http://stroymag.ua/uploads/shop/products/medium/dnepr-stroymaterialy20.jpg" data-img="http://stroymag.ua/uploads/shop/products/small/dnepr-stroymaterialy20.jpg" data-url="http://stroymag.ua/shop/product/truba-profilnaia-80h40h20-mm" data-origprice="" data-addprice="3.28" data-prodstatus="[]">
+                                        <span class="text-el">Купить</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                                                                        </div>
+            <!-- End. Collect information about Variants, for future processing -->
+            <!--                <div class="p_r frame-without-top">
+                    <div class="no-vis-table">
+                        <!--Start. Description-->
+                        <!--                            <div class="short-desc">
+                                Длина изделия 6м                            </div>
+                        -->
+                        <!-- End. Description-->
+                    <!--</div>
+                </div>
+            -->
+                    </div>
+        <!--        Start. Remove buttons if compare or wishlist-->
+                <!--        End. Remove buttons if compare or wishlist-->
+
+        <div class="decor-element" style="height: 358px;"></div>
+
+    </li>
+
+                                {% endfor %}
+    <script>
+        function checkStock(e) {
+            var stock = parseInt($(e).data('stock'));
+            if (stock==0) {
+                $(e).closest('.description').find('.frame-prices').hide();
+                $(e).closest('.description').find('.frame-wish-compare-list').hide();
+            } else {
+                $(e).closest('.description').find('.frame-prices').show();
+                $(e).closest('.description').find('.frame-wish-compare-list').show();
+            }
+        }
+    </script>
+                </ul>
+                <!-- render pagination-->
+                                        <!-- End.If count products in category > 0 then show products and pagination links -->
+        </div>
+        <!-- Load filter-->
+        <script type="text/javascript">
+    totalProducts = parseInt('1');
+    function createObjSlider(minCost, maxCost, defMin, defMax, curMin, curMax, lS, rS){
+        this.minCost = minCost;
+        this.maxCost = maxCost;
+        this.defMin = defMin;
+        this.defMax = defMax;
+        this.curMin = curMin;
+        this.curMax = curMax;
+        this.lS = lS;
+        this.rS = rS;
+    };
+    sliders = new Object();
+    sliders.slider1 = new createObjSlider('.minCost', '.maxCost', 104, 184, 104, 184, 'lp', 'rp');
+	var elem;
+
+    var propRange = [{"id":5,"min":false,"max":false,"curMin":false,"curMax":false},{"id":66,"min":false,"max":false,"curMin":false,"curMax":false},{"id":82,"min":false,"max":false,"curMin":false,"curMax":false},{"id":83,"min":false,"max":false,"curMin":false,"curMax":false},{"id":84,"min":false,"max":false,"curMin":false,"curMax":false},{"id":150,"min":false,"max":false,"curMin":false,"curMax":false}];
+    function createPropObjSlider(elem, i)
+    {
+
+		sliders['slider'+elem.id] = new createObjSlider('.left'+elem.id, '.right'+elem.id, elem.min, elem.max, elem.curMin, elem.curMax, 'p['+elem.id+'][lp]', 'p['+elem.id+'][rp]');
+
+    } ;
+
+   	propRange.forEach(createPropObjSlider);
+</script>
+
+<div class="d_n wrap-frames-checks-sliders hasCheck">
+
+
+
+
+<!-- end of selected filters block -->
+
+<form method="get" id="catalog_form">
+    <input type="hidden" name="order" value="price">
+    <input type="hidden" name="user_per_page" value="9">
+            <div class="frame-filter p_r">
+            <div class="preloader wo-i" style="display: none;"></div>
+<script type="text/javascript">
+    totalProducts = parseInt('1');
+    function createObjSlider(minCost, maxCost, defMin, defMax, curMin, curMax, lS, rS){
+        this.minCost = minCost;
+        this.maxCost = maxCost;
+        this.defMin = defMin;
+        this.defMax = defMax;
+        this.curMin = curMin;
+        this.curMax = curMax;
+        this.lS = lS;
+        this.rS = rS;
+    };
+    sliders = new Object();
+    sliders.slider1 = new createObjSlider('.minCost', '.maxCost', 104, 184, 104, 184, 'lp', 'rp');
+	var elem;
+
+    var propRange = [{"id":5,"min":false,"max":false,"curMin":false,"curMax":false},{"id":66,"min":false,"max":false,"curMin":false,"curMax":false},{"id":82,"min":false,"max":false,"curMin":false,"curMax":false},{"id":83,"min":false,"max":false,"curMin":false,"curMax":false},{"id":84,"min":false,"max":false,"curMin":false,"curMax":false},{"id":150,"min":false,"max":false,"curMin":false,"curMax":false}];
+    function createPropObjSlider(elem, i)
+    {
+
+		sliders['slider'+elem.id] = new createObjSlider('.left'+elem.id, '.right'+elem.id, elem.min, elem.max, elem.curMin, elem.curMax, 'p['+elem.id+'][lp]', 'p['+elem.id+'][rp]');
+
+    } ;
+
+   	propRange.forEach(createPropObjSlider);
+</script>
+
+
+
+<div class="title_h3">Подбор по параметрам</div>
+<div class="frames-checks-sliders">
+    <div class="frame-slider" data-rel="sliders.slider1">
+        <div class="inside-padd">
+            <div class="title">Стоимость</div>
+            <div class="slider-cont">
+                <noscript>Джаваскрипт не включен</noscript>
+                                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="slider1" aria-disabled="false">
+                    <a href="#" class="ui-slider-handle left-slider ui-state-default ui-corner-all" style="left: 0%;"></a>
+                    <a href="#" class="ui-slider-handle right-slider ui-state-default ui-corner-all" style="left: 100%;"></a>
+                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div></div>
+            </div>
+            <div class="form-cost number">
+                <div class="t-a_j">
+                                        <label>
+                        <input type="text" class="minCost" data-title="только цифры" name="lp" value="104" data-mins="104">
+                    </label>
+                    <span>–</span>
+                    <label>
+                        <input type="text" class="maxCost" data-title="только цифры" name="rp" value="184" data-maxs="184">
+                    </label>
+                    <div class="btn_def">
+                        <input type="submit" value="ОК">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="frame-group-checks">
+        <div class="inside-padd">
+            <div class="title">Производитель</div>
+            <ul class="list-filters">
+                                                                                                                                                                    <li>
+                        <div class="frame-label" id="brand_102">
+                            <span class="niceCheck">
+                                <input class="brand102" name="brand[]" value="102" type="checkbox">
+                            </span>
+                            <div class="name-count">
+                                <span class="text-el">СтройМАГ</span>
+                                <span class="count">(1)</span>
+                            </div>
+                        </div>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+
+
+
+</div>
+<input disabled="disabled" type="hidden" name="requestUri" value="http://stroymag.ua/shop/category/kif/krovlya/metallocherepitsa">        </div>
+    </form>
+</div>
+        <!--widget for popular products in this category-->
+    </div>

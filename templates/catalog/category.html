@@ -5,19 +5,14 @@
 
 !@@@@ {{ object.get_descendant_count }}!!!!
 
-{% if object_list %}
+{% if object_list and object.get_descendant_count > 0 %}
 {% for item in object_list %}
  <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
 
 @@$#${{ item.get_children }}
 
 {% endfor %}
-{% else %}
-{% for item in goods %}
- <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
 
-{% endfor %}
-{% endif %}
  <div class="container">
         <div class="left-catalog-first">
             <div class="f-s_0 title-category">
@@ -499,6 +494,8 @@
         </div>
     </section>
 </div>
-
+{% else %}
+{% include 'catalog/goods_list.html' %}
+{% endif %}
 
 {% endblock %}
