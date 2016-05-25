@@ -86,8 +86,8 @@ nav .main_menu td div.item_container.selected>a {
     background: #084786;
 }
 nav .main_menu td div.item_container>a {
-    display: block;
-    line-height: 57px;
+    display: inline-block;
+    line-height: 49px;
     text-decoration: none;
     position: relative;
     outline: 0;
@@ -95,30 +95,24 @@ nav .main_menu td div.item_container>a {
     top: 0;
     outline: 0;
     text-align: center;
-    padding: 0 10px;
     color: #3a6994;
 }
 nav .main_menu td div.item_container>a>i {
-    padding-top: 5px;
-    height: 25px;
-    display: block;
-    font-weight: normal;
+    height: auto;
+    display: inline-block;
     font-style: normal;
     line-height: 1;
     vertical-align: middle;
+    font-weight: bold;
 }
 nav .main_menu td div.item_container.selected>a {
     z-index: 1100;
     outline: 0;
-    background: #084786;
+    background:rgb(78,124,163);background:-moz-linear-gradient(top, rgba(78,124,163,1) 0%, rgba(46,88,131,1) 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(78,124,163,1)), color-stop(100%,rgba(46,88,131,1)));background:-webkit-linear-gradient(top, rgba(78,124,163,1) 0%,rgba(46,88,131,1) 100%);background:-o-linear-gradient(top, rgba(78,124,163,1) 0%,rgba(46,88,131,1) 100%);background:-ms-linear-gradient(top, rgba(78,124,163,1) 0%,rgba(46,88,131,1) 100%);background:linear-gradient(to bottom, rgba(78,124,163,1) 0%,rgba(46,88,131,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e7ca3', endColorstr='#2e5883',GradientType=0);
 }
 
-nav .main_menu td div.item_container.selected>a>span {
-    top: 49px;
-    z-index: 1100;
-    background: url('menu_img/icons_new_header.png') -39px -9px no-repeat;
-    width: 10px;
-    height: 5px;
+nav .main_menu td div.item_container.selected>a>i {
+    color: #fff;
 }
 nav .main_menu td div.item_container>a>span {
     position: absolute;
