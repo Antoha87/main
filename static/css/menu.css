@@ -20,7 +20,7 @@ a {
 }
 a:hover {
     text-decoration: underline;
-    color: #c00;
+    color: #333;
 }
 nav {
     height: 49px;
@@ -44,7 +44,7 @@ nav .main_menu .popup_menu {
     display: none;
     background-color: #fff;
     left: 0;
-    top: 49px;
+    top: 51px;
     width: 100%;
     box-shadow: 0 3px 3px #ccc;
     border-radius: 0 0 10px 10px;
@@ -152,7 +152,8 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li {
     z-index: 1;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li.selected a {
-    background: #0156a9 url('menu_img/main_menu_yellow.png') 0 0 repeat-x;
+    /*background: #0156a9 url('menu_img/main_menu_yellow.png') 0 0 repeat-x;*/
+    background: #0156a9;
     color: #fff;
     text-shadow: 1px -1px #0156a9;
 }
@@ -306,7 +307,7 @@ nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_
     min-height: 180px;
 }
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li:hover .container .title a, nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li.bold .container .title a {
-    color: #ff3c00;
+    color: #000;
 }
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li .container .title a:hover {
     text-decoration: underline;
@@ -317,6 +318,7 @@ nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container_main ul.subru
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li.double .container .img {
     float: left;
     width: 46%;
+    margin-right: 10px;
 }
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li .container .subcategories {
     font-size: 12px;
@@ -356,7 +358,7 @@ nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_
     color: #333;
 }
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li .container .subcategories a {
-    color: #666;
+    color: #333;
     text-decoration: none;
 }
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_list li .container .subcategories a:hover {
