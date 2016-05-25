@@ -87,6 +87,7 @@ nav .main_menu td div.item_container.selected>a {
 }
 nav .main_menu td div.item_container>a {
     display: inline-block;
+    width: 100%;
     line-height: 49px;
     text-decoration: none;
     position: relative;
@@ -104,6 +105,9 @@ nav .main_menu td div.item_container>a>i {
     line-height: 1;
     vertical-align: middle;
     font-weight: bold;
+}
+nav .main_menu td div.item_container.selected{
+    border-color: #2E5883;
 }
 nav .main_menu td div.item_container.selected>a {
     z-index: 1100;
