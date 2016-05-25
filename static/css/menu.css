@@ -132,7 +132,7 @@ nav .main_menu td div.item_container>a>span {
 
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics {
     width: 25%;
-    background-color: #fff;
+    background:rgb(254,254,255);background:-moz-linear-gradient(top, rgba(254,254,255,1) 0%, rgba(238,240,242,1) 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,254,255,1)), color-stop(100%,rgba(238,240,242,1)));background:-webkit-linear-gradient(top, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);background:-o-linear-gradient(top, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);background:-ms-linear-gradient(top, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);background:linear-gradient(to bottom, rgba(254,254,255,1) 0%,rgba(238,240,242,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefeff', endColorstr='#eef0f2',GradientType=0);
     vertical-align: top;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics, nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container, nav .main_menu .popup_menu .popup_menu_table .top_product_month {
@@ -157,7 +157,7 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li.selected a {
     text-shadow: 1px -1px #0156a9;
 }
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li a {
-    padding: 0 15px 0 50px;
+    padding: 0 15px 0 10px;
     display: block;
     line-height: 15px;
     border-bottom: 1px solid #f0f0f0;
@@ -230,7 +230,8 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li table td {
 }
 
 nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container {
-    background-color: #f8f6f6;
+    /*background-color: #f8f6f6;*/
+    background-color: #fff;
     vertical-align: top;
     padding: 20px;
 }

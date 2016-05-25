@@ -194,7 +194,7 @@ input.input-search{-moz-border-radius:2px 0 0 2px;-webkit-border-radius:2px 0 0 
 .items-user-toolbar > li > #wishListData > .wish-list-btn, .items-user-toolbar > li > .compare-list-btn{background-position:-800px 0;width:78px;height:51px;cursor:pointer;}
 .items-user-toolbar > li:hover > #wishListData > .wish-list-btn, .items-user-toolbar > li:hover > .compare-list-btn{background-position:-800px -60px;}
 a, .ref{color:#3a6994;text-decoration:underline;}
-a:hover, .selected a, .ref:hover{color:#51d2ff;text-decoration:none;}
+a:hover, .selected a, .ref:hover{color:#3a6994;text-decoration:none;}
 a.c_w:hover{color:#51d2ff !important;}
 a:focus, a:active{color:#51d2ff;}
 [class*="d_l"]{text-decoration:none;cursor:pointer;position:relative;display:inline-block;border-bottom:1px dotted transparent;line-height:1.2;}
