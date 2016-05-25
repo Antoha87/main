@@ -74,25 +74,10 @@ nav .main_menu td div.item_container {
     /*border-right: 1px solid #0072bc;*/
     font-size: 13px;
     font-family: 'PT Sans', sans-serif;
-    position: relative;
 }
-nav .main_menu td div.item_container:before{
-    left: 0;
-    width: 1px;
-    height: 100%;
-    background: #fff;
-    content: "";
-    position: absolute;
-    top: 0;
-}
-nav .main_menu td div.item_container:after{
-    right: 0;
-    width: 1px;
-    height: 100%;
-    background: #e0e6ec;
-    content: "";
-    position: absolute;
-    top: 0;
+nav .main_menu td div.item_container{
+    border-left: 1px solid #fff;
+    border-right: 1px solid #e0e6ec;
 }
 nav .main_menu td div.item_container.selected>a {
     z-index: 1100;
