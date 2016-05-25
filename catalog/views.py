@@ -5,6 +5,8 @@ from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from django.template.loader import render_to_string
 from django.http import JsonResponse
+from django.db.models import Count
+import pymorphy2
 
 from .models import Category, Goods, GoodsVariation, ImageGallery
 
@@ -33,6 +35,9 @@ class CategoryView(ListView):
         goods = Goods.objects.filter(category__slug=slug)
         if len(goods) > 0:
             ctx['goods'] = goods
+            morph = pymorphy2.MorphAnalyzer()
+            goods_str = morph.parse(u'товар')[0]
+            ctx['goods_count_str'] = u'%s %s' % (goods.count(), goods_str.make_agree_with_number(int(goods.count())).word)
         return ctx
 
 
