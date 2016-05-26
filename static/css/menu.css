@@ -225,7 +225,7 @@ nav .main_menu .popup_menu .popup_menu_table .main_rubrics li .arr {
 nav .main_menu .popup_menu .popup_menu_table .main_rubrics li table td {
     padding: 0;
     margin: 0;
-    font-size: 16px;
+    font-size: 17px;
     vertical-align: middle;
 }
 
@@ -275,7 +275,7 @@ nav .main_menu .popup_menu .popup_menu_table .sub_rubric_container ul.subrubric_
     padding: 0;
     margin: 0;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1;
     display: inline-block;
     height: 42px;
