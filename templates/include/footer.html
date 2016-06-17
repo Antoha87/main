@@ -1,4 +1,5 @@
-{% load staticfiles thumbnail %}
+{% load staticfiles thumbnail mptt_tags %}
+{% full_tree_for_model catalog.Category as category %}
 <footer> <div class="content-footer">
     <div class="container">
         <!--Start. Load menu in footer-->
@@ -33,22 +34,13 @@
             <div class="inside-padd">
                 <div class="main-title">Продукция</div>
                 <ul class="footer-category-menu"><li>
-                    <a href="#" title="Стройматериалы" class="title">Стройматериалы</a>
+                    {% for item in category %}
+                        {% if item.is_root_node %}
+                    <a href="{{ item.get_absolute_url }}" title="{{ item.name }}" class="title">{{ item.name }}</a>
                 </li><li>
-                    <a href="#" title="Кровля и фасад, ограждения" class="title">Кровля и фасад, ограждения</a>
-                </li><li>
-                    <a href="#" title="Двери и окна, отделочные материалы" class="title">Двери и окна, отделочные материалы</a>
-                </li><li>
-                    <a href="#" title="Плитка и сантехника, инженерия" class="title">Плитка и сантехника, инженерия</a>
-                </li><li>
-                    <a href="#" title="Инструмент, оборудование" class="title">Инструмент, оборудование</a>
-                </li><li>
-                    <a href="#" title="Дом, Сад" class="title">Дом, Сад</a>
-                </li><li>
-                    <a href="#" title="Мебель" class="title">Мебель</a>
-                </li><li>
-                    <a href="#" title="Бытовая техника" class="title">Бытовая техника</a>
-                </li></ul> </div>
+                  {% endif %}
+                {% endfor %}
+                </ul> </div>
         </div>
         <div class="box-2 box">
             <div class="inside-padd">
