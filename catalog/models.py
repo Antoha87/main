@@ -42,6 +42,7 @@ class Category(MPTTModel):
 
     order = models.PositiveIntegerField(default=0)
     activate = models.BooleanField(u'Активация категории')
+    menu_type = models.BooleanField(u'Тип категории для меню', default=False, help_text='При включенной галочке показывает простое отображение в меню')
 
     class MPTTMeta:
         order_insertion_by = ['order']

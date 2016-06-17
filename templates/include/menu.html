@@ -1,6 +1,6 @@
 <!--MENU-->
-{% load mptt_tags %}
-
+{% load mptt_tags thumbnail%}
+{% full_tree_for_model catalog.Category as category %}
 
 
 
@@ -10,21 +10,24 @@
             <div>
                 <table class="main_menu">
                     <tr>
+                    {% for item in category %}
+                        {% if item.is_root_node %}
                         <td>
                             <div class="item_container">
-                                <a href="#"><i>Одежда, косметика, аксессуары</i></a>
+                                <a href="#"><i>{{ item.name }}</i></a>
                                 <div class="popup_menu">
                                     <table class="popup_menu_table">
                                         <tbody>
                                             <tr>
                                                 <td class="main_rubrics">
                                                     <ul class="ul">
-                                                        <li id="subcategory_675" class="popular_rubrics bold selected">
+                                                        {% for sub_item in item.get_children %}
+                                                        <li id="subcategory_{{ sub_item.id }}" class="bold {% if forloop.counter == 1  %} selected {% endif %}">
                                                             <a href="#">
                                                                 <table>
                                                                     <tbody>
                                                                     <tr>
-                                                                        <td>Популярные категории</td>
+                                                                        <td>{{ sub_item.name }} </td>
                                                                     </tr>
                                                                     </tbody>
                                                                 </table>
@@ -32,339 +35,67 @@
                                                             <!--<span class="arr"></span>-->
                                                             <!--<span class="arr2"></span>-->
                                                         </li>
-                                                        <li id="subcategory_736" class="bold">
-                                                            <a class="#" href="#" id="subrubric_736">
-                                                                <table>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>Строительный инструмент</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--<span class="arr"></span>-->
-                                                                <!--<span class="arr2"></span>-->
-                                                            </a>
-                                                        </li>
-                                                        <li id="subcategory_636">
-                                                            <a class="has_childs hide_top_product" href=
-                                                                    "#" id="subrubric_636">
-                                                                <table>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>Для дачи, сада, огорода</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--<span class="arr"></span>-->
-                                                                <!--<span class="arr2"></span>-->
-                                                            </a>
-                                                        </li>
-                                                        <li id="subcategory_676" class="bold">
-                                                            <a class="has_childs hide_top_product" href=
-                                                                    "#" id="subrubric_676">
-                                                                <table>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>Дом и квартира</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--<span class="arr"></span>-->
-                                                                <!--<span class="arr2"></span>-->
-                                                            </a>
-                                                        </li>
-                                                        <li id="subcategory_899" class="bold">
-                                                            <a class="has_childs hide_top_product" href=
-                                                                    "#" id="subrubric_899">
-                                                                <table>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>Системы охраны и контроля</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--<span class="arr"></span>-->
-                                                                <!--<span class="arr2"></span>-->
-                                                            </a>
-                                                        </li>
-                                                        <li id="subcategory_651">
-                                                            <a class="has_childs hide_top_product" href=
-                                                                    "#" id="subrubric_651">
-                                                                <table>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>Мебель</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--<span class="arr"></span>-->
-                                                                <!--<span class="arr2"></span>-->
-                                                            </a>
-                                                        </li>
-                                                        <li id="subcategory_223">
-                                                            <a class="has_childs hide_top_product" href="#" id="subrubric_223">
-                                                                <table>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>Посуда</td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--<span class="arr"></span>-->
-                                                                <!--<span class="arr2"></span>-->
-                                                            </a>
-                                                        </li>
+                                                        {% endfor %}
                                                     </ul>
                                                 </td>
+
                                                 <td class="sub_rubric_container">
-                                                    <div class="sub_rubric_container_main subcategory_675" style="display: block;">
+                                                    {% for sub_item in item.get_children %}
+                                                    {% if sub_item.menu_type %}
+                                                    <div class="sub_rubric_container_main subcategory_{{ sub_item.id  }}" style="display: block;">
                                                         <ul class="ul subrubric_list">
-                                                            <li id="show_subcategory_223">
+                                                        {% for sub_item_chld in sub_item.get_children %}
+                                                            <li id="show_subcategory_{{ sub_item_chld.id  }}">
                                                                 <div class="container">
                                                                     <div class="title">
-                                                                        <a href="https://f.ua/shop/skovorodki-i-sotejniki/">Сковородки и сотейники</a>
+                                                                        <a href="{{ sub_item_chld.get_absolute_url }}">{{ sub_item_chld.name }}</a>
                                                                     </div>
                                                                     <div class="img">
-                                                                        <a href="https://f.ua/shop/skovorodki-i-sotejniki/">
-                                                                            <img alt=""src="https://f.ua/statik/images/icons/224.png" style="opacity: 1;"></a>
+                                                                        <a href="{{ sub_item_chld.get_absolute_url }}">
+                                                                            {% thumbnail sub_item_chld.image "100x100" crop="center" as im %}
+                                                                            <img alt=""src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" style="opacity: 1;"/></a>
+                                                                            {% endthumbnail %}
                                                                     </div>
                                                                 </div>
                                                             </li>
-                                                            <li id="show_subcategory_676">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/smesiteli-dlya-mojki/">Смесители для мойки</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/smesiteli-dlya-mojki/">
-                                                                            <img alt=""src="https://f.ua/statik/images/icons/708_2.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_676">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/kuhonnye-mojki/">Кухонные
-                                                                            мойки</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/kuhonnye-mojki/">
-                                                                            <img alt=""src="https://f.ua/statik/images/icons/707_2.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_636">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/gazonokosilki/">Газонокосилки</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/gazonokosilki/">
-                                                                            <img alt=""src="https://f.ua/statik/images/icons/622.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/shurupoverty-elektricheskie/">Шуруповерты электрические</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/shurupoverty-elektricheskie/">
-                                                                            <img alt="" src="https://f.ua/statik/images/icons/656.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_223">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/kastryuli/">Кастрюли</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/kastryuli/">
-                                                                            <img alt="" src="https://f.ua/statik/images/icons/225.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/diskovye-pily/">Дисковые пилы</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/diskovye-pily/">
-                                                                            <img alt="" src="https://f.ua/statik/images/icons/659.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_899">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/komplekty-ohrannyh-signalizacij/">Комплекты охранных сигнализаций</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/komplekty-ohrannyh-signalizacij/">
-                                                                            <img alt="" src="https://f.ua/statik/images/icons/1006.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_223">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/nabory-kuhonnyh-nozhej/">Наборы
-                                                                            кухонных ножей</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/nabory-kuhonnyh-nozhej/">
-                                                                            <img alt="" src="https://f.ua/statik/images/icons/451.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/perforatory/">Перфораторы</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href="https://f.ua/shop/perforatory/">
-                                                                            <img alt="" src="https://f.ua/statik/images/icons/654.png" style="opacity: 1;"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
+                                                        {% endfor %}
                                                         </ul>
                                                         <div class="clr"></div>
                                                     </div>
-                                                    <div class="sub_rubric_container_other sub_rubric_container_10 subcategory_736" style="display: none;">
+
+
+                                                    {% endif %}
+                                                    {% endfor %}
+
+
+                                                    {% for sub_item in item.get_children %}
+                                                    {% if not sub_item.menu_type %}
+                                                    <div class="sub_rubric_container_other sub_rubric_container_10 subcategory_{{ sub_item.id  }}" style="display: none;">
                                                         <ul class="ul subrubric_list">
-                                                            <li class="double" id="show_subcategory_736">
+                                                            {% for sub_item_chld in sub_item.get_children %}
+                                                            <li class="double" id="{{ sub_item_chld.id  }}">
                                                                 <div class="container">
                                                                     <div class="title">
-                                                                        <a href="https://f.ua/shop/rezat-shlifovat/">Резать,
-                                                                            шлифовать</a>
+                                                                        <a href="{{ sub_item_chld.get_absolute_url }}">{{ sub_item_chld.name }}</a>
                                                                     </div>
                                                                     <div class="img">
-                                                                        <a href="https://f.ua/shop/rezat-shlifovat/"><img alt=
-                                                                                                                                  "" src="https://f.ua/statik/images/icons/975_2.png"
-                                                                                                                          style="opacity: 1;"></a>
+                                                                        <a href="{{ sub_item_chld.get_absolute_url }}">
+                                                                            {% thumbnail sub_item_chld.image "100x100" crop="center" as im %}
+                                                                            <img alt=""src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" style="opacity: 1;"/></a>
+                                                                            {% endthumbnail %}
                                                                     </div>
                                                                     <div class="subcategories">
                                                                         <div class="subcategories_wrapper">
                                                                             <ul class="ul">
+                                                                               {% for last_item in sub_item_chld.get_children %}
                                                                                 <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/bolgarki-uglovye-shlifovalnye-mashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/658.png">Болгарки
-                                                                                    (угловые шлифовальные машины)</a>
+                                                                                    <span class="icon">
+
+                                                                                    </span>
+                                                                                    <a href="{{ last_item.get_absolute_url }}" rel="https://f.ua/statik/images/icons/658.png">{{ last_item.name }}</a>
                                                                                 </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/lobziki-elektricheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/657.png">Лобзики
-                                                                                    электрические</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/diskovye-pily/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/659.png">Дисковые
-                                                                                    пилы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/torcovochnye-pily/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/662.png">Торцовочные
-                                                                                    пилы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/polirovalnye-mashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1791.png">Полировальные
-                                                                                    машины</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/lentochnye-shlifmashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/664.png">Ленточные
-                                                                                    шлифмашины</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/ekscentrikovye-shlifovalnye-mashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/665.png">Эксцентриковые
-                                                                                    шлифовальные машины</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/vibroshlifovalnye-mashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/663.png">Виброшлифовальные
-                                                                                    машины</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/frezery/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/666.png">Фрезеры</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/pryamye-shlifovalnye-mashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/713.png">Прямые
-                                                                                    шлифовальные машины</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/rubanki-elektricheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/693.png">Рубанки
-                                                                                    электрические</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/sabelnye-pily/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/660.png">Сабельные
-                                                                                    пилы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/pnevmaticheskie-shlifmashiny/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1809.png">Пневматические
-                                                                                    шлифмашины</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/nozhnicy-elektricheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/723.png">Ножницы
-                                                                                    электрические</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/stanki-zatochnye/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1182.png">Станки
-                                                                                    заточные</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/verstaki/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1041.png">Верстаки</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/gravery/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1934.png">Граверы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/renovatory/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1734.png">Реноваторы</a>
-                                                                                </li>
+
+                                                                                {% endfor %}
                                                                             </ul>
                                                                             <div class="opacity_bg"></div>
                                                                         </div>
@@ -372,496 +103,14 @@
                                                                     <div class="clr"></div>
                                                                 </div>
                                                             </li>
-                                                            <li class="double" id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/zakrutit-prosverlit-zaklepat/">Закрутить,
-                                                                            просверлить, заклепать</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/zakrutit-prosverlit-zaklepat/"><img alt=""
-                                                                                                                                          src="https://f.ua/statik/images/icons/974.png" style=
-                                                                                                                                                  "opacity: 1;"></a>
-                                                                    </div>
-                                                                    <div class="subcategories">
-                                                                        <div class="subcategories_wrapper">
-                                                                            <ul class="ul">
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/shurupoverty-elektricheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/656.png">Шуруповерты
-                                                                                    электрические</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/perforatory/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/654.png">Перфораторы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/dreli-elektricheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/655.png">Дрели
-                                                                                    электрические</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/shurupoverty-pnevmaticheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1114.png">Шуруповерты
-                                                                                    пневматические</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/dreli-pnevmaticheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1116.png">Дрели
-                                                                                    пневматические</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/zaklepochniki-pnevmaticheskie/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1118.png">Заклепочники
-                                                                                    пневматические</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/steplery-stroitelnye/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1852.png">Строительные
-                                                                                    степлеры и пистолеты</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/stanki-sverlilnye/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1249.png">Станки
-                                                                                    сверлильные</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/stojki-dlya-krepleniya-elektroinstrumentov/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1834.png">Стойки
-                                                                                    для крепления электроинструментов</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/samorezy/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2280.png">Саморезы
-                                                                                    и шурупы</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="opacity_bg"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="double" id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/kleit-krasit-lomat/">Клеить,
-                                                                            красить, ломать</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/kleit-krasit-lomat/"><img alt=""
-                                                                                                                                src="https://f.ua/statik/images/icons/653.png" style=
-                                                                                                                                        "opacity: 1;"></a>
-                                                                    </div>
-                                                                    <div class="subcategories">
-                                                                        <div class="subcategories_wrapper">
-                                                                            <ul class="ul">
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/feny-stroitelnye/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/tehfen.png">Фены
-                                                                                    строительные</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/kraskopulty-kraskoraspyliteli/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/799.png">Краскопульты
-                                                                                    (краскораспылители)</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/aksessuary-k-kraskopultam/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/acspaint01.png">Аксессуары
-                                                                                    к краскопультам</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/kleevye-pistolety/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/742_2.png">Клеевые
-                                                                                    пистолеты</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/termoklei-dlya-kleevyh-pistoletov/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2157.jpg">Термоклеи
-                                                                                    для клеевых пистолетов</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/gazovye-payalnye-lampy/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/387.png">Газовые
-                                                                                    паяльники и паяльные лампы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/malyarnye-valiki-i-roliki/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2116.png">Малярные
-                                                                                    валики и ролики</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/otbojnye-molotki/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/721.png">Отбойные
-                                                                                    молотки</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/malyarnye-kisti/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2117.png">Малярные
-                                                                                    кисти</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="opacity_bg"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="double" id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/prinadlezhnosti-k-elektroinstrumentam/">
-                                                                            Принадлежности к электроинструментам</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/prinadlezhnosti-k-elektroinstrumentam/">
-                                                                            <img alt="" src=
-                                                                                    "https://f.ua/statik/images/icons/696.png" style=
-                                                                                         "opacity: 1;"></a>
-                                                                    </div>
-                                                                    <div class="subcategories">
-                                                                        <div class="subcategories_wrapper">
-                                                                            <ul class="ul">
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/rashodnye-materialy-k-cepnym-pilam/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/787.png">Расходные
-                                                                                    материалы к цепным пилам</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/sverla-i-bury/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/703.png">Сверла,
-                                                                                    буры, коронки</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/bity-i-derzhateli/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/699.png">Биты
-                                                                                    и держатели</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/polotna-dlya-pil-i-lobzikov/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/702.png">Полотна
-                                                                                    для пил и лобзиков</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/shlifovalnye-rashodnye-materialy/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/705.png">Шлифовальные
-                                                                                    расходные материалы</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/otreznye-diski/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/701.png">Отрезные
-                                                                                    диски</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/zazhimnye-patrony/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1102.png">Зажимные
-                                                                                    патроны</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/frezy/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/704.png">Фрезы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/skoby/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1866.png">Скобы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/aksessuary-dlya-shlifovalnyh-mashin/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/kozhuh1777.png">Аксессуары
-                                                                                    для шлифовальных машин</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/akkumulyatory-k-elektroinstrumentam/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/698.png">Аккумуляторы
-                                                                                    к электроинструментам</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/nasadki-dlya-renovatorov/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1747.png">Насадки
-                                                                                    для реноваторов</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/aksessuary-k-rubankam-i-elektrorubankam/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2217.png">Аксессуары
-                                                                                    к рубанкам и электрорубанкам</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/zaryadnye-ustrojstva/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/697.png">Зарядные
-                                                                                    устройства</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="opacity_bg"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="double" id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href="https://f.ua/shop/ruchnoj-instrument/">Ручной
-                                                                            инструмент</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/ruchnoj-instrument/"><img alt=""
-                                                                                                                                src="https://f.ua/statik/images/icons/737.png" style=
-                                                                                                                                        "opacity: 1;"></a>
-                                                                    </div>
-                                                                    <div class="subcategories">
-                                                                        <div class="subcategories_wrapper">
-                                                                            <ul class="ul">
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/plotnickij-i-stolyarnyj-instrument/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2144.png">Плотницкий
-                                                                                    и столярный инструмент</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/udarno-rychazhnyj-instrument/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2146.png">Ударно-рычажный
-                                                                                    инструмент</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/otdelochnyj-instrument/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2145-1.png">Отделочный
-                                                                                    инструмент</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/klyuchi-otvertki-ploskogubcy/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2279_1.png">Ключи,
-                                                                                    отвертки, плоскогубцы</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/razmetochnyj-i-izmeritelnyj-instrument/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/2281.png">Разметочный
-                                                                                    и измерительный инструмент</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/nabory-ruchnyh-instrumentov/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/toolsset01.png">Наборы
-                                                                                    ручных инструментов</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/nozhnicy-po-metallu/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1403.png">Ножницы
-                                                                                    по металлу</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/yaschiki-dlya-instrumentov/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1546.png">Ящики
-                                                                                    и коробки для инструментов</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/zaklepochniki/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1306-1.png">Заклепочники</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="opacity_bg"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="double" id="show_subcategory_736">
-                                                                <div class="container">
-                                                                    <div class="title">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/stroitelnoe-oborudovanie/">Строительное
-                                                                            оборудование</a>
-                                                                    </div>
-                                                                    <div class="img">
-                                                                        <a href=
-                                                                                   "https://f.ua/shop/stroitelnoe-oborudovanie/"><img alt=
-                                                                                                                                              "" src="https://f.ua/statik/images/icons/1157.png"
-                                                                                                                                      style="opacity: 1;"></a>
-                                                                    </div>
-                                                                    <div class="subcategories">
-                                                                        <div class="subcategories_wrapper">
-                                                                            <ul class="ul">
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/lestnicy-i-stremyanki/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/738.png">Лестницы
-                                                                                    и стремянки</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/cherdachnye-lestnici/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1554.png">Чердачные
-                                                                                    лестницы</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/svarochnye-apparaty/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1071.png">Сварочные
-                                                                                    аппараты</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/plazmorezy/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1503.png">Плазморезы</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/aksessuary-i-sredstva-zaschity-dlya-svarki/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1184_3.png">Аксессуары
-                                                                                    и средства защиты для сварки</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/tachki-sadovo-stroitelnye-1135/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/tachki02.png">Тачки
-                                                                                    садово-строительные</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/miksery-stroitelnye/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1786.png">Миксеры
-                                                                                    строительные</a>
-                                                                                </li>
-                                                                                <li class="bold">
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/kompressory/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1170.png">Компрессоры</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/betonomeshalki/" rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1163.png">Бетономешалки</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/pnevmaticheskie-shlangi-i-fitingi/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1900.png">Пневматические
-                                                                                    шланги и фитинги</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/prinadlezhnosti-i-aksessuary-k-kompressoram/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1775.png">Принадлежности
-                                                                                    и аксессуары к компрессорам</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <span class="icon"></span><a href=
-                                                                                                                         "https://f.ua/shop/payalniki-dlya-plastikovyh-trub/"
-                                                                                                                 rel=
-                                                                                                                         "https://f.ua/statik/images/icons/1185_2.png">Паяльники
-                                                                                    для пластиковых труб</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                            <div class="opacity_bg"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="clr"></div>
-                                                                </div>
-                                                            </li>
+                                                            {% endfor %}
                                                         </ul>
                                                         <div class="clr"></div>
-                                                        <div class="what_else" id="what_else_block_736" style=
-                                                                "display: block;">
-                                                            <div class="title">
-                                                                Что еще:
-                                                            </div>
-                                                            <ul class="ul">
-                                                                <li class="bold">
-                                                                    <a href=
-                                                                               "https://f.ua/shop/perenosnye-svetilniki/"><img alt="" src=
-                                                                            "https://f.ua/statik/images/icons/1789.png" style=
-                                                                                                                                       "opacity: 1;"> <span>Переносные светильники</span></a>
-                                                                </li>
-                                                                <li class="bold">
-                                                                    <a href="https://f.ua/shop/telfery/"><img alt="" src=
-                                                                            "https://f.ua/statik/images/icons/1065_2.png" style=
-                                                                                                                      "opacity: 1;"> <span>Тельферы</span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+
                                                     </div>
+                                                    {% endif %}
+                                                    {% endfor %}
+
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -869,58 +118,8 @@
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Книги, канцтовары</i></a>
-                                <div class="popup_menu">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Зоотовары</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Детский мир</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Отдых, спорт, здоровье</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Для офиса, компьютеры</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Портатив, телефоны</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Для авто</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Бытовая техника</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Фото, видео, аудио, ТВ</i></a>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="item_container">
-                                <a href="#"><i>Дом, сад, ремонт</i></a>
-                            </div>
-                        </td>
+                        {% endif %}
+                    {% endfor %}
                     </tr>
                 </table>
             </div>

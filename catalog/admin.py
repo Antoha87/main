@@ -49,6 +49,7 @@ class GoodsAdmin(AdminImageMixin, admin.ModelAdmin):
 
 class FileProcessingAdmin(admin.ModelAdmin):
     list_display = ('__name__', 'date', 'status')
+    exclude = ('status',)
 
     def __name__(self, obj):
         return u'Импорт'

@@ -178,12 +178,12 @@
                             <!--                Start. Show search form-->
                             <div class="frame-search-form">
                                 <div class="p_r">
-                                    <form name="search" method="get" action="http://stroymag.ua/shop/search"  id="autocomlete">
+                                    <form name="search" method="get" action="{% url 'search' %}"  id="autocomlete">
               <span class="btn-search">
               <button type="submit"><span class="icon_search"></span><span class="text-el">Найти</span></button>
               </span>
                                         <div class="frame-search-input">
-                                            <input type="text" class="input-search" id="inputString" name="text" autocomplete="off" value=""  placeholder="Введите название товара или артикул"  />
+                                            <input type="text" class="input-search"  name="text" autocomplete="off" value=""  placeholder="Введите название товара или артикул"  />
                                             <div id="suggestions" class="drop drop-search"></div>
                                         </div>
                                     </form>

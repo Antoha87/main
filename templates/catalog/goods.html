@@ -6,6 +6,7 @@
  <div class="content">
         <div class="frame-crumbs">
             <!-- Making bread crumbs -->
+
             <div class="crumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                 <div class="container">
                     <ul class="items items-crumbs">
@@ -354,37 +355,20 @@
                         </div>
                         <div class="inside-padd">
                             <!--                        Start. Description block-->
+                            {% if object.description %}
                             <div class="product-descr patch-product-view">
                                 <div class="text">
                                     <div class="title-h2">Информация</div>
                                     <p>
                                         Основные характеристики:</p>
-                                    <ul>
-                                        <li>
-                                            Боковые поверхности&nbsp;закрыты защитными элементами</li>
-                                        <li>
-                                            Верхняя поверхность закрыта планкой типа &quot;гриль&quot;</li>
-                                        <li>
-                                            Вмонтированный вкладыш термостатического крана - нет</li>
-                                        <li>
-                                            Подсоединение&nbsp;боковое (справа, слева) &nbsp;с внутренней резьбой G1/2</li>
-                                        <li>
-                                            Материал&nbsp;высококачественный глубокоштампованный лист из низкоуглеродистой холоднокатанной стали FeP0 1 по EN 10130</li>
-                                        <li>
-                                            Шаг вертикальних водяных каналов&nbsp;33 1/3 мм</li>
-                                        <li>
-                                            Рабочее давление&nbsp;10 бар</li>
-                                        <li>
-                                            Максимальная температура&nbsp;110* С</li>
-                                        <li>
-                                            Аксессуары в комплекте - кронштейны, пробка, деаэратор.</li>
-                                    </ul>                                                </div>
+                                    {{ object.description|safe }}
                             </div>
                             <button class="t-d_n f-s_0 s-all-d ref d_n_" data-trigger="[data-href='#second']" data-scroll="true">
                                 <span class="icon_arrow"></span>
                                 <span class="text-el">Полное описание</span>
                             </button>
                             <!--                        End. Description block-->
+                            {% endif %}
                         </div>
 
                         <div class="inside-padd">
