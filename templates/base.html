@@ -76,26 +76,14 @@
                     <!--        Logo-->
    <span class="logo"><a href="{% url 'index' %}"> <img src="{% static 'css/color_scheme_1/images/logo.png'%}" alt="logo.png"/></a>
        <div class="lang-switch">
-       <select name="lang-switch" onchange="switchCity(this);" data-old="">
+       <select name="lang-switch">
            <option value="" selected >Запорожье</option>
            <option value="dnepropetrovsk"  >Днепропетровск</option>
            <option value="odessa"  >Одесса</option>
            <option value="kiev"  >Киев</option>
        </select>
    </div>
-	<script type="text/javascript">
-        function switchCity(o) {
-            var cityUrl = $(o).val();
-            $.post('/cities/setCity/'+cityUrl, function(e){
-                if (e) {
-                    var url = window.location.href;
-                    var oldCity = $('select[name=lang-switch]').data('old');
-                    url = url.replace('/shop/category'+(oldCity?'/'+oldCity+'/':'/'), '/shop/category'+(cityUrl?'/'+cityUrl+'/':'/'));
-                    window.location.href = url;
-                }
-            });
-        }
-    </script>
+
  </span>   <div class="left-content-header">
                     <div class="header-left-content-header">
                         <!--                Start. contacts block-->
