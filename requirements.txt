@@ -3,6 +3,7 @@ Django==1.9.5
 django-appconf==1.0.1
 django-ckeditor==5.0.3
 django-debug-toolbar==1.4
+django-filter==0.13.0
 django-geoip==0.5.2
 django-mptt==0.8.3
 django-mptt-urls==2.0.3

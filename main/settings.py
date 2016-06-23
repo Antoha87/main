@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'mptt',
     'django_geoip',
     'smart_selects',
+    'django_filters',
 
     # my_app
     'pages',

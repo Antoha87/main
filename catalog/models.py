@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+import django_filters
+from django_filters import filters
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
@@ -79,11 +80,6 @@ class Location(models.Model):
         return self.get_location_display()
 
 
-class AdFilterManager(models.Manager):
-    def get_queryset(self):
-        return self.model.QuerySet(self.model)
-
-
 class Goods(models.Model):
     article = models.CharField(u'Артикул', max_length=100, blank=True, null=True)
     kod = models.CharField(u'Код товара', max_length=100, blank=True, null=True)
@@ -141,13 +137,22 @@ class Goods(models.Model):
     def __unicode__(self):
         return self.article or str(self.pk)
 
-    class QuerySet(QuerySet):
 
-        def filter_by_price(self, gt=None, lt=None):
-            qs = self
-            if gt: qs = qs.filter(price__gte=gt)
-            if lt: qs = qs.filter(price__lte=lt)
-            return qs
+class ProductPriceFilter(django_filters.FilterSet):
+
+    class Meta:
+        model = Goods
+        fields = {
+            'price': ['lte', 'gte'],
+        }
+
+
+class BrandFilter(django_filters.FilterSet):
+    author = filters.ModelChoiceFilter(queryset=Brand.objects.all())
+
+    class Meta:
+        model = Goods
+        fields = ['brand']
 
 
 class GoodsVariation(models.Model):

@@ -59,7 +59,7 @@
 
                             <ul class="animateListItems items items-catalog  table" id="items-catalog-main">
                     <!-- Include template for one product item-->
-                                {% for item in goods %}
+                                {% for item in filter %}
 
                                 <li data-pos="top">
 
@@ -166,32 +166,7 @@
                                         <!-- End.If count products in category > 0 then show products and pagination links -->
         </div>
         <!-- Load filter-->
-        <script type="text/javascript">
-    totalProducts = parseInt('1');
-    function createObjSlider(minCost, maxCost, defMin, defMax, curMin, curMax, lS, rS){
-        this.minCost = minCost;
-        this.maxCost = maxCost;
-        this.defMin = defMin;
-        this.defMax = defMax;
-        this.curMin = curMin;
-        this.curMax = curMax;
-        this.lS = lS;
-        this.rS = rS;
-    };
-    sliders = new Object();
-    sliders.slider1 = new createObjSlider('.minCost', '.maxCost', 104, 184, 104, 184, 'lp', 'rp');
-	var elem;
 
-    var propRange = [{"id":5,"min":false,"max":false,"curMin":false,"curMax":false},{"id":66,"min":false,"max":false,"curMin":false,"curMax":false},{"id":82,"min":false,"max":false,"curMin":false,"curMax":false},{"id":83,"min":false,"max":false,"curMin":false,"curMax":false},{"id":84,"min":false,"max":false,"curMin":false,"curMax":false},{"id":150,"min":false,"max":false,"curMin":false,"curMax":false}];
-    function createPropObjSlider(elem, i)
-    {
-
-		sliders['slider'+elem.id] = new createObjSlider('.left'+elem.id, '.right'+elem.id, elem.min, elem.max, elem.curMin, elem.curMax, 'p['+elem.id+'][lp]', 'p['+elem.id+'][rp]');
-
-    } ;
-
-   	propRange.forEach(createPropObjSlider);
-</script>
 
 <div class="d_n wrap-frames-checks-sliders hasCheck">
 
@@ -205,32 +180,7 @@
     <input type="hidden" name="user_per_page" value="9">
             <div class="frame-filter p_r">
             <div class="preloader wo-i" style="display: none;"></div>
-<script type="text/javascript">
-    totalProducts = parseInt('1');
-    function createObjSlider(minCost, maxCost, defMin, defMax, curMin, curMax, lS, rS){
-        this.minCost = minCost;
-        this.maxCost = maxCost;
-        this.defMin = defMin;
-        this.defMax = defMax;
-        this.curMin = curMin;
-        this.curMax = curMax;
-        this.lS = lS;
-        this.rS = rS;
-    };
-    sliders = new Object();
-    sliders.slider1 = new createObjSlider('.minCost', '.maxCost', 104, 184, 104, 184, 'lp', 'rp');
-	var elem;
 
-    var propRange = [{"id":5,"min":false,"max":false,"curMin":false,"curMax":false},{"id":66,"min":false,"max":false,"curMin":false,"curMax":false},{"id":82,"min":false,"max":false,"curMin":false,"curMax":false},{"id":83,"min":false,"max":false,"curMin":false,"curMax":false},{"id":84,"min":false,"max":false,"curMin":false,"curMax":false},{"id":150,"min":false,"max":false,"curMin":false,"curMax":false}];
-    function createPropObjSlider(elem, i)
-    {
-
-		sliders['slider'+elem.id] = new createObjSlider('.left'+elem.id, '.right'+elem.id, elem.min, elem.max, elem.curMin, elem.curMax, 'p['+elem.id+'][lp]', 'p['+elem.id+'][rp]');
-
-    } ;
-
-   	propRange.forEach(createPropObjSlider);
-</script>
 
 
 
@@ -246,17 +196,19 @@
                     <a href="#" class="ui-slider-handle right-slider ui-state-default ui-corner-all" style="left: 100%;"></a>
                 <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div></div>
             </div>
-            <div class="form-cost number">{{ filter_price }}
+            <div class="form-cost number">
                 <div class="t-a_j">
+                    <form action="" method="get">
                                         <label>
-                        <input type="text" class="minCost" data-title="только цифры" name="lp" value="{{ filter_price }}">
+                        <input type="text" class="minCost" data-title="только цифры" name="price__gte" value="{{ min }}" >
                     </label>
                     <span>–</span>
                     <label>
-                        <input type="text" class="maxCost" data-title="только цифры" name="rp" value="{{ max_price }}">
+                        <input type="text" class="maxCost" data-title="только цифры" name="price__lte" value="{{ max }}" >
                     </label>
                     <div class="btn_def">
                         <input type="submit" value="ОК">
+                    </form>
                     </div>
                 </div>
             </div>

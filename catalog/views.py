@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.db.models import Count, Min, Max, Q, FloatField
 import pymorphy2
 
-from .models import Category, Goods, GoodsVariation, ImageGallery
+from .models import Category, Goods, GoodsVariation, ImageGallery, ProductPriceFilter
 
 
 class CatalogView(ListView):
@@ -35,10 +35,14 @@ class CategoryView(ListView):
         goods = Goods.objects.filter(category__slug=slug)
         if len(goods) > 0:
             ctx['goods'] = goods
-            ctx['filter_price'] = goods.aggregate(min=Min('price'), max=Max('price'))
+            filter_price = goods.aggregate(min=Min('price'), max=Max('price'))
+            ctx['min'] = int(filter_price.get('min'))
+            ctx['max'] = int(filter_price.get('max'))
             morph = pymorphy2.MorphAnalyzer()
             goods_str = morph.parse(u'товар')[0]
-            ctx['goods_count_str'] = u'%s %s' % (goods.count(), goods_str.make_agree_with_number(int(goods.count())).word)
+            ctx['filter'] = ProductPriceFilter(self.request.GET, queryset=goods)
+            ctx['goods_count_str'] = u'%s %s' % (ctx['filter'].count(), goods_str.make_agree_with_number(int(ctx['filter'].count())).word)
+
         return ctx
 
 
