@@ -36,8 +36,8 @@ class CategoryView(ListView):
         if len(goods) > 0:
             ctx['goods'] = goods
             filter_price = goods.aggregate(min=Min('price'), max=Max('price'))
-            ctx['min'] = int(filter_price.get('min'))
-            ctx['max'] = int(filter_price.get('max'))
+            ctx['min'] = int(filter_price.get('min', 0))
+            ctx['max'] = int(filter_price.get('max', 0))
             morph = pymorphy2.MorphAnalyzer()
             goods_str = morph.parse(u'товар')[0]
             ctx['filter'] = ProductPriceFilter(self.request.GET, queryset=goods)
