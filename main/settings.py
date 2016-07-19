@@ -49,10 +49,13 @@ INSTALLED_APPS = [
     'django_geoip',
     'smart_selects',
     'django_filters',
+    'registration',
 
     # my_app
     'pages',
     'catalog',
+    'cart',
+    'client',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -64,6 +67,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cart.middleware.ShopMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -79,6 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.shop_globals',
             ],
         },
     },
@@ -119,6 +124,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'client.Client'
 
 
 # Internationalization
