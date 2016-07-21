@@ -1,0 +1,2313 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block title %}СтройМАГ в Киеве, Одессе, Днепропетровске и Запорожье{% endblock %}
+{% block content %}
+
+<div class="frame-baner-start_page">
+		<section class="baner container_1240">
+
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+                    {% for item in banners %}
+					<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter0 }}" {%if forloop.first %}class="active"{% endif %}></li>
+					{% endfor %}
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+                    {% for item in banners %}
+					<div class="item {%if forloop.first %}active{% endif %}">
+						{% thumbnail item.img "1240x313" crop="center" as im %}
+                            <img src="{{ im.url }}" alt="{{ item.head }}">
+                            {% endthumbnail %}
+						<div class="carousel-caption">
+							<h3>{{ item.head }}</h3>
+							<p>{{ item.text|safe }}</p>
+						</div>
+					</div>
+                    {% empty %}
+                            Нету баннеров
+                    {% endfor %}
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+		</section>
+	</div>
+        <div class="horizontal-carousel">
+
+            <div id="popular_products">
+
+
+                <section class="special-proposition">
+                    <div class="frame-title">
+                        <div class="title">
+                            <span class="text-el">Товары недели</span>
+                        </div>
+                    </div>
+                    <div class="big-container">
+                        <div class="carousel_js products-carousel">
+                            <div class="content-carousel container">
+                                <ul class="items items-catalog items-h-carousel">
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/mizolfoto158.jpg" alt="" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/mizolfoto157.jpg" />
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Стальной радиатор отопления Purmo Compact-22 500х500мм</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Purmo</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">1231.58</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_51225 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 1" data-prodid="22866" data-varid="51225" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="51225"
+                                                                data-color="0"
+                                                                data-prodid="22866"
+                                                                data-varid="51225"
+                                                                data-price="1231.58"
+                                                                data-count="1"
+                                                                data-name="Стальной радиатор отопления Purmo Compact-22 500х500мм"
+                                                                data-vname=""
+                                                                data-maxcount="1"
+                                                                data-number="471-02"
+                                                                data-mediumImage="uploads/shop/products/medium/mizolfoto158.jpg"
+                                                                data-img="uploads/shop/products/small/mizolfoto158.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/stalnoi-radiator-otopleniia-purmo-compact-22-500h500mm"
+                                                                data-origPrice=""
+                                                                data-addPrice="51.73"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/mizolfoto324.jpg" alt="" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/mizolfoto323.jpg" />
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Сайдинг панель под бревно FaSiding орех 3,66м*23см</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">FaSiding</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">132.16</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                                                            <span style="font-size: 12px!important;">за 1 метр кв.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_51150 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 1" data-prodid="22826" data-varid="51150" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="51150"
+                                                                data-color="0"
+                                                                data-prodid="22826"
+                                                                data-varid="51150"
+                                                                data-price="132.16"
+                                                                data-count="1"
+                                                                data-name="Сайдинг панель под бревно FaSiding орех 3,66м*23см"
+                                                                data-vname=""
+                                                                data-maxcount="1"
+                                                                data-number="292-04"
+                                                                data-mediumImage="uploads/shop/products/medium/mizolfoto324.jpg"
+                                                                data-img="uploads/shop/products/small/mizolfoto324.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/saiding-panel-pod-brevno-fasiding-oreh-366m23sm"
+                                                                data-origPrice=""
+                                                                data-addPrice="5.55"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/mizolfoto326.jpg" alt="" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/mizolfoto357.jpg" />
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Битумная черепица IKO Biltmore Дуал браун 53</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">IKO</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">279.47</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                                                            <span style="font-size: 12px!important;">за 1 метр кв.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_51126 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 1" data-prodid="22802" data-varid="51126" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="51126"
+                                                                data-color="0"
+                                                                data-prodid="22802"
+                                                                data-varid="51126"
+                                                                data-price="279.47"
+                                                                data-count="1"
+                                                                data-name="Битумная черепица IKO Biltmore Дуал браун 53"
+                                                                data-vname=""
+                                                                data-maxcount="1"
+                                                                data-number="247-02"
+                                                                data-mediumImage="uploads/shop/products/medium/mizolfoto326.jpg"
+                                                                data-img="uploads/shop/products/small/mizolfoto326.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/bitumnaia-cherepitsa-iko-biltmore-dual-braun-53"
+                                                                data-origPrice=""
+                                                                data-addPrice="11.74"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/mizolfoto131.jpg" alt="" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/mizolfoto134.jpg" />
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Сотовый поликарбонат Sunlite прозрачный 1050х2000х4мм</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Sunlite</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">284.21</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                                                            <span style="font-size: 12px!important;">за 1 лист</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_50410 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 1" data-prodid="22664" data-varid="50410" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="50410"
+                                                                data-color="0"
+                                                                data-prodid="22664"
+                                                                data-varid="50410"
+                                                                data-price="284.21"
+                                                                data-count="1"
+                                                                data-name="Сотовый поликарбонат Sunlite прозрачный 1050х2000х4мм"
+                                                                data-vname=""
+                                                                data-maxcount="1"
+                                                                data-number="249-01"
+                                                                data-mediumImage="uploads/shop/products/medium/mizolfoto131.jpg"
+                                                                data-img="uploads/shop/products/small/mizolfoto131.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/sotovyi-polikarbonat-sunlite-prozrachnyi-1050h2000h4mm"
+                                                                data-origPrice=""
+                                                                data-addPrice="11.94"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/mizolfoto293.jpg" alt="" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/mizolfoto309.jpg" />
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Пластиковый прозрачный шифер Salux W-76/18 волна</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Salux</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">237.89</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                                                            <span style="font-size: 12px!important;">за 1 лист</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_50387 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 1" data-prodid="22647" data-varid="50387" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="50387"
+                                                                data-color="0"
+                                                                data-prodid="22647"
+                                                                data-varid="50387"
+                                                                data-price="237.89"
+                                                                data-count="1"
+                                                                data-name="Пластиковый прозрачный шифер Salux W-76/18 волна"
+                                                                data-vname=""
+                                                                data-maxcount="1"
+                                                                data-number="242-01"
+                                                                data-mediumImage="uploads/shop/products/medium/mizolfoto293.jpg"
+                                                                data-img="uploads/shop/products/small/mizolfoto293.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/plastikovyi-prozrachnyi-shifer-salux-w-76-18-volna"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.99"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/oselya244.jpg" alt="Кратно рулону" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/oselya712.jpg" />
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Флизелиновые обои Эдем Статус 918-31</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Status</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">537.30</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="check-variant-catalog">
+                                                <div class="lineForm">
+                                                    <select id="сVariantSwitcher_462821549984912" name="variant">
+                                                        <option value="46282" onclick="checkStock(this);" data-stock="500" title="Кратно рулону">Кратно рулону</option>
+                                                        <option value="46283" onclick="checkStock(this);" data-stock="500" title="Кратно 1 упаковке">Кратно 1 упаковке</option>
+                                                        <option value="46284" onclick="checkStock(this);" data-stock="500" title="Кратно 2 и бол. упак.">Кратно 2 и бол. упак.</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_46282 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20607" data-varid="46282" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="46282"
+                                                                data-color="0"
+                                                                data-prodid="20607"
+                                                                data-varid="46282"
+                                                                data-price="537.30"
+                                                                data-count="1"
+                                                                data-name="Флизелиновые обои Эдем Статус 918-31"
+                                                                data-vname="Кратно рулону"
+                                                                data-maxcount="500"
+                                                                data-number="2105-1375"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya244.jpg"
+                                                                data-img="uploads/shop/products/small/oselya244.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/flizelinovye-oboi-edem-status-918-31"
+                                                                data-origPrice=""
+                                                                data-addPrice="22.57"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_46283 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20607" data-varid="46283" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="46283"
+                                                                data-color="0"
+                                                                data-prodid="20607"
+                                                                data-varid="46283"
+                                                                data-price="510.44"
+                                                                data-count="1"
+                                                                data-name="Флизелиновые обои Эдем Статус 918-31"
+                                                                data-vname="Кратно 1 упаковке"
+                                                                data-maxcount="500"
+                                                                data-number="2105-1376"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya244.jpg"
+                                                                data-img="uploads/shop/products/small/oselya244.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/flizelinovye-oboi-edem-status-918-31"
+                                                                data-origPrice=""
+                                                                data-addPrice="21.44"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_46284 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20607" data-varid="46284" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="46284"
+                                                                data-color="0"
+                                                                data-prodid="20607"
+                                                                data-varid="46284"
+                                                                data-price="483.57"
+                                                                data-count="1"
+                                                                data-name="Флизелиновые обои Эдем Статус 918-31"
+                                                                data-vname="Кратно 2 и бол. упак."
+                                                                data-maxcount="500"
+                                                                data-number="2105-1377"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya244.jpg"
+                                                                data-img="uploads/shop/products/small/oselya244.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/flizelinovye-oboi-edem-status-918-31"
+                                                                data-origPrice=""
+                                                                data-addPrice="20.31"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/oselya44.jpg" alt="Кратно рулону" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/oselya700.jpg" />
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Виниловые обои Эдем Статус  752-37</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Status</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">235.58</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="check-variant-catalog">
+                                                <div class="lineForm">
+                                                    <select id="сVariantSwitcher_452531551343925" name="variant">
+                                                        <option value="45253" onclick="checkStock(this);" data-stock="500" title="Кратно рулону">Кратно рулону</option>
+                                                        <option value="45254" onclick="checkStock(this);" data-stock="500" title="Кратно 1 упаковке">Кратно 1 упаковке</option>
+                                                        <option value="45255" onclick="checkStock(this);" data-stock="500" title="Кратно 2 и бол. упак.">Кратно 2 и бол. упак.</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_45253 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20264" data-varid="45253" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45253"
+                                                                data-color="0"
+                                                                data-prodid="20264"
+                                                                data-varid="45253"
+                                                                data-price="235.58"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус  752-37"
+                                                                data-vname="Кратно рулону"
+                                                                data-maxcount="500"
+                                                                data-number="2105-214"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya44.jpg"
+                                                                data-img="uploads/shop/products/small/oselya44.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-752-37"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.89"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_45254 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20264" data-varid="45254" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45254"
+                                                                data-color="0"
+                                                                data-prodid="20264"
+                                                                data-varid="45254"
+                                                                data-price="223.80"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус  752-37"
+                                                                data-vname="Кратно 1 упаковке"
+                                                                data-maxcount="500"
+                                                                data-number="2105-215"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya44.jpg"
+                                                                data-img="uploads/shop/products/small/oselya44.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-752-37"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.40"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_45255 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20264" data-varid="45255" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45255"
+                                                                data-color="0"
+                                                                data-prodid="20264"
+                                                                data-varid="45255"
+                                                                data-price="212.02"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус  752-37"
+                                                                data-vname="Кратно 2 и бол. упак."
+                                                                data-maxcount="500"
+                                                                data-number="2105-216"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya44.jpg"
+                                                                data-img="uploads/shop/products/small/oselya44.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-752-37"
+                                                                data-origPrice=""
+                                                                data-addPrice="8.90"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/oselya50.jpg" alt="Кратно рулону" class="vimg"/>
+
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Виниловые обои Эдем Статус  753-35</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Status</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">235.58</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="check-variant-catalog">
+                                                <div class="lineForm">
+                                                    <select id="сVariantSwitcher_45271267832862" name="variant">
+                                                        <option value="45271" onclick="checkStock(this);" data-stock="500" title="Кратно рулону">Кратно рулону</option>
+                                                        <option value="45272" onclick="checkStock(this);" data-stock="500" title="Кратно 1 упаковке">Кратно 1 упаковке</option>
+                                                        <option value="45273" onclick="checkStock(this);" data-stock="500" title="Кратно 2 и бол. упак.">Кратно 2 и бол. упак.</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_45271 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20270" data-varid="45271" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45271"
+                                                                data-color="0"
+                                                                data-prodid="20270"
+                                                                data-varid="45271"
+                                                                data-price="235.58"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус  753-35"
+                                                                data-vname="Кратно рулону"
+                                                                data-maxcount="500"
+                                                                data-number="2105-232"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya50.jpg"
+                                                                data-img="uploads/shop/products/small/oselya50.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-753-35"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.89"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_45272 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20270" data-varid="45272" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45272"
+                                                                data-color="0"
+                                                                data-prodid="20270"
+                                                                data-varid="45272"
+                                                                data-price="223.80"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус  753-35"
+                                                                data-vname="Кратно 1 упаковке"
+                                                                data-maxcount="500"
+                                                                data-number="2105-233"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya50.jpg"
+                                                                data-img="uploads/shop/products/small/oselya50.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-753-35"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.40"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_45273 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20270" data-varid="45273" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45273"
+                                                                data-color="0"
+                                                                data-prodid="20270"
+                                                                data-varid="45273"
+                                                                data-price="212.02"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус  753-35"
+                                                                data-vname="Кратно 2 и бол. упак."
+                                                                data-maxcount="500"
+                                                                data-number="2105-234"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya50.jpg"
+                                                                data-img="uploads/shop/products/small/oselya50.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-753-35"
+                                                                data-origPrice=""
+                                                                data-addPrice="8.90"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/oselya163.jpg" alt="Кратно рулону" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/oselya708.jpg" />
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Флизелиновые обои Эдем Статус 907-01</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Status</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">423.90</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="check-variant-catalog">
+                                                <div class="lineForm">
+                                                    <select id="сVariantSwitcher_45355132751466" name="variant">
+                                                        <option value="45355" onclick="checkStock(this);" data-stock="500" title="Кратно рулону">Кратно рулону</option>
+                                                        <option value="45356" onclick="checkStock(this);" data-stock="500" title="Кратно 1 упаковке">Кратно 1 упаковке</option>
+                                                        <option value="45357" onclick="checkStock(this);" data-stock="500" title="Кратно 2 и бол. упак.">Кратно 2 и бол. упак.</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_45355 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20298" data-varid="45355" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45355"
+                                                                data-color="0"
+                                                                data-prodid="20298"
+                                                                data-varid="45355"
+                                                                data-price="423.90"
+                                                                data-count="1"
+                                                                data-name="Флизелиновые обои Эдем Статус 907-01"
+                                                                data-vname="Кратно рулону"
+                                                                data-maxcount="500"
+                                                                data-number="2105-316"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya163.jpg"
+                                                                data-img="uploads/shop/products/small/oselya163.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/flizelinovye-oboi-edem-status-907-01"
+                                                                data-origPrice=""
+                                                                data-addPrice="17.80"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_45356 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20298" data-varid="45356" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45356"
+                                                                data-color="0"
+                                                                data-prodid="20298"
+                                                                data-varid="45356"
+                                                                data-price="402.71"
+                                                                data-count="1"
+                                                                data-name="Флизелиновые обои Эдем Статус 907-01"
+                                                                data-vname="Кратно 1 упаковке"
+                                                                data-maxcount="500"
+                                                                data-number="2105-317"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya163.jpg"
+                                                                data-img="uploads/shop/products/small/oselya163.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/flizelinovye-oboi-edem-status-907-01"
+                                                                data-origPrice=""
+                                                                data-addPrice="16.91"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_45357 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20298" data-varid="45357" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="45357"
+                                                                data-color="0"
+                                                                data-prodid="20298"
+                                                                data-varid="45357"
+                                                                data-price="381.51"
+                                                                data-count="1"
+                                                                data-name="Флизелиновые обои Эдем Статус 907-01"
+                                                                data-vname="Кратно 2 и бол. упак."
+                                                                data-maxcount="500"
+                                                                data-number="2105-318"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya163.jpg"
+                                                                data-img="uploads/shop/products/small/oselya163.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/flizelinovye-oboi-edem-status-907-01"
+                                                                data-origPrice=""
+                                                                data-addPrice="16.02"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                                                            <img src="uploads/shop/products/medium/oselya30.jpg" alt="Кратно рулону" class="mainphoto vimg"/>
+                    <img class="additional" src="uploads/shop/products/additional/oselya701.jpg" />
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Виниловые обои Эдем Статус 760-20</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Status</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">224.78</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="check-variant-catalog">
+                                                <div class="lineForm">
+                                                    <select id="сVariantSwitcher_449681226735504" name="variant">
+                                                        <option value="44968" onclick="checkStock(this);" data-stock="500" title="Кратно рулону">Кратно рулону</option>
+                                                        <option value="44969" onclick="checkStock(this);" data-stock="500" title="Кратно 1 упаковке">Кратно 1 упаковке</option>
+                                                        <option value="44970" onclick="checkStock(this);" data-stock="500" title="Кратно 2 и бол. упак.">Кратно 2 и бол. упак.</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44968 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20169" data-varid="44968" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44968"
+                                                                data-color="0"
+                                                                data-prodid="20169"
+                                                                data-varid="44968"
+                                                                data-price="224.78"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус 760-20"
+                                                                data-vname="Кратно рулону"
+                                                                data-maxcount="500"
+                                                                data-number="2105-61"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya30.jpg"
+                                                                data-img="uploads/shop/products/small/oselya30.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-760-20"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.44"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_44969 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20169" data-varid="44969" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44969"
+                                                                data-color="0"
+                                                                data-prodid="20169"
+                                                                data-varid="44969"
+                                                                data-price="213.54"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус 760-20"
+                                                                data-vname="Кратно 1 упаковке"
+                                                                data-maxcount="500"
+                                                                data-number="2105-62"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya30.jpg"
+                                                                data-img="uploads/shop/products/small/oselya30.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-760-20"
+                                                                data-origPrice=""
+                                                                data-addPrice="8.97"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_44970 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20169" data-varid="44970" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44970"
+                                                                data-color="0"
+                                                                data-prodid="20169"
+                                                                data-varid="44970"
+                                                                data-price="202.30"
+                                                                data-count="1"
+                                                                data-name="Виниловые обои Эдем Статус 760-20"
+                                                                data-vname="Кратно 2 и бол. упак."
+                                                                data-maxcount="500"
+                                                                data-number="2105-63"
+                                                                data-mediumImage="uploads/shop/products/medium/oselya30.jpg"
+                                                                data-img="uploads/shop/products/small/oselya30.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/vinilovye-oboi-edem-status-760-20"
+                                                                data-origPrice=""
+                                                                data-addPrice="8.50"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/zegorsm56.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Смеситель для кухни ZEGOR TZH-725</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">ZEGOR</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">228.48</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44681 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20007" data-varid="44681" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44681"
+                                                                data-color="0"
+                                                                data-prodid="20007"
+                                                                data-varid="44681"
+                                                                data-price="228.48"
+                                                                data-count="1"
+                                                                data-name="Смеситель для кухни ZEGOR TZH-725"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="2204-54"
+                                                                data-mediumImage="uploads/shop/products/medium/zegorsm56.jpg"
+                                                                data-img="uploads/shop/products/small/zegorsm56.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/smesitel-dlia-kuhni-zegor-tzh-725"
+                                                                data-origPrice=""
+                                                                data-addPrice="9.60"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/zegorsm39.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status nowelty"></span>
+
+
+            </span>
+
+                                                <span class="title">Смеситель для кухни ZEGOR TFG-856</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">ZEGOR</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">418.29</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44664 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="19990" data-varid="44664" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44664"
+                                                                data-color="0"
+                                                                data-prodid="19990"
+                                                                data-varid="44664"
+                                                                data-price="418.29"
+                                                                data-count="1"
+                                                                data-name="Смеситель для кухни ZEGOR TFG-856"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="2204-37"
+                                                                data-mediumImage="uploads/shop/products/medium/zegorsm39.jpg"
+                                                                data-img="uploads/shop/products/small/zegorsm39.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/smesitel-dlia-kuhni-zegor-tfg-856"
+                                                                data-origPrice=""
+                                                                data-addPrice="17.57"
+                                                                data-prodStatus='{"hot":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/zegorsm12.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Смеситель для ванны с душем ZEGOR D5Q-827</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">ZEGOR</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">804.94</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44638 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="19964" data-varid="44638" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44638"
+                                                                data-color="0"
+                                                                data-prodid="19964"
+                                                                data-varid="44638"
+                                                                data-price="804.94"
+                                                                data-count="1"
+                                                                data-name="Смеситель для ванны с душем ZEGOR D5Q-827"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="2204-11"
+                                                                data-mediumImage="uploads/shop/products/medium/zegorsm12.jpg"
+                                                                data-img="uploads/shop/products/small/zegorsm12.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/smesitel-dlia-vanny-s-dushem-zegor-d5q-827"
+                                                                data-origPrice=""
+                                                                data-addPrice="33.81"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/zegorsm2.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Смеситель для ванны с душем ZEGOR NHK-048</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">ZEGOR</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">484.02</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44629 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="19955" data-varid="44629" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44629"
+                                                                data-color="0"
+                                                                data-prodid="19955"
+                                                                data-varid="44629"
+                                                                data-price="484.02"
+                                                                data-count="1"
+                                                                data-name="Смеситель для ванны с душем ZEGOR NHK-048"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="2204-02"
+                                                                data-mediumImage="uploads/shop/products/medium/zegorsm2.jpg"
+                                                                data-img="uploads/shop/products/small/zegorsm2.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/smesitel-dlia-vanny-s-dushem-zegor-nhk-048"
+                                                                data-origPrice=""
+                                                                data-addPrice="20.33"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/zegorsm99.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Смеситель для кухни ZEGOR YUB-182</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">ZEGOR</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">323.38</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44726 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20051" data-varid="44726" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44726"
+                                                                data-color="0"
+                                                                data-prodid="20051"
+                                                                data-varid="44726"
+                                                                data-price="323.38"
+                                                                data-count="1"
+                                                                data-name="Смеситель для кухни ZEGOR YUB-182"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="2204-99"
+                                                                data-mediumImage="uploads/shop/products/medium/zegorsm99.jpg"
+                                                                data-img="uploads/shop/products/small/zegorsm99.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/smesitel-dlia-kuhni-zegor-yub-182"
+                                                                data-origPrice=""
+                                                                data-addPrice="13.58"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/zegorsm105.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Смеситель для умывальника ZEGOR JAP-827</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">ZEGOR</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">404.23</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_44732 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="20057" data-varid="44732" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="44732"
+                                                                data-color="0"
+                                                                data-prodid="20057"
+                                                                data-varid="44732"
+                                                                data-price="404.23"
+                                                                data-count="1"
+                                                                data-name="Смеситель для умывальника ZEGOR JAP-827"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="2204-105"
+                                                                data-mediumImage="uploads/shop/products/medium/zegorsm105.jpg"
+                                                                data-img="uploads/shop/products/small/zegorsm105.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/smesitel-dlia-umyvalnika-zegor-jap-827"
+                                                                data-origPrice=""
+                                                                data-addPrice="16.98"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/osb-3 krono.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status nowelty"></span><span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">OSB-3 плиты 10х1250х2500мм</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Kronospan</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">182.52</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_33698 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="16000" data-varid="33698" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="33698"
+                                                                data-color="0"
+                                                                data-prodid="16000"
+                                                                data-varid="33698"
+                                                                data-price="182.52"
+                                                                data-count="1"
+                                                                data-name="OSB-3 плиты 10х1250х2500мм"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="1508-05"
+                                                                data-mediumImage="uploads/shop/products/medium/osb-3 krono.jpg"
+                                                                data-img="uploads/shop/products/small/osb-3 krono.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/osb-3-plity-10h1250h2500mm"
+                                                                data-origPrice=""
+                                                                data-addPrice="7.67"
+                                                                data-prodStatus='{"hot":true,"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/instrostatk206.jpg" alt="" class="vimg"/>
+
+                                                <span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Сварочный инвертор ВИС-210</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Вектор</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">2249.57</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_30958 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="14339" data-varid="30958" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="30958"
+                                                                data-color="0"
+                                                                data-prodid="14339"
+                                                                data-varid="30958"
+                                                                data-price="2249.57"
+                                                                data-count="1"
+                                                                data-name="Сварочный инвертор ВИС-210"
+                                                                data-vname=""
+                                                                data-maxcount="500"
+                                                                data-number="1306-148"
+                                                                data-mediumImage="uploads/shop/products/medium/instrostatk206.jpg"
+                                                                data-img="uploads/shop/products/small/instrostatk206.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/svarochnyi-invertor-vis-210"
+                                                                data-origPrice=""
+                                                                data-addPrice="94.48"
+                                                                data-prodStatus='{"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <li   data-pos="top">
+
+                                        <div style="display:none">
+                                            <p>/</p>
+                                            <p>/shop/brand/mebel-servis'</p>
+                                            <p></p>
+                                        </div>
+
+
+
+
+                                        <div>
+                                            <a href="#" class="frame-photo-title">
+            <span class="photo-block">
+                <span class="helper"></span>
+
+                                                                    <img src="uploads/shop/products/medium/fortis-v-kn.jpg" alt="Каштан" class="vimg"/>
+
+                                                <span class="product-status nowelty"></span><span class="product-status hit"></span>
+
+
+            </span>
+
+                                                <span class="title">Дверь Venzel глухая ПВХ</span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#" class="bask-brand t-t_u f-w_b c_a9">Новый Стиль</a></div>
+                                        <div class="description main-desc">
+                                            <div class="frame-star f-s_0">
+                                                <div class="star">
+                                                    <div id="star_rating_4155" class="productRate star-small">
+                                                        <div style="width: 100%"></div>
+                                                    </div>
+                                                </div>
+
+                                                <a href="#" class="count-response">
+                                                    2                                отзыва                            </a>
+                                            </div>
+                                            <div>
+                                                <div class="frame-prices f-s_0">
+                                                    <!-- Check for discount-->
+	                	                	                	                	                                        	                    <span class="current-prices f-s_0">
+	                        <span class="price-new">
+	                            <span>
+	                                <span class="price priceVariant">746.48</span>
+	                                <span class="curr" style="font-size: 14px!important">грн.</span>
+                                    	                            </span>
+	                        </span>
+	                        	                    </span>
+                                                </div>
+
+                                                <!--            End. Price-->
+                                            </div>
+                                            <hr />
+                                            <div class="check-variant-catalog">
+                                                <div class="lineForm">
+                                                    <select id="сVariantSwitcher_88331007261758" name="variant">
+                                                        <option value="8833" onclick="checkStock(this);" data-stock="500" title="Каштан">Каштан</option>
+                                                        <option value="8834" onclick="checkStock(this);" data-stock="500" title="Ясень">Ясень</option>
+                                                        <option value="8835" onclick="checkStock(this);" data-stock="500" title="Венге">Венге</option>
+                                                        <option value="8836" onclick="checkStock(this);" data-stock="500" title="Золотая ольха">Золотая ольха</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="funcs-buttons">
+                                                <!-- Start. Collect information about Variants, for future processing -->
+                                                <div class="frame-count-buy variant_8833 variant" >
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="4155" data-varid="8833" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="8833"
+                                                                data-color="0"
+                                                                data-prodid="4155"
+                                                                data-varid="8833"
+                                                                data-price="746.48"
+                                                                data-count="1"
+                                                                data-name="Дверь Venzel глухая ПВХ"
+                                                                data-vname="Каштан"
+                                                                data-maxcount="500"
+                                                                data-number="1002-140"
+                                                                data-mediumImage="uploads/shop/products/medium/fortis-v-kn.jpg"
+                                                                data-img="uploads/shop/products/small/fortis-v-kn.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/dver-venzel-gluhaia-pvh"
+                                                                data-origPrice=""
+                                                                data-addPrice="31.35"
+                                                                data-prodStatus='{"hot":true,"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_8834 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="4155" data-varid="8834" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="8834"
+                                                                data-color="0"
+                                                                data-prodid="4155"
+                                                                data-varid="8834"
+                                                                data-price="746.48"
+                                                                data-count="1"
+                                                                data-name="Дверь Venzel глухая ПВХ"
+                                                                data-vname="Ясень"
+                                                                data-maxcount="500"
+                                                                data-number="1002-141"
+                                                                data-mediumImage="uploads/shop/products/medium/fortis-v-s.jpg"
+                                                                data-img="uploads/shop/products/small/fortis-v-s.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/dver-venzel-gluhaia-pvh"
+                                                                data-origPrice=""
+                                                                data-addPrice="31.35"
+                                                                data-prodStatus='{"hot":true,"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_8835 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="4155" data-varid="8835" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="8835"
+                                                                data-color="0"
+                                                                data-prodid="4155"
+                                                                data-varid="8835"
+                                                                data-price="746.48"
+                                                                data-count="1"
+                                                                data-name="Дверь Venzel глухая ПВХ"
+                                                                data-vname="Венге"
+                                                                data-maxcount="500"
+                                                                data-number="1002-142"
+                                                                data-mediumImage="uploads/shop/products/medium/fortis-v-w.jpg"
+                                                                data-img="uploads/shop/products/small/fortis-v-w.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/dver-venzel-gluhaia-pvh"
+                                                                data-origPrice=""
+                                                                data-addPrice="31.35"
+                                                                data-prodStatus='{"hot":true,"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="frame-count-buy variant_8836 variant" style="display:none">
+                                                    <div class="frame-count">
+                                                        <div class="number" data-title="Количество на складе 500" data-prodid="4155" data-varid="8836" data-rel="frameplusminus">
+                                                            <input type="text" value="1" data-rel="plusminus" data-title="Только цифры" data-min="1" data-max="500">
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-buy">
+                                                        <button
+                                                                class="btnBuy infoBut"
+                                                                type="button"
+                                                                data-id="8836"
+                                                                data-color="0"
+                                                                data-prodid="4155"
+                                                                data-varid="8836"
+                                                                data-price="746.48"
+                                                                data-count="1"
+                                                                data-name="Дверь Venzel глухая ПВХ"
+                                                                data-vname="Золотая ольха"
+                                                                data-maxcount="500"
+                                                                data-number="1002-143"
+                                                                data-mediumImage="uploads/shop/products/medium/fortis-v-za.jpg"
+                                                                data-img="uploads/shop/products/small/fortis-v-za.jpg"
+                                                                data-url="http://stroymag.ua/shop/product/dver-venzel-gluhaia-pvh"
+                                                                data-origPrice=""
+                                                                data-addPrice="31.35"
+                                                                data-prodStatus='{"hot":true,"hit":true}'>
+                                                            <span class="text-el">Купить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End. Collect information about Variants, for future processing -->
+                                            <!---->
+                                        </div>
+                                        <!--        Start. Remove buttons if compare or wishlist-->
+                                        <!--        End. Remove buttons if compare or wishlist-->
+
+                                        <div class="decor-element"></div>
+
+                                    </li>
+                                    <script>
+                                        function checkStock(e) {
+                                            var stock = parseInt($(e).data('stock'));
+                                            if (stock==0) {
+                                                $(e).closest('.description').find('.frame-prices').hide();
+                                                $(e).closest('.description').find('.frame-wish-compare-list').hide();
+                                            } else {
+                                                $(e).closest('.description').find('.frame-prices').show();
+                                                $(e).closest('.description').find('.frame-wish-compare-list').show();
+                                            }
+                                        }
+                                    </script>
+                                </ul>
+                            </div>
+                            <div class="group-button-carousel">
+                                <button type="button" class="prev arrow">
+                                    <span class="icon_arrow_p"></span>
+                                </button>
+                                <button type="button" class="next arrow">
+                                    <span class="icon_arrow_n"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div id="action_products">
+
+                <div class="preloader"></div>
+
+                <script type=text/javascript>
+                    $(window).load(function(){
+                        $.ajax({
+                            async : 'false',
+                            type : 'post',
+                            url : locale+'/shop/ajax/widget/action_products',
+                            success : function(data){
+                                $('#action_products').html(data);
+                                $(document).trigger({type: 'widget_ajax', el: $('#action_products')})
+                            }
+                        })
+                    })
+
+                </script>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="frame-seo-text">
+
+            <div class="container">
+
+                <div class="text seo-text">
+
+                    {{ index.seo|safe }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="frame-news">
+            <div class="container">
+                <div class="frame-title">
+                    <div class="title-h1 d_i"><a href="#">Полезная информация</a></div>
+                </div>
+                <ul class="items items-news">
+                    <!--  loop start-->
+                    <li>
+                        <a href="#" class="frame-photo-title">
+                                                            <span class="f_l">
+                                    <span class="photo-block">
+                                        <img src="uploads/imagebox/dndz83.jpg" alt="" />
+                                    </span>
+                                </span>
+                            <span class="title">Купить стройматериалы в Терновке со склада</span>
+                        </a>
+                        <div class="description">
+                            <p><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Хотите приобрести хорошие стройматериалы по доступным ценам в Терновке? Тогда доверяйте только профессионалам своего дела!&nbsp;</span></p>                                                    </div>
+                    </li>
+                    <!--  loop end-->
+                </ul>
+            </div>
+        </div> </div>
+    <div class="horizontal-carousel">  </div>
+    <div class="h-footer"></div>
+</div>
+
+
+{% endblock content %}

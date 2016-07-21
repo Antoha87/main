@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>Войти</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-5 col-md-push-7 main_content">
+        <div class="registration clearfix">
+            <form method="post" action="{% url 'auth_login' %}" class="account_form">
+            <fieldset>
+                <h1>Логин</h1>
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.auto_id }}" class="control-label">{{ field.label }}</label>
+                            <div class="control {% if field.errors %}control_field_error{% endif %}">
+                                {{ field }}
+                                {% if field.errors %}<span class="error">{{ field.errors|striptags }}</span>{% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="control-buttons">
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                    </div>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </fieldset>
+            </form>
+
+            <p>Ещё не зарегистрированы? <a href="{% url 'registration_register' %}" class="link">Регистрация</a></p>
+        </div>
+    </div>
+
+    <div class="col-md-7 col-md-pull-5 map">
+        <div id="map_canvas"></div>
+        <div class="v_line"></div>
+        <div class="h_line"></div>
+    </div>
+</div>
+{% endblock %}

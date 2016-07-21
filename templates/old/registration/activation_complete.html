@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>Активация</title>
+<meta name="robots" content="noindex, nofollow" />
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-7 map">
+        <div id="map_canvas"></div>
+        <div class="v_line"></div>
+        <div class="h_line"></div>
+    </div>
+    <div class="col-md-5 main_content">
+        <p>Ваша учетная запись активирована. Теперь Вы можете <a href="{% url 'auth_login' %}">войти</a> на сайт</p>
+    </div>
+</div>
+
+{% endblock %}

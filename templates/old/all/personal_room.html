@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block title %}Личный кабинет{% endblock %}
+{% block content %}
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script>
+  $(function() {
+
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: '1930:2020',
+      dateFormat: 'dd-mm-yy',
+    });
+
+    $.datepicker.regional['ru'] = {
+            closeText: 'Закрыть',
+            prevText: '&#x3c;Пред',
+            nextText: 'След&#x3e;',
+            currentText: 'Сегодня',
+            monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            monthNamesShort: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+            dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+            dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+            weekHeader: 'Нед',
+            dateFormat: 'dd.mm.yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+    $.datepicker.setDefaults($.datepicker.regional['ru']);
+
+
+
+  });
+  </script>
+<div class="personal_room center_wrap">
+	<div class="title">
+		Личный кабинет  <a href="{% url 'auth_logout' %}">Выйти</a>
+	</div>
+	<div class="personal_information">
+		<form action="" method="post">
+            {% csrf_token %}
+			<label for="last_name">
+				<span>Фамилия</span>
+			<input type="text" name="last_name" value="{{ request.user.last_name }}" id="last_name"></label>
+            <label for="first_name">
+				<span>Имя</span>
+			<input type="text" name="first_name" id="first_name" value="{{ request.user.first_name }}" data-validation="required" data-validation-error-msg="Введите Ваше имя" ></label>
+			<label for="father">
+				<span>Отчество</span>
+			<input type="text" name="father" value="{{ request.user.client.middlename }}" id="father"></label>
+			<label for="avatar">
+				<span>Аватар</span>
+			<input type="file" name="avatar" id="avatar"></label>
+			<label for="date_birth">
+				<span>Дата рождения</span>
+			<input type="text" name="date_birth" value="{{ request.user.client.date_birthday|date:'d-m-Y' }}" id="datepicker" data-validation="required date" data-validation-error-msg="Заполните дату" data-validation-format="dd-mm-yyyy" ></label>
+			<label for="country">
+				<span>Страна</span>
+			{{ form.country }}</label>
+            <label for="region">
+				<span>Регион</span>
+			{{ form.region }}</label>
+			<label for="city">
+				<span>Город</span>
+			{{ form.city }}</label>
+            <label for="address">
+				<span>Адресс</span>
+			<input type="text" name="delivery" value="{{ request.user.client.delivery }}" id="address" data-validation="required" data-validation-error-msg="Введите Ваш адресс"></label>
+			<label for="phone">
+				<span>Телефон</span>
+			<input type="text" name="phone" value="{{ request.client.phone_number }}" id="phone" data-validation="number" data-validation-error-msg="Телефонный номер должен содержать только цифры"></label>
+            <label for="email">
+				<span>Email</span>
+			<input type="text" name="email" value="{{ request.user.email }}" id="email" data-validation="email" data-validation-error-msg="Введите корректный email"></label>
+            <button type="submit">Сохранить</button>
+		</form>
+	</div>
+	<div class="custom">
+		<table>
+		<thead>
+			<tr>
+				<th>Заказы</th>
+				<th>№</th>
+				<th>Дата</th>
+				<th>Перечень товаров</th>
+				<th>Доставка</th>
+				<th>Статус</th>
+				<th>Сумма</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for item in order %}
+			<tr>
+				<td>{{ item.id }}</td>
+				<td>{{ forloop.counter }}</td>
+				<td>{{ item.created }}</td>
+				<td><ul>{% for x in item.items.all %}<li>- {{ x.name }}</li>{% endfor %}</ul></td>
+				<td></td>
+				<td>{{ item.get_status_display }}</td>
+				<td>{{ item.total }}</td>
+			</tr>
+        {% empty %}
+        Пока заказов нет!
+		{% endfor %}
+		</tbody>
+		</table>
+
+	</div>
+	<div class="pass_change">
+		<div class="pass_change_title">Смена пароля</div>
+
+		<form action="{% url 'auth_password_change' %}" method="post">
+            {% csrf_token %}
+			<input type="password" name="old_password" id="current_pass" placeholder="Пароль" data-validation="required" data-validation-error-msg="Введите Ваш старый пароль">
+			<input type="password" name="new_password1" id="new_pass" data-validation="strength" data-validation-strength="2" placeholder="Новый пароль">
+			<input type="password" name="new_password2" id="repeat_pass" placeholder="Новый пароль повторно" data-validation="confirmation" data-validation-error-msg="Пароли не совпадают!!!">
+			<input type="submit" value="Сменить пароль">
+
+		</form>
+
+		<div class="bottom">
+			<a href="#"><span>Справка</span></a>
+			<a href="#"><span>Отмена</span></a>
+		</div>
+	</div>
+</div>
+{% endblock content %}

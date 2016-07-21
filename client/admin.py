@@ -18,7 +18,7 @@ class ClientAdmin(UserAdmin):
         ('Personal info', dict(fields=('date_of_birth',
                                        'first_name',
                                        'last_name',
-                                       'phone_number'
+                                       'phone_number',
                                        ))),
         ('Permissions', {'fields': ('is_admin',)}),
         ('Important dates', {'fields': ('last_login',)}),

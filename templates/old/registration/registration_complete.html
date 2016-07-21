@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>Регистрация завершена</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-7 map">
+        <div id="map_canvas"></div>
+        <div class="v_line"></div>
+        <div class="h_line"></div>
+    </div>
+    <div class="col-md-5 main_content">
+        <h1 class="header"><span>Регистрация завершена</span></h1>
+        <a href="{% url 'index' %}">Перейти на главную</a>
+    </div>
+</div>
+{% endblock %}

@@ -3,6 +3,15 @@ from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth import get_user_model
 
+from smart_selects.form_fields import ChainedModelChoiceField
+from django_geoip.models import Country
+
+
+class ClientForm(forms.Form):
+    country = forms.ModelChoiceField(label=u'Страна', queryset=Country.objects.all(), required=True)
+    #region = ChainedModelChoiceField(label=u'Регион', app_name='django_geoip', model_name='Region', chain_field='country', model_field='country', show_all=False, auto_choose=True)
+    #city = ChainedModelChoiceField(label=u'Город', app_name='django_geoip', model_name='City', chain_field='region', model_field='region', show_all=False, auto_choose=True)
+
 
 class UserCreationForm(forms.ModelForm):
     password1 = forms.CharField(

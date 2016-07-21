@@ -1,0 +1,97 @@
+{% load staticfiles thumbnail mptt_tags %}
+{% full_tree_for_model catalog.Category as category %}
+<footer> <div class="content-footer">
+    <div class="container">
+        <!--Start. Load menu in footer-->
+        <!--Start. Info block-->
+        <div class="box-1 box">  <span class="footer-logo"> <img src="{% static 'css/color_scheme_1/images/footer-logo.png'%}" alt="logo.png"/> </span>       <div class="inside-padd">
+            <ul>
+                <li>
+                    <div class="c_w f-s_0"> <span class="icon_footer_mail"></span> <span class="f-w_b f-s_13">info@stroymag.ua</span> </div>
+                </li>
+                <li>
+                    <div class="c_w f-s_0"> <span class="icon_footer_2"></span> <span class="f-s_13"><span class="f-w_b">(095)</span> <span class="f-w_b">61-45-999</span></span> </div>
+                </li>
+                <li>
+                    <div class="c_w f-s_0"> <span class="icon_footer_kv"></span> <span class="f-s_13"><span class="f-w_b">(097)</span> <span class="f-w_b">61-45-999</span></span> </div>
+                </li>
+                <li>
+                    <div class="c_w f-s_0"> <span class="icon_footer_life"></span> <span class="f-s_13"><span class="f-w_b">(093)</span> <span class="f-w_b">61-45-999</span></span> </div>
+                </li>
+                <li>
+                    <div class="c_w f-s_0"> <span class="icon_phone_footer"></span> <span class="f-s_13"><span class="f-w_b">(061)</span> <span class="f-w_b">270-73-27</span></span> </div>
+                </li>
+            </ul>
+        </div>
+            <div class="social">
+                <!--noindex--><a target="_blank" href="https://vk.com/stroymag" class="d_i-b"><span class="icon_vk_footer"></span></a><!--/noindex-->
+                <!--noindex--><a target="_blank" href="https://facebook.com/stroymag.zaporozhye" class="d_i-b"><span class="icon_facebook_footer"></span></a><!--/noindex-->
+                <!--noindex--><a target="_blank" href="https://plus.google.com/u/0/101836465439163831513/about" class="d_i-b"><span class="icon_google_footer"></span></a><!--/noindex-->
+            </div>
+        </div>
+        <!--End. Info block-->
+        <div class="box-3 box">
+            <div class="inside-padd">
+                <div class="main-title">Продукция</div>
+                <ul class="footer-category-menu"><li>
+                    {% for item in category %}
+                        {% if item.is_root_node %}
+                    <a href="{{ item.get_absolute_url }}" title="{{ item.name }}" class="title">{{ item.name }}</a>
+                </li><li>
+                  {% endif %}
+                {% endfor %}
+                </ul> </div>
+        </div>
+        <div class="box-2 box">
+            <div class="inside-padd">
+                <div class="main-title">Сайт</div>
+                <ul>
+
+                    <li class="home"><a href="#" title="Сотрудничество">Сотрудничество</a></li>
+
+                    <li><a href="#" title="Дисконтная программа">Дисконтная программа</a></li>
+
+                    <li><a href="#" title="Контакты">Контакты</a></li>
+
+                    <li><a href="#" title="Производители">Производители</a></li>
+
+                    <li><a href="#" title="Гарантия и сервис">Гарантия и сервис</a></li>
+
+                    <li><a href="#" title="Оплата и доставка">Оплата и доставка</a></li>
+
+                    <li><a href="#" title="Полезная информация">Полезная информация</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--End. Load menu in footer-->
+
+        <!--Start. User menu-->
+        <div class="box-4 box">
+            <div class="inside-padd">
+                <div class="main-title">Пользователь</div>
+                <ul>
+                    <li>
+                        <button type="button" data-trigger="#loginButton">Вход</button>
+                    </li>
+                    <li>
+                        <button onClick="location = 'http://stroymag.ua/auth/register'">Регистрация</button>
+                    </li>
+                    <li>
+                        <button type="button" data-trigger="[data-drop='.drop-order-call']">Обратный звонок</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--End. User menu-->
+    </div>
+</div>
+    <div class="footer-footer">
+        <div class="container">
+            <div class="f_l">
+                <div class="c_w f-w_b" style="position:center">© Интернет гипермаркет "СтройМАГ",&nbsp; 2016</div>
+                <div class="c_bl">Все права защищены</div>
+            </div>
+        </div>
+    </div>
+</footer>
