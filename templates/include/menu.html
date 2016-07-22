@@ -11,7 +11,7 @@
             		<div class="collapse navbar-toggleable-xs" id="header-v3">
             			<ul class="nav navbar-nav">
                             {% for item in category %}
-                                {% if item.is_root_node %}
+                                {% if item.is_root_node and item.activate %}
             				<li class="menu-item"><a title="RTV" href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
                                 {% endif %}
                             {% endfor %}

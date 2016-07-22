@@ -23,6 +23,9 @@ from client.views import ProfileView
 
 
 urlpatterns = [
+    url(r'', include('cart.urls')),
+    url(r'^chaining/', include('smart_selects.urls')),
+    url(r'^geoip/', include('django_geoip.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name='index'),
 

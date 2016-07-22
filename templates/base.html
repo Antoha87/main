@@ -94,10 +94,10 @@
                         </div>
                         <!-- ============================================================= Header Logo : End============================================================= -->
 
-                        <form class="navbar-search" method="get" action="/">
+                        <form class="navbar-search" method="get" name="search" action="{% url 'search' %}">
                         	<label class="sr-only screen-reader-text" for="search">Search for:</label>
                         	<div class="input-group">
-                        		<input type="text" id="search" class="form-control search-field" dir="ltr" value="" name="s" placeholder="Search for products" />
+                        		<input type="text" id="search" class="form-control search-field" dir="ltr" value="" name="text" placeholder="Введите название товара или артикул" />
                         		<div class="input-group-addon search-categories">
                         			<select name='product_cat' id='product_cat' class='postform resizeselect' >
                         				<option value='0' selected='selected'>All Categories</option>
