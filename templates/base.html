@@ -29,7 +29,7 @@
                 <div class="container">
                     <nav>
                         <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
-                            <li class="menu-item animate-dropdown"><a title="Welcome to Worldwide Electronics Store" href="#">Welcome to Worldwide Electronics Store</a></li>
+                            <li class="menu-item animate-dropdown"><a title="Вас приветствует магазин СтройМаг" href="{% url 'index' %}">Вас приветствует магазин СтройМаг</a></li>
                         </ul>
                     </nav>
 
@@ -38,7 +38,7 @@
                             <li class="menu-item animate-dropdown"><a title="Store Locator" href="#"><i class="ec ec-map-pointer"></i>Store Locator</a></li>
                             <li class="menu-item animate-dropdown"><a title="Track Your Order" href="track-your-order.html"><i class="ec ec-transport"></i>Track Your Order</a></li>
                             <li class="menu-item animate-dropdown"><a title="Shop" href="shop.html"><i class="ec ec-shopping-bag"></i>Shop</a></li>
-                            <li class="menu-item animate-dropdown"><a title="My Account" href="my-account.html"><i class="ec ec-user"></i>My Account</a></li>
+                            <li class="menu-item animate-dropdown"><a title="Мой кабинет" href="{% url 'profile' %}"><i class="ec ec-user"></i>Мой кабинет</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -210,29 +210,7 @@
                 </div><!-- /.container -->
             </header><!-- #masthead -->
 
-            <nav class="navbar navbar-primary navbar-full yamm">
-            	<div class="container">
-            		<div class="clearfix">
-            			<button class="navbar-toggler hidden-sm-up pull-right flip" type="button" data-toggle="collapse" data-target="#header-v3">
-            				&#9776;
-            			</button>
-            		</div>
-
-            		<div class="collapse navbar-toggleable-xs" id="header-v3">
-            			<ul class="nav navbar-nav">
-            				<li class="menu-item
-            				animate-dropdown"><a title="TV &amp; Audio" href="product-category.html">TV &#038; Audio</a></li>
-            				<li class="menu-item"><a title="RTV" href="product-category.html">RTV</a></li>
-            				<li class="menu-item"><a title="Computers" href="product-category.html">Computers</a></li>
-            				<li class="menu-item"><a title="Games &amp; Consoles" href="product-category.html">Games &#038; Consoles</a></li>
-            				<li class="menu-item"><a title="Gadgets" href="product-category.html">Gadgets</a></li>
-            				<li class="menu-item"><a title="Phones &amp; Tablets" href="product-category.html">Phones &#038; Tablets</a></li>
-            				<li class="menu-item"><a title="GPS &amp; Car Audio" href="product-category.html">GPS &#038; Car Audio</a></li>
-            				<li class="menu-item"><a title="Accessories" href="product-category.html">Accessories</a></li>
-            			</ul>
-            		</div><!-- /.collpase -->
-            	</div><!-- /.-container -->
-            </nav><!-- /.navbar -->
+		{% include 'include/menu.html'  %}
 
             {% block content %}{% endblock content %}
 
