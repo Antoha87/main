@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/owl-carousel.css' %}" media="all" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="all" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/colors/flat-blue.css' %}" media="all" />
+		<!--<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}"/> -->
 
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
 
@@ -98,36 +99,7 @@
                         	<label class="sr-only screen-reader-text" for="search">Search for:</label>
                         	<div class="input-group">
                         		<input type="text" id="search" class="form-control search-field" dir="ltr" value="" name="text" placeholder="Введите название товара или артикул" />
-                        		<div class="input-group-addon search-categories">
-                        			<select name='product_cat' id='product_cat' class='postform resizeselect' >
-                        				<option value='0' selected='selected'>All Categories</option>
-                        				<option class="level-0" value="laptops-laptops-computers">Laptops</option>
-                        				<option class="level-0" value="ultrabooks-laptops-computers">Ultrabooks</option>
-                        				<option class="level-0" value="mac-computers-laptops">Mac Computers</option>
-                        				<option class="level-0" value="all-in-one-laptops-computers">All in One</option>
-                        				<option class="level-0" value="servers">Servers</option>
-                        				<option class="level-0" value="peripherals">Peripherals</option>
-                        				<option class="level-0" value="gaming-laptops-computers">Gaming</option>
-                        				<option class="level-0" value="accessories-laptops-computers">Accessories</option>
-                        				<option class="level-0" value="audio-speakers">Audio Speakers</option>
-                        				<option class="level-0" value="headphones">Headphones</option>
-                        				<option class="level-0" value="computer-cases">Computer Cases</option>
-                        				<option class="level-0" value="printers">Printers</option>
-                        				<option class="level-0" value="cameras">Cameras</option>
-                        				<option class="level-0" value="smartphones">Smartphones</option>
-                        				<option class="level-0" value="game-consoles">Game Consoles</option>
-                        				<option class="level-0" value="power-banks">Power Banks</option>
-                        				<option class="level-0" value="smartwatches">Smartwatches</option>
-                        				<option class="level-0" value="chargers">Chargers</option>
-                        				<option class="level-0" value="cases">Cases</option>
-                        				<option class="level-0" value="headphone-accessories">Headphone Accessories</option>
-                        				<option class="level-0" value="headphone-cases">Headphone Cases</option>
-                        				<option class="level-0" value="tablets">Tablets</option>
-                        				<option class="level-0" value="tvs">TVs</option>
-                        				<option class="level-0" value="wearables">Wearables</option>
-                        				<option class="level-0" value="pendrives">Pendrives</option>
-                        			</select>
-                        		</div>
+
                         		<div class="input-group-btn">
                         			<input type="hidden" id="search-param" name="post_type" value="product" />
                         			<button type="submit" class="btn btn-secondary"><i class="ec ec-search"></i></button>
@@ -185,7 +157,7 @@
 
 
                         					<p class="buttons">
-                        						<a class="button wc-forward" href="cart.html">View Cart</a>
+                        						<a class="button wc-forward" href="{% url 'cart' %}">View Cart</a>
                         						<a class="button checkout wc-forward" href="checkout.html">Checkout</a>
                         					</p>
 
@@ -230,6 +202,7 @@
         <script type="text/javascript" src="{% static 'js/jquery.easing.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/jquery.waypoints.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/electro.js' %}"></script>
+		<!--<script src="{% static 'js/main.js' %}"></script> -->
 
     </body>
 </html>
