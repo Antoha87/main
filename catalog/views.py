@@ -2,6 +2,8 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, TemplateView
+from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
 
 from django.template.loader import render_to_string
 from django.http import JsonResponse
@@ -72,3 +74,46 @@ class ResultsSearchView(ListView):
         text = self.request.GET.get('text')
         goods = Goods.objects.filter(Q(article__icontains=text) | Q(name__icontains=text))
         return goods
+
+
+class CompareView(TemplateView):
+    template_name = 'all/compare.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CompareView, self).get_context_data(**kwargs)
+        if 'compare' in self.request.session:
+            context['compare_list'] = Goods.objects.filter(pk__in=self.request.session['compare'])
+
+        return context
+
+
+def add_simile(request):
+    if request.method == 'GET':
+        pk = request.GET['pk']
+        if 'compare' not in request.session:
+            request.session['compare'] = []
+        request.session['compare'].append(int(pk))
+        request.session.modified = True
+
+    data = {'success': 'Add'}
+
+    return JsonResponse(data)
+
+
+def del_simile(request):
+    if request.method == 'GET':
+        pk = request.GET['pk']
+        request.session['compare'].remove(int(pk))
+        request.session.modified = True
+
+    data = {'success': 'Del'}
+
+    return JsonResponse(data)
+
+
+def del_compare(request, pk):
+    pk = pk
+    request.session['compare'].remove(int(pk))
+    request.session.modified = True
+
+    return redirect(reverse('compare'))

@@ -1,71 +1,26 @@
-$(document).ready(function() {
+jQuery('body').on('click', '.add-to-compare-link', function(){
+            var add_url = jQuery(this).attr('data-add');
+            var del_url = jQuery(this).attr('data-del');
+            var compare = jQuery(this);
+            if(jQuery(this).hasClass('add')){
+                jQuery.ajax({
+                    url: add_url,
+                    success: function(data){
+                        if(data.success){
+                            compare.removeClass('add').addClass('del').text('Удалить сравнение');
+                        }
+                    }
+                });
+            }
 
-    $('.item_container').on('click', function(e){
-        //e.preventDefault();
-        $('.item_container').each(function(){
-            if($(this).hasClass('selected')){
-                $(this).removeClass('selected');
+            if(jQuery(this).hasClass('del')){
+                jQuery.ajax({
+                    url: del_url,
+                    success: function(data){
+                        if(data.success){
+                            compare.removeClass('del').addClass('add').text('Добавить в сравнение');
+                        }
+                    }
+                });
             }
         })
-        $(this).addClass('selected');
-    })
-
-    var liSelected = $('nav .main_menu .popup_menu .popup_menu_table .main_rubrics li');
-
-    liSelected.on('click', function(e){
-        e.preventDefault();
-
-        var idLi = $(this).attr("id");
-
-        function delSelect (){
-            liSelected.each(function(){
-                if($(this).hasClass('selected')){
-                    $(this).removeClass('selected');
-                }
-            })
-        }
-        delSelect();
-
-        $('.sub_rubric_container > div').each(function(){
-            $(this).hide();
-        });
-
-        $('div.'+idLi).show();
-
-        $(this).addClass('selected');
-    })
-
-    $(document).click( function(event){
-        if( $(event.target).closest(".main_menu").length ) return;
-        $('.item_container').each(function(){
-            if($(this).hasClass('selected')){
-                $(this).removeClass('selected');
-            }
-        });
-        event.stopPropagation();
-    });
-
-
-    $('.icon_times_drop').on('click', function(e){
-        e.preventDefault();
-        console.log('11');
-        $('.drop-enter').css('display','none');
-        $('.for-center').css('display','none');
-        $('.overlayDrop').css('display','none');
-    })
-
-    $('.for-center').on('click', function(e){
-        e.preventDefault();
-        console.log('11');
-        $('.drop-enter').css('display','none');
-        $('.for-center').css('display','none');
-        $('.overlayDrop').css('display','none');
-    })
-
-});
-
-
-
-
-
-

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from pages.views import IndexView, ContactView, ServiceAndGarantyView, PayAndDeliveryView, DiscontView, PartnerView, BrandDetailView, BrandListView
-from catalog.views import CategoryView, CatalogView, GoodsView, ResultsSearchView
+from catalog.views import CategoryView, CatalogView, GoodsView, ResultsSearchView, CompareView
 from client.views import ProfileView
 
 
@@ -43,6 +43,11 @@ urlpatterns = [
     url(r'^search/$', ResultsSearchView.as_view(), name='search'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
     url(r'^accounts/profile/$', ProfileView.as_view(), name='profile'),
+
+    url(r'^compare', CompareView.as_view(), name='compare'),
+    url(r'^del_compare/(?P<pk>\d+)/$', 'catalog.views.del_compare', name='del_compare'),
+    url(r'^ajax/add_simile', 'catalog.views.add_simile', name='add_simile'),
+    url(r'^ajax/del_simile', 'catalog.views.del_simile', name='del_simile'),
 
 
 ]

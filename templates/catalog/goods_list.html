@@ -86,7 +86,12 @@
                                                     <div class="hover-area">
                                                         <div class="action-buttons">
                                                             <a href="#" rel="nofollow" class="add_to_wishlist">Wishlist</a>
-                                                            <a href="#" class="add-to-compare-link">Compare</a>
+                                                            {% if not item.pk in request.session.compare %}
+                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Добавить в сравнение</a>
+                                                                {% else %}
+                                                                <a  class="add-to-compare-link del" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Удалить сравнение</a>
+                                                            {% endif %}
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -407,3 +412,4 @@
 
                 </div><!-- .container -->
             </div><!-- #content -->
+

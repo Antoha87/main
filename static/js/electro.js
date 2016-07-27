@@ -1029,7 +1029,7 @@
     /*===================================================================================*/
 
 
-    $( document ).on( 'click', '.add-to-compare-link:not(.added)', function(e) {
+    /*$( document ).on( 'click', '.add-to-compare-link:not(.added)', function(e) {
 
         e.preventDefault();
 
@@ -1074,7 +1074,7 @@
                 widget_list.html( response.widget_table );
             }
         });
-    });
+    });*/
 
     /*===================================================================================*/
     /*  Add to Cart animation

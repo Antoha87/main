@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block title %}Сравнение товаров{% endblock %}
+{% block content %}
+<div tabindex="-1" class="site-content" id="content">
+                <div class="container">
+
+                    <nav class="woocommerce-breadcrumb"><a href="{% url 'index' %}">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Сравнение товаров</nav>
+                    <div class="content-area" id="primary">
+                        <main class="site-main" id="main">
+                            <article class="post-2917 page type-page status-publish hentry" id="post-2917">
+                                <div itemprop="mainContentOfPage" class="entry-content">
+                                    <div class="table-responsive">
+                                        {% if compare_list|length > 1 %}
+                                        <table class="table table-compare compare-list">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Товар</th>
+                                                    {% for item in compare_list %}
+                                                    <td>
+                                                        <a class="product" href="{{ item.get_absolute_url }}">
+                                                            <div class="product-image">
+                                                                <div class="">
+                                                                    {% thumbnail item.image "250x232" crop="center" as im %}
+                                                                        <img  src="{{ im.url }}" class="wp-post-image" alt="">
+                                                                    {% endthumbnail %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-info">
+                                                                <h3 class="product-title">{{ item.name }}</h3>
+
+                                                            </div>
+                                                        </a><!-- /.product -->
+                                                    </td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <tr>
+                                                    <th>Цена</th>
+                                                    {% for item in compare_list %}
+                                                    <td>
+                                                        <div class="product-price price"><span class="electro-price"><span class="amount">{{ item.price }}</span></span></div>
+                                                    </td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <tr>
+                                                    <th>В наличии</th>
+                                                    {% for item in compare_list %}
+                                                    <td><span class="in-stock">{{ item.get_stock }}</span></td>
+                                                    {% endfor %}
+
+                                                </tr>
+                                                <tr>
+                                                    <th>Описание</th>
+                                                    {% for item in compare_list %}
+                                                    <td>
+                                                        <ul style="text-align:left; margin-bottom: 0;">
+                                                            {{ item.description|truncatechars_html:60|safe}}
+                                                        </ul>
+                                                    </td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <tr>
+                                                    <th>Добавить в корзину</th>
+                                                    {% for item in compare_list %}
+                                                    <td>
+                                                        <form class="variations_form cart" action="{% url 'cart_add' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input name="count{{ item.pk }}" id="spinner_{{ item.pk }}" value="1" style="display:none">
+
+                                                        <button rel="nofollow" type="submit" class="button add_to_cart_button">Добавить в корзину</button>
+                                                        </form>
+                                                    </td>
+                                                    {% endfor %}
+
+                                                </tr>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    {% for item in compare_list %}
+                                                    <td class="text-center">
+                                                        <a title="Remove" class="remove-icon" href="{% url 'del_compare' item.pk %}"><i class="fa fa-times"></i></a>
+                                                    </td>
+                                                    {% endfor %}
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        {% else %}
+                                        <h2>Не выбраны продукты для сравнения!</h2>
+                                        {% endif %}
+                                    </div><!-- /.table-responsive -->
+                                </div><!-- .entry-content -->
+                            </article><!-- #post-## -->
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+                </div><!-- .col-full -->
+            </div>
+{% endblock content %}
+
