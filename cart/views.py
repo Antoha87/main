@@ -26,7 +26,7 @@ def cart_add(request):
                 request.cart.add_item(product, int(value))
         data = {'success': True,
                 'total_quantity': request.cart.total_quantity()}
-    return JsonResponse(data)
+    return redirect(reverse('cart'))
 
 
 @login_required
