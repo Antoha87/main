@@ -58,4 +58,4 @@ def cart(request):
 def cart_delete(request, pk):
     obj = get_object_or_404(CartItem, pk=pk, cart__cart_id=request.session['cart_id'])
     obj.delete()
-    return redirect(reverse('index'))
+    return redirect(reverse('cart'))

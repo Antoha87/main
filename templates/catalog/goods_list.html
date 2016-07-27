@@ -93,7 +93,7 @@
                                                             </form>
 
                                                             {% if not item.pk in request.session.compare %}
-                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Cравнить</a>
+                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Добавить в сравнение</a>
                                                                 {% else %}
                                                                 <a  class="add-to-compare-link del" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Удалить сравнение</a>
                                                             {% endif %}
@@ -153,8 +153,19 @@
 
                                                     <div class="hover-area">
                                                         <div class="action-buttons">
-                                                            <a href="#" rel="nofollow" class="add_to_wishlist">Wishlist</a>
-                                                            <a href="#" class="add-to-compare-link">Compare</a>
+                                                            <form action="{% url 'wishlist_add' %}" method="post">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="item" value="{{ item.pk }}">
+
+                                                                <button rel="nofollow" type="submit" class="add_to_wishlist">Добавить в wishlist</button>
+                                                            </form>
+
+                                                            {% if not item.pk in request.session.compare %}
+                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Добавить в сравнение</a>
+                                                                {% else %}
+                                                                <a  class="add-to-compare-link del" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Удалить сравнение</a>
+                                                            {% endif %}
+
                                                         </div>
                                                     </div>
 
@@ -202,26 +213,20 @@
                                                             <a class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_sku="5487FB8/35" data-product_id="2706" data-quantity="1" href="single-product.html" rel="nofollow">Add to cart</a>
                                                             <div class="hover-area">
                                                                 <div class="action-buttons">
-                                                                    <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2706">
-                                                                        <a class="add_to_wishlist" data-product-type="simple" data-product-id="2706" rel="nofollow" href="#">Wishlist</a>
+                                                            <form action="{% url 'wishlist_add' %}" method="post">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="item" value="{{ item.pk }}">
 
-                                                                        <div style="display:none;" class="yith-wcwl-wishlistaddedbrowse hide">
-                                                                            <span class="feedback">Product added!</span>
-                                                                            <a rel="nofollow" href="#">Wishlist</a>
-                                                                        </div>
+                                                                <button rel="nofollow" type="submit" class="add_to_wishlist">Добавить в wishlist</button>
+                                                            </form>
 
-                                                                        <div style="display:none" class="yith-wcwl-wishlistexistsbrowse hide">
-                                                                            <span class="feedback">The product is already in the wishlist!</span>
-                                                                            <a rel="nofollow" href="#">Wishlist</a>
-                                                                        </div>
+                                                            {% if not item.pk in request.session.compare %}
+                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Добавить в сравнение</a>
+                                                                {% else %}
+                                                                <a  class="add-to-compare-link del" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Удалить сравнение</a>
+                                                            {% endif %}
 
-                                                                        <div style="clear:both"></div>
-                                                                        <div class="yith-wcwl-wishlistaddresponse"></div>
-
-                                                                    </div>
-                                                                    <div class="clear"></div>
-                                                                    <a data-product_id="2706" class="add-to-compare-link" href="#">Compare</a>
-                                                                </div>
+                                                        </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -273,9 +278,20 @@
 
                                                             <div class="hover-area">
                                                                 <div class="action-buttons">
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist">Wishlist</a>
-                                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                                </div>
+                                                            <form action="{% url 'wishlist_add' %}" method="post">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="item" value="{{ item.pk }}">
+
+                                                                <button rel="nofollow" type="submit" class="add_to_wishlist">Добавить в wishlist</button>
+                                                            </form>
+
+                                                            {% if not item.pk in request.session.compare %}
+                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Добавить в сравнение</a>
+                                                                {% else %}
+                                                                <a  class="add-to-compare-link del" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Удалить сравнение</a>
+                                                            {% endif %}
+
+                                                        </div>
                                                             </div>
 
                                                         </div>

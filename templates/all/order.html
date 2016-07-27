@@ -11,7 +11,7 @@
             			<main id="main" class="site-main">
             				<article class="page type-page status-publish hentry">
             					<header class="entry-header"><h1 itemprop="name" class="entry-title">Корзина</h1></header><!-- .entry-header -->
-
+                                {% if cart.items.all %}
             					<form>
 
                                     <table class="shop_table shop_table_responsive cart">
@@ -62,8 +62,7 @@
                                                     <span class="amount">{{ x.total_price }}</span>
                                                 </td>
                                             </tr>
-                                            {% empty %}
-                                            <b>Уважаемый покупатель! Ваша корзина пуста.<br />
+
                                             {% endfor %}
 
                                             <tr>
@@ -109,6 +108,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% else %}
+
+                                <h2>Уважаемый покупатель! Ваша корзина пуста.</h2>
+                                {% endif %}
             				</article>
             			</main><!-- #main -->
             		</div><!-- #primary -->

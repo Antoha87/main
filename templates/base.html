@@ -108,11 +108,12 @@
                         </form>
                         <ul class="navbar-mini-cart navbar-nav animate-dropdown nav pull-right flip">
                         	<li class="nav-item dropdown">
-                        		<a href="cart.html" class="nav-link" data-toggle="dropdown">
+                        		<a href="{% url 'cart' %}" class="nav-link" {% if cart.has_items %} data-toggle="dropdown" {% endif %}>
                         			<i class="ec ec-shopping-bag"></i>
                         			{% if cart.has_items %}<span class="cart-items-count count">{{ cart.total_quantity }}</span>{% endif %}
                         			<span class="cart-items-total-price total-price"><span class="amount">&#36;{{ cart.total_price }}</span></span>
                         		</a>
+                                {% if cart.has_items %}
                         		<ul class="dropdown-menu dropdown-menu-mini-cart">
                         			<li>
                         				<div class="widget_shopping_cart_content">
@@ -148,6 +149,7 @@
                         				</div>
                         			</li>
                         		</ul>
+                                {% endif %}
                         	</li>
                         </ul>
 
