@@ -253,8 +253,13 @@
                                                         <div class="col-xs-12">
                                                             <div class="price-add-to-cart">
                                                                 <span class="price"><span class="electro-price"><span class="amount">${{ item.price }}</span></span></span>
+                                                                <form class="variations_form cart" action="{% url 'cart_add' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input name="count{{ item.pk }}" id="spinner_{{ item.pk }}" value="1" style="display:none">
 
-                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Add to cart</a>
+                                                        <button rel="nofollow" type="submit" class="button add_to_cart_button">Добавить в корзину</button>
+                                                        </form>
+                                                                
                                                             </div><!-- /.price-add-to-cart -->
 
                                                             <div class="hover-area">
