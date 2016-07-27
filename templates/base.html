@@ -121,7 +121,7 @@
 
                                             {% for x in cart.items.all %}
                         						<li class="mini_cart_item">
-                        							<a title="Remove this item" class="remove" href="#">×</a>
+                        							<a title="Remove this item" class="remove" href="{% url 'cart_delete' x.pk %}">×</a>
                         							<a href="{{ x.product.get_absolute_url }}">
                                                         {% thumbnail x.product.image "75x75" crop="center" as im %}
                                                         <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="{{ im.url }}" alt="">{{ x.product.model }}&nbsp;</a>

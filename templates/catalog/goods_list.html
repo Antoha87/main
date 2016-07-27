@@ -75,7 +75,12 @@
                                                                 <del><span class="amount">&#036;2,299.00</span></del>
                                                             </span>
                                                         </span>
-                                                        <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Добавить в корзину</a>
+                                                        <form class="variations_form cart" action="{% url 'cart_add' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input name="count{{ item.pk }}" id="spinner_{{ item.pk }}" value="1" style="display:none">
+
+                                                        <button rel="nofollow" type="submit" class="button add_to_cart_button">Добавить в корзину</button>
+                                                        </form>
                                                     </div><!-- /.price-add-to-cart -->
 
                                                     <div class="hover-area">

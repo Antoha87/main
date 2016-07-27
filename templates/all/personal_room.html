@@ -133,7 +133,7 @@
             {% csrf_token %}
 			<label for="last_name">
 				<span>Фамилия</span>
-			<input type="text" name="last_name" value="{{ .user.last_name }}" id="last_name"></label>
+			<input type="text" name="last_name" value="{{ user.last_name }}" id="last_name"></label>
             <label for="first_name">
 				<span>Имя</span>
 			<input type="text" name="first_name" id="first_name" value="{{ user.first_name }}" data-validation="required" data-validation-error-msg="Введите Ваше имя" ></label>

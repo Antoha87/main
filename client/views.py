@@ -14,7 +14,7 @@ class ProfileView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
-        client = Client.get_client(self.request)
+        client = Client.get_client(self)
         if client is None:
             country = u'UA'
             region = ''
@@ -37,21 +37,18 @@ class ProfileView(TemplateView):
     def post(self, request):
         if request.method == 'POST':
             client = Client.get_client(self.request)
-            if client is None:
-                client = Client.objects.create(user=self.request.user)
-            client.middlename = request.POST['father']
-            client.date_birthday = datetime.strptime(request.POST['date_birth'], '%d-%m-%Y')
+
+            client.date_of_birth = datetime.strptime(request.POST['date_birth'], '%d-%m-%Y')
             client.country = Country.objects.get(code=request.POST['country'])
             client.region_id = request.POST['region']
             client.city_id = request.POST['city']
-            client.number = request.POST['phone']
-            client.avatar = request.POST['avatar']
-            client.delivery = request.POST['delivery']
-            client.save()
-            user = Client.objects.get(username=self.request.user)
-            user.email = request.POST['email']
-            user.first_name = request.POST['first_name']
-            user.last_name = request.POST['last_name']
+            client.phone_number = request.POST['phone']
 
-            user.save()
+            client.delivery = request.POST['delivery']
+
+            client.email = request.POST['email']
+            client.first_name = request.POST['first_name']
+            client.last_name = request.POST['last_name']
+
+            client.save()
             return HttpResponseRedirect(reverse('profile'))
