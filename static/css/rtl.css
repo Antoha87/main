@@ -2045,8 +2045,8 @@ ul.products > li.product.list-view-small .price-add-to-cart, .section-onsale-pro
 /*===================================================================================*/
 @font-face {
   font-family: 'star';
-  src: url("../../assets/fonts/star.eot");
-  src: url("../../assets/fonts/star.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/star.woff") format("woff"), url("../../assets/fonts/star.ttf") format("truetype"), url("../../assets/fonts/star.svg#star") format("svg");
+  src: url("../../static/fonts/star.eot");
+  src: url("../../static/fonts/star.eot?#iefix") format("embedded-opentype"), url("../../static/fonts/star.woff") format("woff"), url("../../static/fonts/star.ttf") format("truetype"), url("../../static/fonts/star.svg#star") format("svg");
   font-weight: normal;
   font-style: normal; }
 
