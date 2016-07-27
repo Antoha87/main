@@ -110,7 +110,7 @@
                         	<li class="nav-item dropdown">
                         		<a href="cart.html" class="nav-link" data-toggle="dropdown">
                         			<i class="ec ec-shopping-bag"></i>
-                        			<span class="cart-items-count count">{{ cart.total_quantity }}</span>
+                        			{% if cart.has_items %}<span class="cart-items-count count">{{ cart.total_quantity }}</span>{% endif %}
                         			<span class="cart-items-total-price total-price"><span class="amount">&#36;{{ cart.total_price }}</span></span>
                         		</a>
                         		<ul class="dropdown-menu dropdown-menu-mini-cart">
