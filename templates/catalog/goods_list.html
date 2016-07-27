@@ -85,9 +85,15 @@
 
                                                     <div class="hover-area">
                                                         <div class="action-buttons">
-                                                            <a href="#" rel="nofollow" class="add_to_wishlist">Wishlist</a>
+                                                            <form action="{% url 'wishlist_add' %}" method="post">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="item" value="{{ item.pk }}">
+
+                                                                <button rel="nofollow" type="submit" class="add_to_wishlist">Добавить в wishlist</button>
+                                                            </form>
+
                                                             {% if not item.pk in request.session.compare %}
-                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Добавить в сравнение</a>
+                                                                <a  class="add-to-compare-link add" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Cравнить</a>
                                                                 {% else %}
                                                                 <a  class="add-to-compare-link del" data-add="/ajax/add_simile/?pk={{ item.pk }}" data-del="/ajax/del_simile/?pk={{ item.pk }}" style="cursor:pointer">Удалить сравнение</a>
                                                             {% endif %}

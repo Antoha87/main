@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% load wishlist_tags %}
+{% block title %}Список желаний{% endblock %}
+{% block content %}
+<div tabindex="-1" class="site-content" id="content">
+                <div class="container">
+
+                    <nav class="woocommerce-breadcrumb"><a href="{% url 'index' %}">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Список желаний</nav>
+                    <div class="content-area" id="primary">
+                        <main class="site-main" id="main">
+                            <article class="page type-page status-publish hentry">
+                                <div itemprop="mainContentOfPage" class="entry-content">
+                                    <div id="yith-wcwl-messages"></div>
+
+
+
+                                        <!-- TITLE -->
+                                        <div class="wishlist-title ">
+                                            <h2>Мой список желаний</h2>
+                                        </div>
+                                        {% if object_list %}
+                                        <!-- WISHLIST TABLE -->
+                                        <table data-token="" data-id="" data-page="1" data-per-page="5" data-pagination="no" class="shop_table cart wishlist_table">
+
+                                            <thead>
+                                                <tr>
+
+                                                    <th class="product-remove"></th>
+
+                                                    <th class="product-thumbnail"></th>
+
+                                                    <th class="product-name">
+                                                        <span class="nobr">Товар</span>
+                                                    </th>
+
+                                                    <th class="product-price">
+                                                        <span class="nobr">Цена</span>
+                                                    </th>
+                                                    <th class="product-stock-stauts">
+                                                        <span class="nobr">Количество</span>
+                                                    </th>
+
+                                                    <th class="product-add-to-cart"></th>
+
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {% for wishlist_item in object_list %}
+                                                <tr>
+                                                    <td class="product-remove">
+                                                        <div>
+                                                            <form action="{% url 'wishlist_remove' pk=wishlist_item.pk %}" method="post">
+                                                                {% csrf_token %}
+                                                                <input type="submit" class="remove remove_from_wishlist" value="—">
+                                                            </form>
+
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="product-thumbnail">
+                                                        <a href="{{ wishlist_item.get_absolute_url }}">
+                                                            {% thumbnail wishlist_item.item.image "180x180" crop="center" as im %}
+                                                                <img width="180" height="180" src="{{ im.url }}" class="wp-post-image" alt=""></a>
+                                                            {% endthumbnail %}
+
+                                                    </td>
+
+                                                    <td class="product-name">
+                                                        <a href="{{ wishlist_item.get_absolute_url }}">{{ wishlist_item.item.name  }}</a>
+                                                    </td>
+
+                                                    <td class="product-price">
+                                                        <span class="electro-price"><span class="amount">{{ wishlist_item.item.price }}</span></span>
+                                                    </td>
+
+                                                    <td class="product-stock-status">
+                                                        <span class="in-stock">{{ wishlist_item.item.get_stock }}</span>
+                                                    </td>
+
+                                                    <td class="product-add-to-cart">
+                                                        <!-- Date added -->
+
+                                                        <!-- Add to cart button -->
+                                                        <form class="variations_form cart" action="{% url 'cart_add' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input name="count{{ wishlist_item.item.pk }}" id="spinner_{{ wishlist_item.item.pk }}" value="1" style="display:none">
+
+                                                        <button rel="nofollow" type="submit" class="button add_to_cart_button">Купить</button>
+                                                        </form>
+                                                        <!-- Change wishlist -->
+
+                                                        <!-- Remove from wishlist -->
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="6"><p><a href="{% url 'wishlist_clear' %}">Очистить список</a></p></td>
+                                                </tr>
+                                            </tfoot>
+
+                                        </table>
+                                        {% else %}
+                                        <h2>Нету списка желаний!</h2>
+
+                                        {% endif %}
+
+                                </div><!-- .entry-content -->
+
+                            </article><!-- #post-## -->
+
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+                </div><!-- .col-full -->
+            </div>
+{% endblock content %}

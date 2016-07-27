@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'smart_selects',
     'django_filters',
     'registration',
+    'wishlist',
 
     # my_app
     'pages',
@@ -84,12 +85,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processors.shop_globals',
+                'wishlist.context_processors.wishlist_items',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'main.wsgi.application'
+
+WISHLIST_ITEM_MODEL = 'catalog.Goods'
 
 
 # Database

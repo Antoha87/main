@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Очистить список желаний{% endblock %}
+
+
+{% block content %}
+
+<div id="content" class="site-content" tabindex="-1">
+            	<div class="container">
+                    <h3>Вы действительно хотите очистить список желаний?</h3>
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Подтвердить">
+    </form>
+
+    <nav>
+        <a href="{% url 'wishlist' %}">К списку желаний</a>
+    </nav>
+</div></div>
+{% endblock content %}

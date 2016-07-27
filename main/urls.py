@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^chaining/', include('smart_selects.urls')),
     url(r'^geoip/', include('django_geoip.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^wishlist/', include('wishlist.urls')),
     url(r'^$', IndexView.as_view(), name='index'),
 
     url(r'garantiya-servise/', ServiceAndGarantyView.as_view(), name='garantiya'),
@@ -48,6 +49,8 @@ urlpatterns = [
     url(r'^del_compare/(?P<pk>\d+)/$', 'catalog.views.del_compare', name='del_compare'),
     url(r'^ajax/add_simile', 'catalog.views.add_simile', name='add_simile'),
     url(r'^ajax/del_simile', 'catalog.views.del_simile', name='del_simile'),
+
+
 
 
 ]
