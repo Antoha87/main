@@ -110,8 +110,8 @@
                         	<li class="nav-item dropdown">
                         		<a href="cart.html" class="nav-link" data-toggle="dropdown">
                         			<i class="ec ec-shopping-bag"></i>
-                        			<span class="cart-items-count count">4</span>
-                        			<span class="cart-items-total-price total-price"><span class="amount">&#36;1,215.00</span></span>
+                        			<span class="cart-items-count count">{{ cart.total_quantity }}</span>
+                        			<span class="cart-items-total-price total-price"><span class="amount">&#36;{{ cart.total_price }}</span></span>
                         		</a>
                         		<ul class="dropdown-menu dropdown-menu-mini-cart">
                         			<li>
@@ -119,41 +119,24 @@
 
                         					<ul class="cart_list product_list_widget ">
 
-
+                                            {% for x in cart.items.all %}
                         						<li class="mini_cart_item">
                         							<a title="Remove this item" class="remove" href="#">×</a>
-                        							<a href="single-product.html">
-                        								<img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="assets/images/products/mini-cart1.jpg" alt="">White lumia 9001&nbsp;
+                        							<a href="{{ x.product.get_absolute_url }}">
+                                                        {% thumbnail x.product.image "75x75" crop="center" as im %}
+                                                        <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="{{ im.url }}" alt="">{{ x.product.model }}&nbsp;</a>
+                                                        {% endthumbnail %}
                         							</a>
 
-                        							<span class="quantity">2 × <span class="amount">£150.00</span></span>
+                        							<span class="quantity">{{ x.quantity }} × <span class="amount">{{ x.total_price }}</span></span>
                         						</li>
-
-
-                        						<li class="mini_cart_item">
-                        							<a title="Remove this item" class="remove" href="#">×</a>
-                        							<a href="single-product.html">
-                        								<img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="assets/images/products/mini-cart2.jpg" alt="">PlayStation 4&nbsp;
-                        							</a>
-
-                        							<span class="quantity">1 × <span class="amount">£399.99</span></span>
-                        						</li>
-
-                        						<li class="mini_cart_item">
-                        							<a data-product_sku="" data-product_id="34" title="Remove this item" class="remove" href="#">×</a>
-                        							<a href="single-product.html">
-                        							<img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="assets/images/products/mini-cart3.jpg" alt="">POV Action Cam HDR-AS100V&nbsp;
-
-                        							</a>
-
-                        							<span class="quantity">1 × <span class="amount">£269.99</span></span>
-                        						</li>
+                                            {% endfor %}
 
 
                         					</ul><!-- end product list -->
 
 
-                        					<p class="total"><strong>Subtotal:</strong> <span class="amount">£969.98</span></p>
+                        					<p class="total"><strong>Subtotal:</strong> <span class="amount">{{ cart.total_price }}</span></p>
 
 
                         					<p class="buttons">

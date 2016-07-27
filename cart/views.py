@@ -15,8 +15,8 @@ from catalog.models import Goods
 def cart_add(request):
     data = {'success': False}
     items = {}
-    if request.is_ajax and request.POST:
-
+    if request.POST:
+        print (request.POST)
         for key, value in request.POST.items():
             items[key] = value
 

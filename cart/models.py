@@ -73,7 +73,7 @@ class Cart(models.Model):
 
     def add_item(self, variation, quantity):
         kwargs = {'product': variation,
-                  'price': variation.get_price(),
+                  'price': variation.price,
                   }
 
         item, created = self.items.get_or_create(**kwargs)

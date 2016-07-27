@@ -89,7 +89,8 @@ class Goods(models.Model):
     post = models.CharField(u'Поставщик', max_length=100, blank=False, null=True)
     currence = models.CharField(u'Валюта товара', max_length=255, blank=False, null=True)
     price = models.DecimalField(u'Цена в грн.', decimal_places=2, max_digits=11, blank=True, null=True)
-    stock = models.CharField(u'Остаток на складе', max_length=100, blank=True, null=True)
+    old_price = models.DecimalField(u'Старая цена.', decimal_places=2, max_digits=11, blank=True, null=True)
+    stock = models.CharField(u'Остаток на складе', max_length=100, blank=True, null=True, default=0)
     location = models.ManyToManyField(Location, verbose_name=u'Местонахождение товара')
     brand = models.ForeignKey(Brand, verbose_name=u'Производитель')
     torg = models.CharField(u'Торговое предложение', max_length=100, blank=True, null=True)
@@ -118,7 +119,12 @@ class Goods(models.Model):
     # Пока не дописал
     def get_stock(self):
         res = self.stock
-        return res
+        if res > 0:
+            return res
+        if res == 0:
+            return u'Нет на складе'
+        if res == '?':
+            return u'Требует уточнения'
 
     def get_warehouse(self):
         res = GoodsVariation.objects.filter(goods=self)\
@@ -133,6 +139,9 @@ class Goods(models.Model):
 
     def get_absolute_url(self):
         return reverse('goods', args=[self.slug])
+
+    def get_category(self):
+        return ",\n".join([c.name for c in Category.objects.filter(name=self.category)])
 
     def __unicode__(self):
         return self.article or str(self.pk)

@@ -82,7 +82,7 @@
                                             </a>
                                         </div><!-- .brand -->
 
-                                        <div class="availability in-stock">Availablity: <span>In stock</span></div><!-- .availability -->
+                                        <div class="availability in-stock">Availablity: <span>{{ object.get_stock }}</span></div><!-- .availability -->
 
                                         <hr class="single-product-title-divider" />
 
@@ -98,19 +98,16 @@
 
                                         <div itemprop="description">
                                             <ul>
-                                                <li>4.5 inch HD Touch Screen (1280 x 720)</li>
-                                                <li>Android 4.4 KitKat OS</li>
-                                                <li>1.4 GHz Quad Coreв„ў Processor</li>
-                                                <li>20 MP front and 28 megapixel CMOS rear camera</li>
+                                                {{ object.description|truncatechars_html:60|safe}}
                                             </ul>
 
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                                            <p><strong>SKU</strong>: FW511948218</p>
+                                            <p><strong>SKU</strong>: {{ object.article }}</p>
                                         </div><!-- .description -->
 
                                         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-                                            <p class="price"><span class="electro-price"><ins><span class="amount">&#36;1,215.00</span></ins> <del><span class="amount">&#36;2,299.00</span></del></span></p>
+                                            <p class="price"><span class="electro-price"><ins><span class="amount">&#36;{{ object.price }}</span></ins> {% if object.old_price %} <del><span class="amount">&#36;{{ object.old_price }}</span></del></span>{% endif %}</p>
 
                                             <meta itemprop="price" content="1215" />
                                             <meta itemprop="priceCurrency" content="USD" />
@@ -118,8 +115,8 @@
 
                                         </div><!-- /itemprop -->
 
-                                        <form class="variations_form cart" method="post">
-
+                                        <form class="variations_form cart" action="{% url 'cart_add' %}" method="post">
+                                            {% csrf_token %}
                                             <table class="variations">
                                                 <tbody>
                                                     <tr>
@@ -140,14 +137,16 @@
                                             <div class="single_variation_wrap">
                                                 <div class="woocommerce-variation single_variation"></div>
                                                 <div class="woocommerce-variation-add-to-cart variations_button">
+
+
                                                     <div class="quantity">
-                                                        <label>Quantity:</label>
-                                                        <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text"/>
+                                                        <label>Количество:</label>
+
+                                                        <input name="count{{ object.pk }}" id="spinner_{{ object.pk }}" value="1" style="display:none">
                                                     </div>
-                                                    <button type="submit" class="single_add_to_cart_button button">Add to cart</button>
-                                                    <input type="hidden" name="add-to-cart" value="2452" />
-                                                    <input type="hidden" name="product_id" value="2452" />
-                                                    <input type="hidden" name="variation_id" class="variation_id" value="0" />
+                                                    <button type="submit" class="single_add_to_cart_button button">Купить</button>
+
+
                                                 </div>
                                             </div>
                                         </form>
@@ -163,7 +162,7 @@
                                         </li>
 
                                         <li class="nav-item description_tab">
-                                            <a href="#tab-description" class="active" data-toggle="tab">Description</a>
+                                            <a href="#tab-description" class="active" data-toggle="tab">Описание</a>
                                         </li>
 
                                         <li class="nav-item specification_tab">
@@ -355,7 +354,7 @@
                                                             </td>
 
                                                             <td>
-                                                                <img class="alignright" data-echo="assets/images/single-product/ForDescription.jpg" src="assets/images/blank.gif" alt="">
+                                                                <img class="alignright" data-echo="{% static 'images/single-product/ForDescription.jpg" src="assets/images/blank.gif' %}" alt="">
 
                                                             </td>
                                                         </tr>
@@ -366,7 +365,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <img class="alignnone" data-echo="assets/images/single-product/ForDescription-1.png" src="assets/images/blank.gif" alt="">
+                                                                <img class="alignnone" data-echo="{% static 'images/single-product/ForDescription-1.png' %}" src="{% static 'images/blank.gif' %}" alt="">
                                                             </td>
 
                                                             <td>
@@ -381,7 +380,7 @@
                                             </div><!-- /.electro-description -->
 
                                             <div class="product_meta">
-                                                <span class="sku_wrapper">SKU: <span class="sku" itemprop="sku">FW511948218</span></span>
+                                                <span class="sku_wrapper">SKU: <span class="sku" itemprop="sku">{{ object.article }}</span></span>
 
 
                                                 <span class="posted_in">Category:

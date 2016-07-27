@@ -30,15 +30,20 @@
                                             <tr class="cart_item">
 
                                                 <td class="product-remove">
-                                                    <a class="remove" href="#">Г—</a>
+                                                    <a class="remove" href="#">—</a>
                                                 </td>
 
                                                 <td class="product-thumbnail">
-                                                    <a href="single-product.html"><img width="180" height="180" src="assets/images/products/2.jpg" alt=""></a>
+
+                                                    <a href="{{ x.product.get_absolute_url }}">
+                                                       {% thumbnail x.product.image "180x180" crop="center" as im %}
+                                                        <img width="180" height="180" src="{{ im.url }}" alt=""></a>
+                                                    {% endthumbnail %}
+
                                                 </td>
 
                                                 <td data-title="Product" class="product-name">
-                                                    <a href="single-product.html">{{ x.product.name }}</a>
+                                                    <a href="{{ x.product.get_absolute_url }}">{{ x.product.name }}</a>
                                                 </td>
 
                                                 <td data-title="Price" class="product-price">
@@ -48,7 +53,7 @@
                                                 <td data-title="Quantity" class="product-quantity">
                                                     <div class="quantity buttons_added"><input type="button" class="minus" value="-">
                                                         <label>Quantity:</label>
-                                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="cart[92f54963fc39a9d87c2253186808ea61][qty]" max="29" min="0" step="1">
+                                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="Qty" max="29" min="0" step="1">
                                                         <input type="button" class="plus" value="+">
                                                     </div>
                                                 </td>
@@ -88,12 +93,12 @@
                                             <tbody>
                                                 <tr class="cart-subtotal">
                                                     <th>Subtotal</th>
-                                                    <td data-title="Subtotal"><span class="amount">{{ x.total_price }}</span></td>
+                                                    <td data-title="Subtotal"><span class="amount">{{ cart.total_price }}</span></td>
                                                 </tr>
 
                                                 <tr class="order-total">
                                                     <th>Total</th>
-                                                    <td data-title="Total"><strong><span class="amount">{{ x.total_price }}</span></strong> </td>
+                                                    <td data-title="Total"><strong><span class="amount">{{ cart.total_price }}</span></strong> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
