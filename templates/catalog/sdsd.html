@@ -1,0 +1,10 @@
+{% for im in image_gallery %}
+                                                    {% thumbnail im.image "400x400" crop="center" as im %}
+                                                    <a href="{{ im.url }}" class="zoom" title="" data-rel="prettyPhoto[product-gallery]">
+                                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }} data-echo="{{ im.url }}" class="wp-post-image" alt=""></a>
+                                                    {% endthumbnail %}
+
+                                                {% endfor %}
+
+
+

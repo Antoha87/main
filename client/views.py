@@ -14,7 +14,7 @@ class ProfileView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
-        client = Client.get_client(self)
+        client = self.request.user
         if client is None:
             country = u'UA'
             region = ''
@@ -32,11 +32,12 @@ class ProfileView(TemplateView):
         )
         context['form'] = client_form
         context['order'] = Order.objects.filter(client=client)
+        context['a'] = self.request.user
         return context
 
     def post(self, request):
         if request.method == 'POST':
-            client = Client.get_client(self.request)
+            client = self.request.user
 
             client.date_of_birth = datetime.strptime(request.POST['date_birth'], '%d-%m-%Y')
             client.country = Country.objects.get(code=request.POST['country'])

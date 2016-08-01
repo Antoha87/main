@@ -55,7 +55,7 @@ class Client(AbstractBaseUser):
     @classmethod
     def get_client(cls, request):
         try:
-            return Client.objects.get(user=request.user)
+            return Client.objects.get(user=request)
         except Exception:
             return
 

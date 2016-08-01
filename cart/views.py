@@ -6,7 +6,9 @@ from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import get_object_or_404
+from django.views.generic import TemplateView
+from django.http import Http404
 from .models import CartItem, OrderItem, Cart, Order
 from catalog.models import Goods
 
@@ -35,9 +37,9 @@ def cart(request):
 
     if request.method == 'POST':
         p = Order()
-        p.client = request.user.client
+        p.client = request.user
         p.total = request.cart.total_price()
-        p.delivery = request.user.client.delivery
+        p.delivery = request.user.delivery
         p.save()
 
         for item in request.cart.items.all():
@@ -59,3 +61,33 @@ def cart_delete(request, pk):
     obj = get_object_or_404(CartItem, pk=pk, cart__cart_id=request.session['cart_id'])
     obj.delete()
     return redirect(reverse('cart'))
+
+
+class PersonalDataCheckout(TemplateView):
+    template_name = 'checkout/personal_data.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(PersonalDataCheckout, self).get_context_data(**kwargs)
+        if self.request.cart.has_items():
+            ctx['personal_data_form'] = self.request.user
+            return ctx
+        elif not self.request.user.is_authenticated():
+            return redirect(reverse('login'))
+        else:
+            raise Http404
+
+    def post(self, request):
+        if request.method == 'POST':
+            client = self.request.user
+            client.phone_number = request.POST['phone']
+            client.email = request.POST['email']
+            client.first_name = request.POST['first_name']
+            client.save()
+            return redirect(reverse('personal_data'))
+
+
+class DeliveryCheckout(TemplateView):
+    template_name = 'checkout/delivery_checkout.html'
+
+
+

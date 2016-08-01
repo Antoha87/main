@@ -1,18 +1,23 @@
 {% extends "base.html" %}
 {% load staticfiles thumbnail %}
-{% block title %}Корзина{% endblock %}
+{% block title %}Персональные данные{% endblock %}
 {% block content %}
 <div id="content" class="site-content" tabindex="-1">
-            	<div class="container">
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+				<span>Имя</span>
+			    <input type="text" name="first_name" id="first_name" value="{{ user.first_name }}" data-validation="required" data-validation-error-msg="Введите Ваше имя" ></label>
+                <label for="phone">
+				<span>Телефон</span>
+			    <input type="text" name="phone" value="{{ user.phone_number }}" id="phone" data-validation="number" data-validation-error-msg="Телефонный номер должен содержать только цифры"></label>
+                <span>Email</span>
+			    <input type="text" name="email" value="{{ user.email }}" id="email" data-validation="email" data-validation-error-msg="Введите корректный email"></label>
 
-            		<nav class="woocommerce-breadcrumb"><a href="{% url 'index' %}">Главная</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Корзина</nav>
+            <button type="submit" class="btn btn-primary">Обновить</button>
+        </form>
 
-            		<div id="primary" class="content-area">
-            			<main id="main" class="site-main">
-            				<article class="page type-page status-publish hentry">
-            					<header class="entry-header"><h1 itemprop="name" class="entry-title">Корзина</h1></header><!-- .entry-header -->
-                                {% if cart.items.all %}
-            					<form>
+                            <form>
 
                                     <table class="shop_table shop_table_responsive cart">
                                         <thead>
@@ -68,54 +73,14 @@
                                             <tr>
                                                 <td class="actions" colspan="6">
 
-                                                    <input type="submit" value="Обновить корзину" name="update_cart" class="button">
+                                                    <a href="{% url 'delivery_checkout' %}" class="button">Продолжить оформление</a>
 
-                                                    <div class="wc-proceed-to-checkout">
-
-                                                        <a class="checkout-button button alt wc-forward" href="{% url 'personal_data' %}">Оформить заказ</a>
-
-                                                    </div>
-
-                                                    <input type="hidden" value="1eafc42c5e" name="_wpnonce"><input type="hidden" value="/electro/cart/" name="_wp_http_referer">
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </form>
-            					<div class="cart-collaterals">
+    </div>
+</div>
 
-                                    <div class="cart_totals ">
-
-                                        <h2>Cart Totals</h2>
-
-                                        <table class="shop_table shop_table_responsive">
-
-                                            <tbody>
-                                                <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
-                                                    <td data-title="Subtotal"><span class="amount">{{ cart.total_price }}</span></td>
-                                                </tr>
-
-                                                <tr class="order-total">
-                                                    <th>Total</th>
-                                                    <td data-title="Total"><strong><span class="amount">{{ cart.total_price }}</span></strong> </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <div class="wc-proceed-to-checkout">
-
-                                            <a class="checkout-button button alt wc-forward" href="checkout.html">Proceed to Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% else %}
-
-                                <h2>Уважаемый покупатель! Ваша корзина пуста.</h2>
-                                {% endif %}
-            				</article>
-            			</main><!-- #main -->
-            		</div><!-- #primary -->
-            	</div><!-- .container -->
-            </div><!-- #content -->
 {% endblock content %}
